@@ -23,15 +23,18 @@
 
 /* Background Colors */
 .hero {
-    background-color: #FBF6F0; /* Light Blue */
+    width: 100%;  /* Ensure the section takes the full width of the page */
+    margin: 0 auto; /* Center the section */
+    text-align: center;  /* Keep text centered */
+    background-color: #FBF6F0;
 }
 
 .partners {
-    background-color: #FBF6F0; /* Light Gray */
+    background-color: #FBF6F0; 
 }
 
 .footer {
-    background-color: #ffffff; /* Dark Gray */
+    background-color: #ffffff; 
 }
 
 /* New Section Styles */
@@ -40,27 +43,31 @@
     justify-content: space-between;
     align-items: center;
     padding: 50px;
-    background-color: #ffffff; /* Light background color for this section */
-    width: 100vw;  /* Ensure the section takes full viewport width */
-    margin-left: calc(-50vw + 50%);  /* Align to the full width of the page */
-    box-sizing: border-box;  /* Include padding in the width calculation */
+    background-color: #f4f4f4; 
+    width: 100vw;  
+    margin-left: calc(-50vw + 50%);  
+    box-sizing: border-box;  
 }
 
 .image-quote-container {
     display: flex;
     width: 100%;
-    max-width: 1200px; /* Optional, adjust the container size */
+    max-width: 1200px; 
     margin: 0 auto;
 }
 
 .image {
     flex: 1;
-    margin-right: 20px; /* Space between image and quote */
+    margin-right: 20px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
 }
 
 .image img {
-    width: 100%;
-    height: auto;
+    width: 629px;  
+    height: 390px;  
+    object-fit: cover;  
 }
 
 .quote {
