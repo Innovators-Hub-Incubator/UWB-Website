@@ -201,3 +201,47 @@ footer {
     display: inline-block;
     margin-right: 10px;
 }
+
+/* Contact Form Styles */
+.contact-container {
+    max-width: 500px;
+    margin: 100px auto 50px;
+    text-align: center;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-container input, 
+.contact-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-container textarea {
+    height: 100px;
+}
+
+.contact-container .send-button {
+    background-color: #FC6520;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.contact-container .send-button:hover {
+    background-color: #e55a1e;
+}
+
+#statusMessage {
+    margin-top: 10px;
+    font-size: 14px;
+    color: green;
+}
+

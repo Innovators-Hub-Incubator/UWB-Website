@@ -40,3 +40,39 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    emailjs.init("YOUR_USER_ID"); //Replace with your EmailJS User ID
+
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+
+        if (!name || !email || !message) {
+            document.getElementById("statusMessage").textContent = "Please fill in all fields.";
+            document.getElementById("statusMessage").style.color = "red";
+            return;
+        }
+
+        const templateParams = {
+            from_name: name,
+            from_email: email,
+            message: message
+        };
+
+        emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
+            .then(function (response) {
+                console.log("SUCCESS!", response.status, response.text);
+                document.getElementById("statusMessage").textContent = "Message sent successfully!";
+                document.getElementById("statusMessage").style.color = "green";
+                document.getElementById("contactForm").reset();
+            }, function (error) {
+                console.log("FAILED...", error);
+                document.getElementById("statusMessage").textContent = "Failed to send message.";
+                document.getElementById("statusMessage").style.color = "red";
+            });
+    });
+});

@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-[#FBF6F0]">
+<body class="bg-[#FBF6F0] flex flex-col min-h-screen">
     <!-- Navbar -->
     <nav class="flex justify-between items-center p-4 bg-white shadow-md fixed w-full top-0">
         <a href="homePage.html" class="flex items-center">
@@ -24,12 +24,36 @@
         </ul>
     </nav>
 
-     <!-- Hero Section -->
-     <section class="hero text-center mt-[75px] p-10 bg-[#FBF6F0]">
-        <p class="mt-4 text-lg fade-in font-bold">
-            <span>This page is under construction</span>
-        </p>
-    </section>
+    <!-- Main Content Wrapper -->
+    <main class="flex-grow flex flex-col justify-center items-center">
+        <!-- Contact Form Section -->
+        <div class="contact-container">
+            <h1 class="title">Talk with us</h1>
+            <p class="subtitle">Whether you have a question, an idea, or just want to say hello, we’d love to hear from you.</p>
+            <form id="contactForm">
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+                <input type="email" id="email" name="email" placeholder="Your email address" required>
+                <textarea id="message" name="message" placeholder="Enter a message here." required></textarea>
+                <button type="submit" class="send-button">Send Message</button>
+            </form>
+            <p id="statusMessage"></p>
+        </div>
+    </main>
 
+    <!-- Footer -->
+    <footer class="footer text-center p-4 shadow-md mt-auto">
+        <!-- Social Media Icons -->
+       <div class="flex justify-center space-x-6 mb-2">
+           <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" class="text-gray-600 hover:text-[#FC6520] text-3xl">
+               <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-8 h-8">
+           </a>
+           <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" class="text-gray-600 hover:text-[#FC6520] text-3xl">
+               <img src="Images/instagram.svg" alt="Instagram" class="w-8 h-8">
+           </a>
+       </div>
+       <p>Designed & built @ UWB Innovators Hub | 2025</p>
+   </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
