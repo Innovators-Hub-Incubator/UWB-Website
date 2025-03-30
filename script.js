@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    emailjs.init("YOUR_USER_ID"); //Replace with your EmailJS User ID
+    emailjs.init("service_q5nya2v"); //Replace with your EmailJS User ID
 
     document.getElementById("contactForm").addEventListener("submit", function (event) {
         event.preventDefault();
