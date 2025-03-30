@@ -207,10 +207,9 @@ footer {
     max-width: 500px;
     margin: 100px auto 50px;
     text-align: center;
-    background: #fff;
+    background: #FBF6F0;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .contact-container input, 
