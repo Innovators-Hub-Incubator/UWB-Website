@@ -135,7 +135,7 @@ footer {
 .event-header {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #FC6520;
+    color: #000000;
     margin-bottom: 10px;
 }
 
@@ -164,9 +164,9 @@ footer {
     transition: max-height 0.5s ease-out, opacity 0.3s ease-in-out;
     opacity: 0;
     padding: 0 15px;
-    background: #FAFAFA;
+    background: #ffffff;
     border-left: 4px solid #FC6520;
-    margin-top: 5px;
+    margin-top: 0px;
 }
 
 .event-content.show {
@@ -192,9 +192,9 @@ footer {
 
 /* Orange Date Box */
 .date-box {
-    background-color: #FC6520;
-    color: white;
-    font-size: 1rem;
+    background-color: #ffffff;
+    color: #FC6520;
+    font-size: 1.5rem;
     font-weight: bold;
     padding: 5px 10px;
     border-radius: 5px;
