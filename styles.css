@@ -270,3 +270,69 @@ footer {
     font-size: 14px;
     color: green;
 }
+
+.members-container {
+    display: flex;
+    flex-wrap: wrap;  /* Allows items to wrap to the next line */
+    justify-content: center;  /* Align the items to the start (left) */
+    margin-left: 100px; /* Optional: to keep the same margin as your original code */
+    padding-top: 10px;
+}
+
+.member {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;  /* Space between the members */
+    margin-bottom: 10px;  /* Optional: space between the lines */
+}
+
+.member-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.linkedin-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.member-name {
+    font-size: 16px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) { 
+    /* Styles for tablets & smaller screens */
+    .members-container {
+        justify-content: center;  /* Center items for tablets */
+    }
+    .member {
+        margin-right: 10px; /* Reduce the space between items */
+    }
+}
+
+@media (max-width: 480px) { 
+    /* Styles for mobile phones */
+    .members-container {
+        display: flex;
+        justify-content: center;  /* Center items horizontally */
+        flex-direction: column;   /* Stack the members vertically */
+        text-align: center;       /* Center the text of each name */
+        padding: 20px;
+    }
+
+    .member {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        margin-right: 100px;  /* Reduce the space between items */
+        margin-bottom: 10px;  /* Space between names */
+    }
+
+    .member-name {
+        font-size: 14px; /* Smaller text size for mobile */
+        margin-left: 10px; /* Space between the LinkedIn icon and the name */
+    }
+}
