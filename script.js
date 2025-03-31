@@ -1,7 +1,3 @@
-function underConstruction() {
-    alert('This page is under construction!');
-}
-
 document.addEventListener("DOMContentLoaded", () => {
     // Fade-in Effect
     document.querySelectorAll(".fade-in").forEach(el => {
@@ -39,6 +35,16 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+    // Toggle Navbar visibility for mobile
+    const toggleButton = document.querySelector('.toggle');
+    const mobileMenu = document.querySelector('.mobile-menu'); // Correct class name
+
+    if (toggleButton && mobileMenu) {
+        toggleButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('show'); // Show/hide mobile menu
+        });
+    }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
