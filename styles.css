@@ -4,6 +4,33 @@
     100% { transform: translateX(-50%); }
 }
 
+@media (max-width: 768px) { 
+    /* Styles for tablets & smaller screens */
+    .your-class {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+@media (max-width: 480px) { 
+    /* Styles for mobile phones */
+    .your-class {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+#mobile-menu {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, opacity 0.3s ease-out;
+}
+
+#mobile-menu.open {
+    max-height: 500px; /* Adjust as needed */
+    opacity: 1;
+}
+
 /* Navbar */
 nav {
     position: fixed;

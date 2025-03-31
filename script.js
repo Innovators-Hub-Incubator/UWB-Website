@@ -39,40 +39,57 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+    // Contact Form Handling
+    emailjs.init("YOUR_EMAILJS_USER_ID"); // Ensure this is correctly set
+
+    const contactForm = document.getElementById("contactForm");
+    if (contactForm) {
+        contactForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+            const statusMessage = document.getElementById("statusMessage");
+
+            if (!name || !email || !message) {
+                statusMessage.textContent = "Please fill in all fields.";
+                statusMessage.style.color = "red";
+                return;
+            }
+
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                message: message
+            };
+
+            emailjs.send("service_q5nya2v", "YOUR_TEMPLATE_ID", templateParams)
+                .then(response => {
+                    console.log("SUCCESS!", response.status, response.text);
+                    statusMessage.textContent = "Message sent successfully!";
+                    statusMessage.style.color = "green";
+                    contactForm.reset();
+                })
+                .catch(error => {
+                    console.log("FAILED...", error);
+                    statusMessage.textContent = "Failed to send message.";
+                    statusMessage.style.color = "red";
+                });
+        });
+    }
 });
+document.getElementById("menu-toggle").addEventListener("click", function () {
+    const menu = document.getElementById("mobile-menu");
 
-document.addEventListener("DOMContentLoaded", function () {
-    emailjs.init("service_q5nya2v"); //Replace with your EmailJS User ID
-
-    document.getElementById("contactForm").addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const message = document.getElementById("message").value;
-
-        if (!name || !email || !message) {
-            document.getElementById("statusMessage").textContent = "Please fill in all fields.";
-            document.getElementById("statusMessage").style.color = "red";
-            return;
-        }
-
-        const templateParams = {
-            from_name: name,
-            from_email: email,
-            message: message
-        };
-
-        emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
-            .then(function (response) {
-                console.log("SUCCESS!", response.status, response.text);
-                document.getElementById("statusMessage").textContent = "Message sent successfully!";
-                document.getElementById("statusMessage").style.color = "green";
-                document.getElementById("contactForm").reset();
-            }, function (error) {
-                console.log("FAILED...", error);
-                document.getElementById("statusMessage").textContent = "Failed to send message.";
-                document.getElementById("statusMessage").style.color = "red";
-            });
-    });
+    if (menu.classList.contains("open")) {
+        menu.classList.remove("open");
+        menu.style.maxHeight = "0";
+        menu.style.opacity = "0";
+    } else {
+        menu.classList.add("open");
+        menu.style.maxHeight = menu.scrollHeight + "px"; // Set height dynamically
+        menu.style.opacity = "1";
+    }
 });

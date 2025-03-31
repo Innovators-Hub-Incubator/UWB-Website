@@ -9,19 +9,53 @@
 </head>
 <body class="bg-[#BF6F0] text-gray-900">
     <!-- Navbar -->
-    <nav class="flex justify-between items-center p-4 bg-white shadow-md fixed w-full top-0">
-        <a href="homePage.html" class="flex items-center">
-            <img src="Images/logo.svg" alt="Logo" class="w-10 h-10 mr-2"> 
-            <span class="text-[#FC6520] font-bold text-xl">Innovators Hub</span>
-        </a>
-        <ul class="flex space-x-6 items-center">
-            <li><a href="about.html" class="hover:text-orange-500">About</a></li>
-            <li><a href="events.html" class="hover:text-orange-500">Events</a></li>
-            <li><a href="launchpads.html" class="hover:text-orange-500">Launchpads</a></li>
-            <li><a href="innovators.html" class="hover:text-orange-500">Innovators</a></li>
-            <li><a href="contacts.html" class="hover:text-orange-500">Contacts</a></li>
-            <li><a href="https://forms.gle/JdZJwp7SfnRxis8B9"><button class="bg-[#FC6520] text-white px-4 py-2 rounded">Join Us</button></a></li>
-        </ul>
+    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="homePage.html" class="flex items-center">
+                    <img src="Images/logo.svg" alt="Logo" class="w-10 h-10 mr-2">
+                    <span class="text-[#FC6520] font-bold text-xl">Innovators Hub</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="about.html" class="hover:text-orange-500">About</a>
+                    <a href="events.html" class="hover:text-orange-500">Events</a>
+                    <a href="launchpads.html" class="hover:text-orange-500">Launchpads</a>
+                    <a href="innovators.html" class="hover:text-orange-500">Innovators</a>
+                    <a href="contacts.html" class="hover:text-orange-500">Contacts</a>
+                    <a href="https://forms.gle/JdZJwp7SfnRxis8B9">
+                        <button class="bg-[#FC6520] text-white px-4 py-2 rounded">Join Us</button>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menu-toggle" class="md:hidden text-[#FC6520] focus:outline-none">
+                    <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <script>
+            document.getElementById("menu-toggle").addEventListener("click", function () {
+                document.getElementById("mobile-menu").classList.toggle("hidden");
+            });
+        </script>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white">
+            <a href="about.html" class="block px-4 py-2">About</a>
+            <a href="events.html" class="block px-4 py-2">Events</a>
+            <a href="launchpads.html" class="block px-4 py-2">Launchpads</a>
+            <a href="innovators.html" class="block px-4 py-2">Innovators</a>
+            <a href="contacts.html" class="block px-4 py-2">Contacts</a>
+            <a href="https://forms.gle/JdZJwp7SfnRxis8B9" class="block px-4 py-2">
+                <button class="bg-[#FC6520] text-white px-4 py-2 rounded w-full">Join Us</button>
+            </a>
+        </div>
     </nav>
 
     <!-- Hero Section -->
