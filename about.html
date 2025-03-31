@@ -14,13 +14,30 @@
             <img src="Images/logo.svg" alt="Logo" class="w-10 h-10 mr-2"> 
             <span class="text-[#FC6520] font-bold text-xl">Innovators Hub</span>
         </a>
-        <ul class="flex space-x-6 items-center">
+
+        <!-- Mobile Menu Toggle -->
+        <div class="lg:hidden flex items-center">
+            <button class="toggle text-2xl" style="color: #FC6520;">&#9776;</button> <!-- Hamburger icon -->
+        </div>
+
+        <!-- Navbar Links -->
+        <ul class="flex space-x-6 items-center lg:flex hidden">
             <li><a href="about.html" class="hover:text-orange-500">About</a></li>
             <li><a href="events.html" class="hover:text-orange-500">Events</a></li>
             <li><a href="launchpads.html" class="hover:text-orange-500">Launchpads</a></li>
             <li><a href="innovators.html" class="hover:text-orange-500">Innovators</a></li>
             <li><a href="contacts.html" class="hover:text-orange-500">Contacts</a></li>
             <li><a href="https://forms.gle/JdZJwp7SfnRxis8B9"><button class="bg-[#FC6520] text-white px-4 py-2 rounded">Join Us</button></a></li>
+        </ul>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <ul class="mobile-menu lg:hidden absolute top-16 left-0 w-full bg-white shadow-md hidden">
+            <li><a href="about.html" class="block py-2 px-4 hover:bg-orange-100">About</a></li>
+            <li><a href="events.html" class="block py-2 px-4 hover:bg-orange-100">Events</a></li>
+            <li><a href="launchpads.html" class="block py-2 px-4 hover:bg-orange-100">Launchpads</a></li>
+            <li><a href="innovators.html" class="block py-2 px-4 hover:bg-orange-100">Innovators</a></li>
+            <li><a href="contacts.html" class="block py-2 px-4 hover:bg-orange-100">Contacts</a></li>
+            <li><a href="https://forms.gle/JdZJwp7SfnRxis8B9"><button class="bg-[#FC6520] text-white w-full py-2 rounded">Join Us</button></a></li>
         </ul>
     </nav>
 
@@ -61,30 +78,35 @@
     </section>
 
     <!-- Meet our Team -->
-    <div class="bg-[#FBF6F0] flex flex-col items-center">
-        <h1 class="text-6xl font-bold text-[#000000] fade-in self-start ml-10">Meet our Team</h1>
-        <!-- Image Container (Centered) -->
-        <div class="flex justify-center space-x-4 mt-6">
+    <div class="bg-[#FBF6F0] flex flex-col items-center px-4 py-10">
+        <h1 class="text-4xl md:text-6xl font-bold text-black fade-in self-start ml-4 md:ml-10">
+            Meet our Team
+        </h1>        
+        <!-- Image Container (Fully Centered) -->
+        <div class="flex flex-wrap justify-center gap-6 mt-6">
             <a href="https://www.linkedin.com/in/justin-liao23/" target="_blank">
-                <img src="Images/Group 106.png" alt="Image 1" class="w-40 h-40 object-cover" style="border-radius: 10px;">
+                <img src="Images/Group 106.png" alt="Image 1" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-lg">
             </a>
             <a href="https://www.linkedin.com/in/ethan-s-leonard/" target="_blank">
-                <img src="Images/Group 105.png" alt="Image 2" class="w-40 h-40 object-cover" style="border-radius: 10px;">
+                <img src="Images/Group 105.png" alt="Image 2" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-lg">
             </a>
             <a href="https://www.linkedin.com/in/tamir-michaely/" target="_blank">
-                <img src="Images/Group 104.png" alt="Image 3" class="w-40 h-40 object-cover" style="border-radius: 10px;">
+                <img src="Images/Tamir_Card.png" alt="Image 3" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-lg">
             </a>
             <a href="https://www.linkedin.com/in/jane026/" target="_blank">
-                <img src="Images/Group 102.png" alt="Image 4" class="w-40 h-40 object-cover" style="border-radius: 10px;">
+                <img src="Images/Group 102.png" alt="Image 4" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-lg">
             </a>
             <a href="https://www.linkedin.com/in/manishram-saravanan/" target="_blank">
-                <img src="Images/Group 103.png" alt="Image 5" class="w-40 h-40 object-cover" style="border-radius: 10px;">
+                <img src="Images/Group 103.png" alt="Image 5" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-lg">
+            </a>
+            <a href="https://www.linkedin.com/in/aryankhanna9/" target="_blank">
+                <img src="Images/Aryan_Card.png" alt="Image 5" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-lg">
+            </a>
+            <a href="https://www.linkedin.com/in/rstanev/" target="_blank">
+                <img src="Images/Roger_Card.png" alt="Image 5" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-lg">
             </a>
         </div>
     </div>
-    
-    
-
 
     <!-- Footer -->
     <footer class="footer text-center p-4 mt-10 shadow-md">
@@ -99,6 +121,8 @@
        </div>
        <p>Designed & built @ UWB Innovators Hub | 2025</p>
    </footer>
+
+   <script src="script.js"></script>
 
 </body>
 </html>

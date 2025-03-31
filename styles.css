@@ -12,6 +12,55 @@ nav {
     background-color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 1000; /* Ensure it's above other elements */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+nav .menu {
+    display: flex;
+    gap: 20px;
+}
+
+/* Mobile Navbar Styles */
+nav .toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    /* Hide the menu initially */
+    nav .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        transition: transform 0.3s ease-in-out;
+        transform: translateY(-100%);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Toggle button */
+    nav .toggle {
+        display: block;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    /* Show the menu when toggle is clicked */
+    nav .menu.show {
+        transform: translateY(0);
+    }
+
+    nav .menu a {
+        padding: 15px;
+        text-align: center;
+        font-size: 1.2rem;
+        width: 100%;
+    }
 }
 
 /* Carousel */
@@ -41,7 +90,7 @@ nav {
 body {
     margin: 0;
     padding: 0;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
 /* Background Colors */
@@ -53,7 +102,7 @@ body {
 }
 
 .partners {
-    background-color: #FBF6F0; 
+    background-color: #FBF6F0;
 }
 
 .footer a {
@@ -66,16 +115,16 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 50px;
-    background-color: #f4f4f4; 
-    width: 100vw;  
-    margin-left: calc(-50vw + 50%);  
-    box-sizing: border-box;  
+    background-color: #f4f4f4;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    box-sizing: border-box;
 }
 
 .image-quote-container {
     display: flex;
     width: 100%;
-    max-width: 1200px; 
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -83,14 +132,14 @@ body {
     flex: 1;
     margin-right: 20px;
     display: flex;
-    justify-content: center; 
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
 }
 
 .image img {
-    width: 629px;  
-    height: 390px;  
-    object-fit: cover;  
+    width: 629px;
+    height: 390px;
+    object-fit: cover;
 }
 
 .quote {
@@ -243,3 +292,26 @@ footer {
     font-size: 14px;
     color: green;
 }
+
+/* Mobile Menu Styles */
+.mobile-menu {
+    display: none; /* Hide menu initially */
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(-100%); /* Start off-screen */
+}
+
+.mobile-menu.show {
+    display: block;
+    transform: translateY(0); /* Slide in */
+}
+
+.mobile-menu li {
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.mobile-menu li:hover {
+    background-color: #FFE5D0;
+}
+
