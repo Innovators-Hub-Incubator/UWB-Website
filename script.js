@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    emailjs.init("service_q5nya2v"); //Replace with your EmailJS User ID
+    emailjs.init("43Bpmp5bBDDhvtmjS"); //Replace with your EmailJS User ID
 
     document.getElementById("contactForm").addEventListener("submit", function (event) {
         event.preventDefault();
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
             message: message
         };
 
-        emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
+        emailjs.send("service_q5nya2v", "template_q3u8cam", templateParams)
             .then(function (response) {
                 console.log("SUCCESS!", response.status, response.text);
                 document.getElementById("statusMessage").textContent = "Message sent successfully!";
