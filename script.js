@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Replace with your actual Formspree endpoint
-        const formspreeEndpoint = "YKL!pyeWzZEn3bA";
+        const formspreeEndpoint = "https://formspree.io/f/YKL!pyeWzZEn3bA";
 
         fetch(formspreeEndpoint, {
             method: "POST",
