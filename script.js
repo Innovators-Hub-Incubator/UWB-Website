@@ -48,8 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    emailjs.init("43Bpmp5bBDDhvtmjS"); //Replace with your EmailJS User ID
-
     document.getElementById("contactForm").addEventListener("submit", function (event) {
         event.preventDefault();
 
@@ -63,22 +61,37 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        const templateParams = {
-            from_name: name,
-            from_email: email,
-            message: message
-        };
+        // Replace with your actual Formspree endpoint
+        const formspreeEndpoint = "YKL!pyeWzZEn3bA";
 
-        emailjs.send("service_q5nya2v", "template_q3u8cam", templateParams)
-            .then(function (response) {
-                console.log("SUCCESS!", response.status, response.text);
+        fetch(formspreeEndpoint, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                message: message
+            })
+        })
+        .then(response => {
+            if (response.ok) {
                 document.getElementById("statusMessage").textContent = "Message sent successfully!";
                 document.getElementById("statusMessage").style.color = "green";
                 document.getElementById("contactForm").reset();
-            }, function (error) {
-                console.log("FAILED...", error);
-                document.getElementById("statusMessage").textContent = "Failed to send message.";
-                document.getElementById("statusMessage").style.color = "red";
-            });
+            } else {
+                return response.json().then(data => {
+                    throw new Error(data.error || "Failed to send message.");
+                });
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            document.getElementById("statusMessage").textContent = "Failed to send message.";
+            document.getElementById("statusMessage").style.color = "red";
+        });
     });
 });
+
