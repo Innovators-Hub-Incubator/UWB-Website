@@ -28,7 +28,7 @@ nav .toggle {
     display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
     /* Hide the menu initially */
     nav .menu {
         display: none;
