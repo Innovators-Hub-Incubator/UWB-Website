@@ -109,6 +109,39 @@ body {
     transition: color 0.3s ease-in-out;
 }
 
+/* Image Carousel */
+.image-carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 60px auto; /* Add spacing above and below */
+    overflow: hidden;
+    height: 500px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    background-color: #FBF6F0; /* match your existing background */
+  }
+  
+  .image-carousel-track {
+    display: flex;
+    width: max-content;
+    animation: imageCarouselSlide 7.5s infinite ease-in-out;
+  }
+  
+  .image-carousel-track img {
+    width: 100%;
+    flex-shrink: 0;
+    object-fit: cover;
+  }
+  
+  /* Animation for 3-image loop */
+  @keyframes imageCarouselSlide {
+    0% { transform: translateX(0); }
+    33.33% { transform: translateX(-100%); }
+    66.66% { transform: translateX(-200%); }
+    100% { transform: translateX(0); }
+  }  
+
 /* New Section Styles */
 .image-quote {
     display: flex;
