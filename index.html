@@ -71,69 +71,110 @@
     
     <section class="image-carousel">
         <div class="carousel-container">
-            <h2 class="text-center font-bold text-xl mb-4 mt-4">Gallery</h2>
-            <!-- Carousel Images -->
+          <h2 class="text-center font-bold text-xl mb-4 mt-4">Gallery</h2>
+          
+          <!-- Carousel Images -->
+          <div class="carousel-track">
             <div class="carousel-images">
-                <img src="Gallery Images/20250211_134517.jpg" alt="Image 1">
-                <img src="Gallery Images/20250211_134530.jpg" alt="Image 2">
-                <img src="Gallery Images/20250211_134553.jpg" alt="Image 3">
-                <img src="Gallery Images/IMG_0951.jpg" alt="Image 4">
-                <!-- Add more images as needed -->
+              <img src="Gallery Images/20250211_134517.jpg" alt="Image 1">
+              <img src="Gallery Images/20250211_134530.jpg" alt="Image 2">
+              <img src="Gallery Images/20250211_134553.jpg" alt="Image 3">
+              <img src="Gallery Images/IMG_0951.jpg" alt="Image 4">
+              <img src="Gallery Images/20250307_153232.jpg" alt="Image 5">
+              <img src="Gallery Images/IMG_1056.jpg" alt="Image 6">
+              <img src="Gallery Images/IMG_1066.jpg" alt="Image 7">
+              <img src="Gallery Images/IMG_1066.jpg" alt="Image 8">
+              <img src="Gallery Images/IMG_3533.jpg" alt="Image 9">
+              <img src="Gallery Images/IMG_3537.jpg" alt="Image 10">
+              <img src="Gallery Images/IMG_3543.jpg" alt="Image 11">
+              <img src="Gallery Images/IMG_3544.jpg" alt="Image 12">
+              <img src="Gallery Images/DSC02306.JPG" alt="Image 13 clone">
+              <img src="Gallery Images/IMG_1518.jpg" alt="Image 14 clone">
+              <img src="Gallery Images/IMG_3869.jpg" alt="Image 15 clone">
+              <img src="Gallery Images/IMG_3871.jpg" alt="Image 16 clone">
+              <img src="Gallery Images/IMG_3877.jpg" alt="Image 17 clone">
+              <img src="Gallery Images/IMG_3879.jpg" alt="Image 18 clone">
+              <!-- Duplicate for infinite loop -->
+              <img src="Gallery Images/20250211_134517.jpg" alt="Image 1 clone">
+              <img src="Gallery Images/20250211_134530.jpg" alt="Image 2 clone">
+              <img src="Gallery Images/20250211_134553.jpg" alt="Image 3 clone">
+              <img src="Gallery Images/IMG_0951.jpg" alt="Image 4 clone">
+              <img src="Gallery Images/20250307_153232.jpg" alt="Image 5 clone">
+              <img src="Gallery Images/IMG_1056.jpg" alt="Image 6 clone">
+              <img src="Gallery Images/IMG_1066.jpg" alt="Image 7 clone">
+              <img src="Gallery Images/IMG_1066.jpg" alt="Image 8 clone">
+              <img src="Gallery Images/IMG_3533.jpg" alt="Image 9 clone">
+              <img src="Gallery Images/IMG_3537.jpg" alt="Image 10 clone">
+              <img src="Gallery Images/IMG_3543.jpg" alt="Image 11 clone">
+              <img src="Gallery Images/IMG_3544.jpg" alt="Image 12 clone">
+              <img src="Gallery Images/DSC02306.JPG" alt="Image 13 clone">
+              <img src="Gallery Images/IMG_1518.jpg" alt="Image 14 clone">
+              <img src="Gallery Images/IMG_3869.jpg" alt="Image 15 clone">
+              <img src="Gallery Images/IMG_3871.jpg" alt="Image 16 clone">
+              <img src="Gallery Images/IMG_3877.jpg" alt="Image 17 clone">
+              <img src="Gallery Images/IMG_3879.jpg" alt="Image 18 clone">
             </div>
+          </div>
         </div>
-    
+      
         <!-- Inline CSS -->
         <style>
-            .image-carousel {
-                position: relative;
-                max-width: 100%;
-                margin: 50px auto 0; /* Added top margin */
-                overflow: hidden;
+          .image-carousel {
+            max-width: 100%;
+            margin: 50px auto 80px; /* Added bottom space too */
+            overflow: hidden;
+          }
+      
+          .carousel-container {
+            width: 100%;
+          }
+      
+          .carousel-track {
+            overflow: hidden;
+            width: 100%;
+          }
+      
+          .carousel-images {
+            display: flex;
+            flex-wrap: nowrap;
+            animation: slide 30s linear infinite;
+          }
+      
+          .carousel-images img {
+            flex-shrink: 0;
+            width: 320px;
+            height: 200px;
+            margin-right: 20px;
+            border-radius: 20px;
+            object-fit: cover;
+          }
+      
+          @keyframes slide {
+            0% {
+              transform: translateX(0);
             }
-    
-            .carousel-container {
-                position: relative;
+            100% {
+              transform: translateX(-50%);
             }
-    
-            .carousel-images {
-                display: flex;
-                transition: transform 1s ease-in-out;
-            }
-    
-            .carousel-images img {
-                width: 386px; /* Rectangular image size */
-                height: 200px; /* Rectangular image size */
-                margin-right: 20px; /* Gap between images */
-                object-fit: cover;
-                border-radius: 20px; /* Rounded corners for images */
-            }
-    
-            @keyframes slide {
-                0% {
-                    transform: translateX(0);
-                }
-                100% {
-                    transform: translateX(-50%);
-                }
-            }
-    
-            .carousel-images {
-                animation: slide 15s linear infinite;
-            }
+          }
         </style>
-    
+      
         <!-- Inline JavaScript -->
         <script>
-            // Optional: Add functionality to restart the animation on user interaction (if desired)
-            document.querySelector('.carousel-container').addEventListener('mouseenter', function () {
-                const carouselImages = document.querySelector('.carousel-images');
-                carouselImages.style.animation = 'none';
-                setTimeout(() => {
-                    carouselImages.style.animation = 'slide 15s linear infinite';
-                }, 50);
-            });
+          // Optional pause on hover
+          const track = document.querySelector('.carousel-images');
+          const container = document.querySelector('.carousel-track');
+      
+          container.addEventListener('mouseenter', () => {
+            track.style.animationPlayState = 'paused';
+          });
+      
+          container.addEventListener('mouseleave', () => {
+            track.style.animationPlayState = 'running';
+          });
         </script>
-    </section>
+      </section>
+      
     
       
 
