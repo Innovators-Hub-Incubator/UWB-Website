@@ -55,10 +55,10 @@
     </section>
 
     <!-- Club Image with Quote -->
-    <section id="image-quote" class="mt-10">
+    <section id="image-quote" class="mt-0 mb-10 bg-[#FBF6F0]">
         <div class="image-quote-container">
           <div class="image">
-            <img src="Images/first_meeting.jpg" alt="Image Description">
+            <img src="Images/first_meeting.jpg" alt="Image Description" class="w-full h-auto mb-10">
           </div>
           <div class="quote">
             <blockquote>
@@ -68,19 +68,77 @@
           </div>
         </div>
     </section>
-
-    <!-- Image Carousel Section -->
-    <div class="image-carousel-container">
-        <div class="image-carousel-track">
-        <img src="image1.jpg" alt="Image 1">
-        <img src="image2.jpg" alt="Image 2">
-        <img src="image3.jpg" alt="Image 3">
-        <!-- Add more images as needed -->
+    
+    <section class="image-carousel">
+        <div class="carousel-container">
+            <h2 class="text-center font-bold text-xl mb-4 mt-4">Gallery</h2>
+            <!-- Carousel Images -->
+            <div class="carousel-images">
+                <img src="Gallery Images/20250211_134517.jpg" alt="Image 1">
+                <img src="Gallery Images/20250211_134530.jpg" alt="Image 2">
+                <img src="Gallery Images/20250211_134553.jpg" alt="Image 3">
+                <img src="Gallery Images/IMG_0951.jpg" alt="Image 4">
+                <!-- Add more images as needed -->
+            </div>
         </div>
-    </div>
+    
+        <!-- Inline CSS -->
+        <style>
+            .image-carousel {
+                position: relative;
+                max-width: 100%;
+                margin: 50px auto 0; /* Added top margin */
+                overflow: hidden;
+            }
+    
+            .carousel-container {
+                position: relative;
+            }
+    
+            .carousel-images {
+                display: flex;
+                transition: transform 1s ease-in-out;
+            }
+    
+            .carousel-images img {
+                width: 386px; /* Rectangular image size */
+                height: 200px; /* Rectangular image size */
+                margin-right: 20px; /* Gap between images */
+                object-fit: cover;
+                border-radius: 20px; /* Rounded corners for images */
+            }
+    
+            @keyframes slide {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(-50%);
+                }
+            }
+    
+            .carousel-images {
+                animation: slide 15s linear infinite;
+            }
+        </style>
+    
+        <!-- Inline JavaScript -->
+        <script>
+            // Optional: Add functionality to restart the animation on user interaction (if desired)
+            document.querySelector('.carousel-container').addEventListener('mouseenter', function () {
+                const carouselImages = document.querySelector('.carousel-images');
+                carouselImages.style.animation = 'none';
+                setTimeout(() => {
+                    carouselImages.style.animation = 'slide 15s linear infinite';
+                }, 50);
+            });
+        </script>
+    </section>
+    
+      
 
     <!-- Partners Carousel -->
-    <section class="partners overflow-hidden pl-0  p-6 mt-10">
+    <section class="partners overflow-hidden pl-0 p-6 mt-10">
         <h2 class="text-center font-bold text-xl mb-4">Supporters & Partners</h2>
         <div class="carousel-container">
             <div class="carousel">
