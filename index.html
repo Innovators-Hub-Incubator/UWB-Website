@@ -71,11 +71,13 @@
     
     <section class="image-carousel">
       <div class="carousel-container">
+        <!-- (Optional heading removed if not needed) -->
         <h2 class="text-center font-bold text-xl mb-4 mt-4"><br></h2>
         <!-- Carousel Track -->
         <div class="carousel-track">
           <div class="carousel-images">
-            <!-- Original Images (12 images) -->
+            <!-- Original Images (18 images) -->
+            <img src="Gallery Images/IMG_3879.jpg" alt="Image 18 fake">
             <img src="Gallery Images/20250211_134517.jpg" alt="Image 1">
             <img src="Gallery Images/20250211_134530.jpg" alt="Image 2">
             <img src="Gallery Images/20250211_134553.jpg" alt="Image 3">
@@ -95,6 +97,7 @@
             <img src="Gallery Images/IMG_3877.jpg" alt="Image 17">
             <img src="Gallery Images/IMG_3879.jpg" alt="Image 18">
             <!-- Cloned Images for Seamless Loop -->
+            <img src="Gallery Images/IMG_3879.jpg" alt="Image 18 fake clone">
             <img src="Gallery Images/20250211_134517.jpg" alt="Image 1 clone">
             <img src="Gallery Images/20250211_134530.jpg" alt="Image 2 clone">
             <img src="Gallery Images/20250211_134553.jpg" alt="Image 3 clone">
@@ -138,7 +141,7 @@
           <span class="dot" onclick="goToSlide(17)"></span>
         </div>
       </div>
-    
+      
       <!-- Inline CSS -->
       <style>
         /* Carousel container fills the full viewport width */
@@ -193,64 +196,68 @@
         .dot.active {
           background-color: #717171;
         }
+        /* Remove first dot if desired – comment this out to show all dots */
+        .carousel-dots .dot:first-child { display: none; }
       </style>
-    
+      
       <!-- Inline JavaScript -->
       <script>
         const totalOriginal = 18; // number of original images
         const imageWidth = 980;     // image width in pixels
         const gap = 20;             // gap between images
-    
-        let currentIndex = 0;
+        
+        // Set initial currentIndex to 0 (first image)
+        let currentIndex = 1;
         const carouselImages = document.querySelector('.carousel-images');
         const images = document.querySelectorAll('.carousel-images img');
         const dots = document.querySelectorAll('.carousel-dots .dot');
-    
+        
         function updateCarousel() {
-          // Get the width of the viewport (the container is 100vw)
+          // Get the width of the viewport (container is 100vw)
           const containerWidth = window.innerWidth;
-          // Calculate offset so that the active image is centered:
-          // offset = half the container width minus half the image width minus (index*(image width + gap))
+          // Calculate offset so that the active image is centered
+          // offset = half the container width minus half the image width minus index*(imageWidth+gap)
           const offset = (containerWidth - imageWidth) / 2 - currentIndex * (imageWidth + gap);
           carouselImages.style.transform = `translateX(${offset}px)`;
           
-          // Update active classes: mark the image that represents the original (index mod totalOriginal) as active
+          // Update active class on images: only mark the original image
           images.forEach((img, i) => {
+            // The original image for this position is at i % totalOriginal
             if (i % totalOriginal === currentIndex) {
               img.classList.add('active');
             } else {
               img.classList.remove('active');
             }
           });
-          // Update dots (only 12 dots)
+          
+          // Update dots: dots array is indexed 0 to totalOriginal-1
           dots.forEach((dot, i) => {
             dot.classList.toggle('active', i === currentIndex);
           });
         }
-    
+        
         function goToSlide(index) {
           currentIndex = index;
           carouselImages.style.transition = "transform 0.5s ease-in-out";
           updateCarousel();
         }
-    
+        
         // Auto-advance every 10 seconds
         let autoAdvance = setInterval(() => {
           currentIndex++;
           carouselImages.style.transition = "transform 0.5s ease-in-out";
           updateCarousel();
-          // If we've advanced past the original images, wait for the transition then reset
+          // If we've advanced past the original images, wait for the transition then reset to 0 without animation.
           if (currentIndex >= totalOriginal) {
-            // After transition completes, reset to 0 without animation.
             setTimeout(() => {
               carouselImages.style.transition = "none";
-              currentIndex = 0;
+              currentIndex = 1;
               updateCarousel();
             }, 500); // matches transition duration
           }
-        }, 10000);
-    
-        // Optional: Pause auto-advance on hover.
+        }, 5000);
+        
+        // Pause auto-advance on hover
         document.querySelector('.carousel-track').addEventListener('mouseenter', () => {
           clearInterval(autoAdvance);
         });
@@ -262,28 +269,20 @@
             if (currentIndex >= totalOriginal) {
               setTimeout(() => {
                 carouselImages.style.transition = "none";
-                currentIndex = 0;
+                currentIndex = 1;
                 updateCarousel();
               }, 500);
             }
-          }, 10000);
+          }, 5000);
         });
-    
-        // Update on initial load and when window resizes.
+        
+        // Initial update and adjust on window resize.
         updateCarousel();
         window.addEventListener('resize', updateCarousel);
       </script>
-    </section>    
+    </section>
+       
     
-    
-    
-    
-    
-    
-      
-    
-      
-
     <!-- Partners Carousel -->
     <section class="partners overflow-hidden pl-0 p-6 mt-10">
         <h2 class="text-center font-bold text-xl mb-4">Supporters & Partners</h2>
