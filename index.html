@@ -70,110 +70,199 @@
     </section>
     
     <section class="image-carousel">
-        <div class="carousel-container">
-          <h2 class="text-center font-bold text-xl mb-4 mt-4">Gallery</h2>
-          
-          <!-- Carousel Images -->
-          <div class="carousel-track">
-            <div class="carousel-images">
-              <img src="Gallery Images/20250211_134517.jpg" alt="Image 1">
-              <img src="Gallery Images/20250211_134530.jpg" alt="Image 2">
-              <img src="Gallery Images/20250211_134553.jpg" alt="Image 3">
-              <img src="Gallery Images/IMG_0951.jpg" alt="Image 4">
-              <img src="Gallery Images/20250307_153232.jpg" alt="Image 5">
-              <img src="Gallery Images/IMG_1056.jpg" alt="Image 6">
-              <img src="Gallery Images/IMG_1066.jpg" alt="Image 7">
-              <img src="Gallery Images/IMG_1066.jpg" alt="Image 8">
-              <img src="Gallery Images/IMG_3533.jpg" alt="Image 9">
-              <img src="Gallery Images/IMG_3537.jpg" alt="Image 10">
-              <img src="Gallery Images/IMG_3543.jpg" alt="Image 11">
-              <img src="Gallery Images/IMG_3544.jpg" alt="Image 12">
-              <img src="Gallery Images/DSC02306.JPG" alt="Image 13 clone">
-              <img src="Gallery Images/IMG_1518.jpg" alt="Image 14 clone">
-              <img src="Gallery Images/IMG_3869.jpg" alt="Image 15 clone">
-              <img src="Gallery Images/IMG_3871.jpg" alt="Image 16 clone">
-              <img src="Gallery Images/IMG_3877.jpg" alt="Image 17 clone">
-              <img src="Gallery Images/IMG_3879.jpg" alt="Image 18 clone">
-              <!-- Duplicate for infinite loop -->
-              <img src="Gallery Images/20250211_134517.jpg" alt="Image 1 clone">
-              <img src="Gallery Images/20250211_134530.jpg" alt="Image 2 clone">
-              <img src="Gallery Images/20250211_134553.jpg" alt="Image 3 clone">
-              <img src="Gallery Images/IMG_0951.jpg" alt="Image 4 clone">
-              <img src="Gallery Images/20250307_153232.jpg" alt="Image 5 clone">
-              <img src="Gallery Images/IMG_1056.jpg" alt="Image 6 clone">
-              <img src="Gallery Images/IMG_1066.jpg" alt="Image 7 clone">
-              <img src="Gallery Images/IMG_1066.jpg" alt="Image 8 clone">
-              <img src="Gallery Images/IMG_3533.jpg" alt="Image 9 clone">
-              <img src="Gallery Images/IMG_3537.jpg" alt="Image 10 clone">
-              <img src="Gallery Images/IMG_3543.jpg" alt="Image 11 clone">
-              <img src="Gallery Images/IMG_3544.jpg" alt="Image 12 clone">
-              <img src="Gallery Images/DSC02306.JPG" alt="Image 13 clone">
-              <img src="Gallery Images/IMG_1518.jpg" alt="Image 14 clone">
-              <img src="Gallery Images/IMG_3869.jpg" alt="Image 15 clone">
-              <img src="Gallery Images/IMG_3871.jpg" alt="Image 16 clone">
-              <img src="Gallery Images/IMG_3877.jpg" alt="Image 17 clone">
-              <img src="Gallery Images/IMG_3879.jpg" alt="Image 18 clone">
-            </div>
+      <div class="carousel-container">
+        <h2 class="text-center font-bold text-xl mb-4 mt-4"><br></h2>
+        <!-- Carousel Track -->
+        <div class="carousel-track">
+          <div class="carousel-images">
+            <!-- Original Images (12 images) -->
+            <img src="Gallery Images/20250211_134517.jpg" alt="Image 1">
+            <img src="Gallery Images/20250211_134530.jpg" alt="Image 2">
+            <img src="Gallery Images/20250211_134553.jpg" alt="Image 3">
+            <img src="Gallery Images/IMG_0951.jpg" alt="Image 4">
+            <img src="Gallery Images/20250307_153232.jpg" alt="Image 5">
+            <img src="Gallery Images/IMG_1056.jpg" alt="Image 6">
+            <img src="Gallery Images/IMG_1066.jpg" alt="Image 7">
+            <img src="Gallery Images/IMG_3533.jpg" alt="Image 8">
+            <img src="Gallery Images/IMG_3537.jpg" alt="Image 9">
+            <img src="Gallery Images/IMG_3543.jpg" alt="Image 10">
+            <img src="Gallery Images/IMG_3544.jpg" alt="Image 11">
+            <img src="Gallery Images/DSC02306.JPG" alt="Image 12">
+            <!-- Cloned Images for Seamless Loop -->
+            <img src="Gallery Images/20250211_134517.jpg" alt="Image 1 clone">
+            <img src="Gallery Images/20250211_134530.jpg" alt="Image 2 clone">
+            <img src="Gallery Images/20250211_134553.jpg" alt="Image 3 clone">
+            <img src="Gallery Images/IMG_0951.jpg" alt="Image 4 clone">
+            <img src="Gallery Images/20250307_153232.jpg" alt="Image 5 clone">
+            <img src="Gallery Images/IMG_1056.jpg" alt="Image 6 clone">
+            <img src="Gallery Images/IMG_1066.jpg" alt="Image 7 clone">
+            <img src="Gallery Images/IMG_3533.jpg" alt="Image 8 clone">
+            <img src="Gallery Images/IMG_3537.jpg" alt="Image 9 clone">
+            <img src="Gallery Images/IMG_3543.jpg" alt="Image 10 clone">
+            <img src="Gallery Images/IMG_3544.jpg" alt="Image 11 clone">
+            <img src="Gallery Images/DSC02306.JPG" alt="Image 12 clone">
           </div>
         </div>
-      
-        <!-- Inline CSS -->
-        <style>
-          .image-carousel {
-            max-width: 100%;
-            margin: 50px auto 80px; /* Added bottom space too */
-            overflow: hidden;
-          }
-      
-          .carousel-container {
-            width: 100%;
-          }
-      
-          .carousel-track {
-            overflow: hidden;
-            width: 100%;
-          }
-      
-          .carousel-images {
-            display: flex;
-            flex-wrap: nowrap;
-            animation: slide 30s linear infinite;
-          }
-      
-          .carousel-images img {
-            flex-shrink: 0;
-            width: 980px;
-            height: 523.13px;
-            margin-right: 20px;
-            border-radius: 20px;
-            object-fit: cover;
-          }
-      
-          @keyframes slide {
-            0% {
-              transform: translateX(0);
+        
+        <!-- Dots Navigation (one dot per original image) -->
+        <div class="carousel-dots">
+          <span class="dot active" onclick="goToSlide(0)"></span>
+          <span class="dot" onclick="goToSlide(1)"></span>
+          <span class="dot" onclick="goToSlide(2)"></span>
+          <span class="dot" onclick="goToSlide(3)"></span>
+          <span class="dot" onclick="goToSlide(4)"></span>
+          <span class="dot" onclick="goToSlide(5)"></span>
+          <span class="dot" onclick="goToSlide(6)"></span>
+          <span class="dot" onclick="goToSlide(7)"></span>
+          <span class="dot" onclick="goToSlide(8)"></span>
+          <span class="dot" onclick="goToSlide(9)"></span>
+          <span class="dot" onclick="goToSlide(10)"></span>
+          <span class="dot" onclick="goToSlide(11)"></span>
+        </div>
+      </div>
+    
+      <!-- Inline CSS -->
+      <style>
+        /* Carousel container fills the full viewport width */
+        .image-carousel {
+          width: 100vw;
+          margin: 0 auto 80px;
+          overflow: hidden;
+          position: relative;
+        }
+        .carousel-container {
+          width: 100vw;
+          position: relative;
+        }
+        /* Allow adjacent images to be visible */
+        .carousel-track {
+          position: relative;
+          width: 100vw;
+          overflow: visible;
+        }
+        .carousel-images {
+          display: flex;
+          transition: transform 0.5s ease-in-out;
+        }
+        .carousel-images img {
+          flex-shrink: 0;
+          width: 980px;
+          height: 523.13px;
+          margin-right: 20px;
+          border-radius: 20px;
+          object-fit: cover;
+          opacity: 0.5;
+          transition: opacity 0.5s ease;
+        }
+        .carousel-images img.active {
+          opacity: 1;
+        }
+        /* Dots Navigation */
+        .carousel-dots {
+          text-align: center;
+          margin-top: 10px;
+        }
+        .dot {
+          height: 10px;
+          width: 10px;
+          margin: 0 5px;
+          background-color: #bbb;
+          border-radius: 50%;
+          display: inline-block;
+          cursor: pointer;
+          transition: background-color 0.3s;
+        }
+        .dot.active {
+          background-color: #717171;
+        }
+      </style>
+    
+      <!-- Inline JavaScript -->
+      <script>
+        // Adjust these values as needed:
+        const totalOriginal = 12; // number of original images
+        const imageWidth = 980;     // image width in pixels
+        const gap = 20;             // gap between images
+    
+        let currentIndex = 0;
+        const carouselImages = document.querySelector('.carousel-images');
+        const images = document.querySelectorAll('.carousel-images img');
+        const dots = document.querySelectorAll('.carousel-dots .dot');
+    
+        function updateCarousel() {
+          // Get the width of the viewport (the container is 100vw)
+          const containerWidth = window.innerWidth;
+          // Calculate offset so that the active image is centered:
+          // offset = half the container width minus half the image width minus (index*(image width + gap))
+          const offset = (containerWidth - imageWidth) / 2 - currentIndex * (imageWidth + gap);
+          carouselImages.style.transform = `translateX(${offset}px)`;
+          
+          // Update active classes: mark the image that represents the original (index mod totalOriginal) as active
+          images.forEach((img, i) => {
+            if (i % totalOriginal === currentIndex) {
+              img.classList.add('active');
+            } else {
+              img.classList.remove('active');
             }
-            100% {
-              transform: translateX(-50%);
-            }
+          });
+          // Update dots (only 12 dots)
+          dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+          });
+        }
+    
+        function goToSlide(index) {
+          currentIndex = index;
+          carouselImages.style.transition = "transform 0.5s ease-in-out";
+          updateCarousel();
+        }
+    
+        // Auto-advance every 10 seconds
+        let autoAdvance = setInterval(() => {
+          currentIndex++;
+          carouselImages.style.transition = "transform 0.5s ease-in-out";
+          updateCarousel();
+          // If we've advanced past the original images, wait for the transition then reset
+          if (currentIndex >= totalOriginal) {
+            // After transition completes, reset to 0 without animation.
+            setTimeout(() => {
+              carouselImages.style.transition = "none";
+              currentIndex = 0;
+              updateCarousel();
+            }, 500); // matches transition duration
           }
-        </style>
-      
-        <!-- Inline JavaScript -->
-        <script>
-          // Optional pause on hover
-          const track = document.querySelector('.carousel-images');
-          const container = document.querySelector('.carousel-track');
-      
-          container.addEventListener('mouseenter', () => {
-            track.style.animationPlayState = 'paused';
-          });
-      
-          container.addEventListener('mouseleave', () => {
-            track.style.animationPlayState = 'running';
-          });
-        </script>
-      </section>
+        }, 10000);
+    
+        // Optional: Pause auto-advance on hover.
+        document.querySelector('.carousel-track').addEventListener('mouseenter', () => {
+          clearInterval(autoAdvance);
+        });
+        document.querySelector('.carousel-track').addEventListener('mouseleave', () => {
+          autoAdvance = setInterval(() => {
+            currentIndex++;
+            carouselImages.style.transition = "transform 0.5s ease-in-out";
+            updateCarousel();
+            if (currentIndex >= totalOriginal) {
+              setTimeout(() => {
+                carouselImages.style.transition = "none";
+                currentIndex = 0;
+                updateCarousel();
+              }, 500);
+            }
+          }, 10000);
+        });
+    
+        // Update on initial load and when window resizes.
+        updateCarousel();
+        window.addEventListener('resize', updateCarousel);
+      </script>
+    </section>    
+    
+    
+    
+    
+    
+    
       
     
       
