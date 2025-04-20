@@ -148,6 +148,52 @@
       
       <!-- Inline CSS -->
       <style>
+
+        @media (max-width: 1023px) {
+          .carousel-track {
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 8px;
+        
+            /* Remove frosted styles */
+            backdrop-filter: none !important;
+            background: none !important;
+            background-color: transparent !important;
+            box-shadow: none !important;
+          }
+        
+          .carousel-images {
+            display: flex !important;
+            flex-wrap: nowrap !important;
+            transform: none !important;
+            transition: none !important;
+        
+            /* Remove frosted styles */
+            backdrop-filter: none !important;
+            background: none !important;
+            background-color: transparent !important;
+            box-shadow: none !important;
+          }
+        
+          .carousel-images img {
+            flex: 0 0 300px !important;
+            width: 300px !important;
+            height: 210px !important;
+            scroll-snap-align: center !important;
+            margin-right: 20px !important;
+            border-radius: 20px !important;
+            object-fit: cover !important;
+            opacity: 0.5 !important;
+            transition: opacity 0.5s ease !important;
+          }
+        
+          .carousel-dots {
+            display: none !important;
+          }
+        }                                          
+
         /* Carousel container fills the full viewport width */
         .image-carousel {
           width: 100vw;
@@ -206,6 +252,32 @@
       
       <!-- Inline JavaScript -->
       <script>
+
+        function startAutoScrollMobileCarousel() {
+          const track = document.querySelector('.carousel-track');
+          const slide = document.querySelector('.carousel-images img');
+          if (!track || !slide) return;
+      
+          const style = getComputedStyle(slide);
+          const slideWidth = slide.offsetWidth + parseFloat(style.marginRight);
+      
+          let scrollPos = 0;
+          setInterval(() => {
+            scrollPos += slideWidth;
+            if (scrollPos >= track.scrollWidth - track.clientWidth) {
+              scrollPos = 0;
+            }
+            track.scrollTo({ left: scrollPos, behavior: 'smooth' });
+          }, 4000);
+        }
+      
+        // This is your JS version of `@media (max-width: 1023px)`
+        window.addEventListener('load', () => {
+          if (window.matchMedia('(max-width: 1023px)').matches) {
+            startAutoScrollMobileCarousel();
+          }
+        });
+
         const totalOriginal = 18; // number of original images
         const imageWidth = 980;     // image width in pixels
         const gap = 20;             // gap between images
