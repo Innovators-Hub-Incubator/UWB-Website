@@ -77,7 +77,6 @@
     
     <section class="image-carousel">
       <div class="carousel-container">
-        <!-- (Optional heading removed if not needed) -->
         <h2 class="text-center font-bold text-xl mb-4 mt-4"><br></h2>
         <!-- Carousel Track -->
         <div class="carousel-track">
@@ -185,7 +184,6 @@
             margin-right: 20px !important;
             border-radius: 20px !important;
             object-fit: cover !important;
-            opacity: 0.5 !important;
             transition: opacity 0.5s ease !important;
           }
         
@@ -255,21 +253,53 @@
 
         function startAutoScrollMobileCarousel() {
           const track = document.querySelector('.carousel-track');
-          const slide = document.querySelector('.carousel-images img');
-          if (!track || !slide) return;
-      
-          const style = getComputedStyle(slide);
-          const slideWidth = slide.offsetWidth + parseFloat(style.marginRight);
-      
-          let scrollPos = 0;
-          setInterval(() => {
-            scrollPos += slideWidth;
-            if (scrollPos >= track.scrollWidth - track.clientWidth) {
-              scrollPos = 0;
-            }
-            track.scrollTo({ left: scrollPos, behavior: 'smooth' });
-          }, 4000);
+          const slides = Array.from(document.querySelectorAll('.carousel-images img'));
+          if (!track || slides.length === 0) return;
+        
+          const style = getComputedStyle(slides[0]);
+          const slideWidth = slides[0].offsetWidth + parseFloat(style.marginRight);
+          const totalOriginal = slides.length / 2;    // original vs. clone
+          const duration = 4000;                      // your 4s interval
+        
+          // track which “original” slide is active
+          let slideIndex = 1;  // start on the 2nd slide
+        
+          function updateFade() {
+            slides.forEach((img, i) => {
+              const isActive = (i % totalOriginal) === slideIndex;
+              img.style.opacity = isActive ? '1' : '0.5';
+            });
+          }
+        
+          function scrollToIndex() {
+            const containerWidth = track.clientWidth;
+            // center the slide: offset = slideIndex*slideWidth - half the difference
+            const offset = slideIndex * slideWidth - (containerWidth - slideWidth) / 2;
+            track.scrollTo({ left: offset, behavior: 'smooth' });
+            // after the 0.5s scroll/transition, update fade
+            setTimeout(updateFade, 500);
+          }
+        
+          // initial center + fade
+          scrollToIndex();
+        
+          // auto‑advance
+          let auto = setInterval(() => {
+            slideIndex++;
+            if (slideIndex >= totalOriginal) slideIndex = 0;
+            scrollToIndex();
+          }, duration);
+        
+          // pause on hover/touch
+          track.addEventListener('mouseenter', () => clearInterval(auto));
+          track.addEventListener('mouseleave', () => {
+            auto = setInterval(() => {
+              slideIndex = (slideIndex + 1) % totalOriginal;
+              scrollToIndex();
+            }, duration);
+          });
         }
+        
       
         // This is your JS version of `@media (max-width: 1023px)`
         window.addEventListener('load', () => {
@@ -318,7 +348,7 @@
           updateCarousel();
         }
         
-        // Auto-advance every 10 seconds
+        // Auto-advance every 5 seconds
         let autoAdvance = setInterval(() => {
           currentIndex++;
           carouselImages.style.transition = "transform 0.5s ease-in-out";
