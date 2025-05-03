@@ -53,7 +53,7 @@
     </section>
 
     <!-- Club Members -->
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding-top: 10px; padding-bottom: 100px">
+    <div class="linkedin-grid">
         <!-- Row 1 -->
         <a href="https://www.linkedin.com/in/justin-liao23/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
             <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
@@ -219,7 +219,7 @@
         <!-- Row 10 -->
         <a href="http://www.linkedin.com/in/zoha-fatima-8213982b3" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
             <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Zoa Fatima</span>
+            <span style="font-size: 16px;">Zoha Fatima</span>
         </a>
         <a href="https://www.linkedin.com/in/swanandwagh1208/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
             <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
@@ -266,6 +266,35 @@
        </div>
        <p>Designed & built @ UWB Innovators Hub | 2025</p>
    </footer>
+   <style>
+        .linkedin-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding-top: 10px;
+            padding-bottom: 100px;
+            max-width: calc((250px * 5) + (20px * 4)); /* 5 items + 4 gaps */
+            margin: 0 auto; /* center the container */
+        }
+
+        .linkedin-grid a {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            width: 250px;
+        }
+
+        .linkedin-grid img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .linkedin-grid span {
+            font-size: 16px;
+        }
+    </style>
 
     <script src="script.js"></script>
 
