@@ -10,7 +10,7 @@
 </head>
 <body class="bg-[#FBF6F0]">
     <!-- Navbar -->
-    <nav class="flex justify-between items-center p-4 bg-white shadow-md fixed w-full top-0">
+    <nav class="flex justify-between items-center p-4 bg-white/95 backdrop-blur-md shadow-lg fixed w-full top-0 z-50">
         <a href="index.html" class="flex items-center">
             <img src="Images/logo.svg" alt="Logo" class="w-10 h-10 mr-2"> 
             <span class="text-[#FC6520] font-bold text-xl">Innovators Hub</span>
@@ -23,36 +23,46 @@
 
         <!-- Navbar Links -->
         <ul class="flex space-x-6 items-center lg:flex hidden">
-            <li><a href="about.html" class="hover:text-orange-500">About</a></li>
-            <li><a href="events.html" class="hover:text-orange-500">Events</a></li>
-            <li><a href="launchpads.html" class="hover:text-orange-500">Launchpad</a></li>
-            <li><a href="innovators.html" class="hover:text-orange-500">Innovators</a></li>
-            <li><a href="contacts.html" class="hover:text-orange-500">Contacts</a></li>
-            <li><a href="https://forms.gle/JdZJwp7SfnRxis8B9"><button class="bg-[#FC6520] text-white px-4 py-2 rounded">Join Us</button></a></li>
+            <li><a href="about.html" class="hover:text-orange-500 transition-colors">About</a></li>
+            <li><a href="events.html" class="hover:text-orange-500 transition-colors">Events</a></li>
+            <li><a href="launchpads.html" class="hover:text-orange-500 transition-colors">Launchpad</a></li>
+            <li><a href="innovators.html" class="hover:text-orange-500 transition-colors">Innovators</a></li>
+            <li><a href="contacts.html" class="hover:text-orange-500 transition-colors">Contacts</a></li>
+            <li><a href="https://forms.gle/JdZJwp7SfnRxis8B9" class="glow-effect">
+                <button class="bg-[#FC6520] text-white px-6 py-2 rounded-full hover:bg-[#e24e1b] transition-all transform hover:scale-105">
+                    Join Us
+                </button>
+            </a></li>
         </ul>
 
         <!-- Mobile Menu (Hidden by default) -->
-        <ul class="mobile-menu lg:hidden absolute top-16 left-0 w-full bg-white shadow-md hidden">
-            <li><a href="about.html" class="block py-2 px-4 hover:bg-orange-100">About</a></li>
-            <li><a href="events.html" class="block py-2 px-4 hover:bg-orange-100">Events</a></li>
-            <li><a href="launchpads.html" class="block py-2 px-4 hover:bg-orange-100">Launchpads</a></li>
-            <li><a href="innovators.html" class="block py-2 px-4 hover:bg-orange-100">Innovators</a></li>
-            <li><a href="contacts.html" class="block py-2 px-4 hover:bg-orange-100">Contacts</a></li>
-            <li><a href="https://forms.gle/JdZJwp7SfnRxis8B9"><button class="bg-[#FC6520] text-white w-full py-2 rounded">Join Us</button></a></li>
+        <ul class="mobile-menu lg:hidden absolute top-16 left-0 w-full bg-white/95 backdrop-blur-md shadow-lg hidden">
+            <li><a href="about.html" class="block py-3 px-4 hover:bg-orange-50 transition-colors">About</a></li>
+            <li><a href="events.html" class="block py-3 px-4 hover:bg-orange-50 transition-colors">Events</a></li>
+            <li><a href="launchpads.html" class="block py-3 px-4 hover:bg-orange-50 transition-colors">Launchpads</a></li>
+            <li><a href="innovators.html" class="block py-3 px-4 hover:bg-orange-50 transition-colors">Innovators</a></li>
+            <li><a href="contacts.html" class="block py-3 px-4 hover:bg-orange-50 transition-colors">Contacts</a></li>
+            <li class="p-4">
+                <a href="https://forms.gle/JdZJwp7SfnRxis8B9" class="block">
+                    <button class="w-full bg-[#FC6520] text-white py-3 rounded-full hover:bg-[#e24e1b] transition-all">
+                        Join Us
+                    </button>
+                </a>
+            </li>
         </ul>
     </nav>
 
     <div class="container">
-        <h1 class="title">Events</h1>
+        <h1 class="title" style="color:#222;">Events</h1>
 
         <!-- Spring 2025 -->
         <div class="event-section">
-            <h2 class="event-header">Spring 2025</h2>
+            <h2 style="color:#222; font-weight:bold; font-size:2rem;">Spring 2025</h2>
             <div class="event-list">
 
                 <!-- Expandable Item -->
                 <div class="event">
-                    <button class="event-button">
+                    <button class="event-button" aria-expanded="false">
                         <span><span class="date-box">APR 18</span>Company Tour: T-Mobile</span>
                         <span class="arrow">▼</span>
                     </button>
@@ -68,7 +78,7 @@
                     </div>
                 </div>
                 <div class="event">
-                    <button class="event-button">
+                    <button class="event-button" aria-expanded="false">
                         <span><span class="date-box">APR 2</span>Company Tour: Expedia</span>
                         <span class="arrow">▼</span>
                     </button>
@@ -88,18 +98,18 @@
 
         <!-- Winter 2025 -->
         <div class="event-section">
-            <h2 class="event-header">Winter 2025</h2>
+            <h2 style="color:#222; font-weight:bold; font-size:2rem;">Winter 2025</h2>
             <div class="event-list">
 
                 <!-- Expandable Item -->
                 <div class="event">
-                    <button class="event-button">
+                    <button class="event-button" aria-expanded="false">
                         <span><span class="date-box">MAR 7</span>Company Tour: Valve</span>
                         <span class="arrow">▼</span>
                     </button>
                     <div class="event-content">
                         <p>Join Innovators Hub for an exclusive tour of Valve, the parent company of Steam. </p>
-                        <p>Discover how software, hardware, and audio engineering power iconic games like Half-Life and Team Fortress 2, and learn about Valve’s workspace and innovative work culture.</p>
+                        <p>Discover how software, hardware, and audio engineering power iconic games like Half-Life and Team Fortress 2, and learn about Valve's workspace and innovative work culture.</p>
                         <p class="event-details">📍 Location: <span style="color: red">Valve HQ, Bellevue, WA</span> | 🕒 Time: <span style="color: red">2 - 3 PM</span></p>
                         <p><span style="font-weight:bold">Highlights&emsp;</span>
                             <a href="https://www.instagram.com/p/DG_WYQWydRo/?img_index=1" style="display:inline-block;padding:4px 10px;border-radius:10px;background-color:rgba(255,255,255,0.2);color:#E1306C;text-decoration:none;border:1px solid #E1306C;font-size:14px;">Instagram Post</a>
@@ -110,7 +120,7 @@
                 </div>
 
                 <div class="event">
-                    <button class="event-button">
+                    <button class="event-button" aria-expanded="false">
                         <span><span class="date-box">FEB 11</span>Kickoff Event 🚀</span>
                         <span class="arrow">▼</span>
                     </button>
@@ -131,12 +141,12 @@
 
         <!-- Fall 2024 -->
         <div class="event-section">
-            <h2 class="event-header">Fall 2024</h2>
+            <h2 style="color:#222; font-weight:bold; font-size:2rem;">Fall 2024</h2>
             <div class="event-list">
 
                 <!-- Expandable Item -->
                 <div class="event">
-                    <button class="event-button">
+                    <button class="event-button" aria-expanded="false">
                         <span><span class="date-box">OCT 31</span>Costco IT Open House</span>
                         <span class="arrow">▼</span>
                     </button>
@@ -151,7 +161,7 @@
                 </div>
 
                 <div class="event">
-                    <button class="event-button">
+                    <button class="event-button" aria-expanded="false">
                         <span><span class="date-box">OCT 20</span>UWB Branch Launch</span>
                         <span class="arrow">▼</span>
                     </button>
@@ -170,12 +180,12 @@
 
         <!-- Spring 2024 (Bellevue Branch) -->
         <div class="event-section">
-            <h2 class="event-header">Spring 2024 (Bellevue Branch)</h2>
+            <h2 style="color:#222; font-weight:bold; font-size:2rem;">Spring 2024 (Bellevue Branch)</h2>
             <div class="event-list">
 
                 <!-- Expandable Item -->
                 <div class="event">
-                    <button class="event-button">
+                    <button class="event-button" aria-expanded="false">
                         <span><span class="date-box">JUN 8-9</span>BC Hacks24</span>
                         <span class="arrow">▼</span>
                     </button>
@@ -192,7 +202,7 @@
                 </div>
 
                 <div class="event">
-                    <button class="event-button">
+                    <button class="event-button" aria-expanded="false">
                         <span><span class="date-box">MAY 31</span>AI Entrepreneurial & Networking Event</span>
                         <span class="arrow">▼</span>
                     </button>
@@ -214,29 +224,18 @@
     </div>
 
     <!-- Footer -->
-    <footer class="text-center bg-white p-4 mt-10 shadow-md">
-        <style>
-            footer {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                font-size: 1rem;
-                text-align: center; /* center instead of right, if you want centered content */
-                color: #555;
-                background-color: white; /* optional: ensures it looks clean on all backgrounds */
-            }
-        </style>
-        <!-- Social Media Icons -->
-       <div class="flex justify-center space-x-6 mb-2">
-           <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" class="text-gray-600 hover:text-[#FC6520] text-3xl">
-               <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-8 h-8">
-           </a>
-           <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" class="text-gray-600 hover:text-[#FC6520] text-3xl">
-               <img src="Images/instagram.svg" alt="Instagram" class="w-8 h-8">
-           </a>
-       </div>
-       <p>Designed & built @ UWB Innovators Hub | 2025</p>
+    <footer class="footer text-center bg-white/95 backdrop-blur-md p-8 mt-10 shadow-lg">
+        <div class="flex justify-center space-x-8 mb-4">
+            <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" 
+               class="text-gray-600 hover:text-[#FC6520] transform hover:scale-110 transition-all">
+                <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-8 h-8">
+            </a>
+            <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" 
+               class="text-gray-600 hover:text-[#FC6520] transform hover:scale-110 transition-all">
+                <img src="Images/instagram.svg" alt="Instagram" class="w-8 h-8">
+            </a>
+        </div>
+        <p class="text-gray-600">Designed & built @ UWB Innovators Hub | 2025</p>
     </footer>
 
     <script src="script.js"></script>

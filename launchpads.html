@@ -8,123 +8,143 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-[#FBF6F0]">
+<body class="bg-[#FBF6F0] text-[#222]">
     <!-- Navbar -->
-    <nav class="flex justify-between items-center p-4 bg-white shadow-md fixed w-full top-0">
+    <nav class="flex justify-between items-center p-4 bg-white/95 backdrop-blur-md shadow-lg fixed w-full top-0 z-50">
         <a href="index.html" class="flex items-center">
             <img src="Images/logo.svg" alt="Logo" class="w-10 h-10 mr-2"> 
             <span class="text-[#FC6520] font-bold text-xl">Innovators Hub</span>
         </a>
-
         <!-- Mobile Menu Toggle -->
         <div class="lg:hidden flex items-center">
-            <button class="toggle text-2xl" style="color: #FC6520;">&#9776;</button> <!-- Hamburger icon -->
+            <button class="toggle text-2xl" style="color: #FC6520;">&#9776;</button>
         </div>
-
         <!-- Navbar Links -->
         <ul class="flex space-x-6 items-center lg:flex hidden">
-            <li><a href="about.html" class="hover:text-orange-500">About</a></li>
-            <li><a href="events.html" class="hover:text-orange-500">Events</a></li>
-            <li><a href="launchpads.html" class="hover:text-orange-500">Launchpad</a></li>
-            <li><a href="innovators.html" class="hover:text-orange-500">Innovators</a></li>
-            <li><a href="contacts.html" class="hover:text-orange-500">Contacts</a></li>
-            <li><a href="https://forms.gle/JdZJwp7SfnRxis8B9"><button class="bg-[#FC6520] text-white px-4 py-2 rounded">Join Us</button></a></li>
+            <li><a href="about.html" class="hover:text-orange-500 transition-colors">About</a></li>
+            <li><a href="events.html" class="hover:text-orange-500 transition-colors">Events</a></li>
+            <li><a href="launchpads.html" class="hover:text-orange-500 transition-colors">Launchpad</a></li>
+            <li><a href="innovators.html" class="hover:text-orange-500 transition-colors">Innovators</a></li>
+            <li><a href="contacts.html" class="hover:text-orange-500 transition-colors">Contacts</a></li>
+            <li><a href="https://forms.gle/JdZJwp7SfnRxis8B9" class="glow-effect">
+                <button class="bg-[#FC6520] text-white px-6 py-2 rounded-full hover:bg-[#e24e1b] transition-all transform hover:scale-105">
+                    Join Us
+                </button>
+            </a></li>
         </ul>
-
-        <!-- Mobile Menu (Hidden by default) -->
-        <ul class="mobile-menu lg:hidden absolute top-16 left-0 w-full bg-white shadow-md hidden">
-            <li><a href="about.html" class="block py-2 px-4 hover:bg-orange-100">About</a></li>
-            <li><a href="events.html" class="block py-2 px-4 hover:bg-orange-100">Events</a></li>
-            <li><a href="launchpads.html" class="block py-2 px-4 hover:bg-orange-100">Launchpads</a></li>
-            <li><a href="innovators.html" class="block py-2 px-4 hover:bg-orange-100">Innovators</a></li>
-            <li><a href="contacts.html" class="block py-2 px-4 hover:bg-orange-100">Contacts</a></li>
-            <li><a href="https://forms.gle/JdZJwp7SfnRxis8B9"><button class="bg-[#FC6520] text-white w-full py-2 rounded">Join Us</button></a></li>
+        <!-- Mobile Menu -->
+        <ul class="mobile-menu lg:hidden absolute top-16 left-0 w-full bg-white/95 backdrop-blur-md shadow-lg hidden">
+            <li><a href="about.html" class="block py-3 px-4 hover:bg-orange-50 transition-colors">About</a></li>
+            <li><a href="events.html" class="block py-3 px-4 hover:bg-orange-50 transition-colors">Events</a></li>
+            <li><a href="launchpads.html" class="block py-3 px-4 hover:bg-orange-50 transition-colors">Launchpads</a></li>
+            <li><a href="innovators.html" class="block py-3 px-4 hover:bg-orange-50 transition-colors">Innovators</a></li>
+            <li><a href="contacts.html" class="block py-3 px-4 hover:bg-orange-50 transition-colors">Contacts</a></li>
+            <li class="p-4">
+                <a href="https://forms.gle/JdZJwp7SfnRxis8B9" class="block">
+                    <button class="w-full bg-[#FC6520] text-white py-3 rounded-full hover:bg-[#e24e1b] transition-all">
+                        Join Us
+                    </button>
+                </a>
+            </li>
         </ul>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero text-left mt-[75px] p-10 bg-[#FBF6F0]">
-        <h1 class="text-7xl font-bold text-[#000000] fade-in">
-          Launchpad: 6 Weeks to Launch Your Startup Project
-        </h1>
-      
-        <div class="mt-8 text-3xl fade-in">
-          <img src="Images/bc_launchpad.png" class="float-right mr-6 mb-4 w-610" alt="Launchpad Image" />
-          <p>
-            If you have an idea you can't stop thinking about, our Launchpad program helps
-            you turn it into something tangible. Each week, we offer mentorship, workshops, and
-            a final Demo Day to launch your startup project with founders, potential investors,
-            and our engineering community.
-          </p>
-          <a href="https://forms.gle/wj61bPZhCYQxqAR96" class="inline-block mt-6 px-6 py-3 bg-[#FC6520] text-white text-lg rounded hover:bg-gray-800 transition-colors duration-200">
+    <section class="hero flex flex-col items-center justify-center mt-[90px] py-12 px-4 bg-gradient-to-br from-[#FC6520]/10 via-[#FBF6F0] to-[#ff8c42]/10 rounded-2xl shadow-xl mx-auto max-w-3xl fade-in">
+        <h1 class="text-5xl md:text-7xl font-extrabold text-[#FC6520] mb-4 drop-shadow-lg text-center">Launchpad</h1>
+        <p class="text-2xl md:text-3xl font-semibold text-gray-800 mb-6 text-center">6 Weeks to Launch Your Startup Project</p>
+        <img src="Images/bc_launchpad.png" class="mx-auto mb-8 w-full max-w-md rounded-xl shadow-lg border-4 border-[#FC6520]/10" alt="Launchpad Image" />
+        <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl text-center">If you have an idea you can't stop thinking about, our Launchpad program helps you turn it into something tangible. Each week, we offer mentorship, workshops, and a final Demo Day to launch your startup project with founders, potential investors, and our engineering community.</p>
+        <a href="https://forms.gle/wj61bPZhCYQxqAR96" class="inline-block mt-2 px-8 py-4 bg-[#FC6520] text-white text-xl font-bold rounded-full hover:bg-[#e24e1b] transition-all shadow-lg glow-effect">
             Apply to Launchpad 2025
-          </a>
+        </a>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="max-w-4xl mx-auto mt-16 mb-20 px-4 fade-in">
+        <h2 class="text-4xl md:text-5xl font-bold text-[#FC6520] mb-8 text-center">Timeline & Highlights</h2>
+        <div class="space-y-10">
+            <!-- Week 1 -->
+            <div class="bg-white rounded-xl shadow-md p-8 flex flex-col md:flex-row items-center gap-8 border-l-8 border-[#FC6520]/80 hover:scale-[1.02] transition-transform">
+                <div>
+                    <h3 class="text-2xl font-bold mb-2 text-[#FC6520]">Week 1: Ideation</h3>
+                    <ul class="list-disc ml-6 text-lg text-gray-700">
+                        <li>Kickoff workshop: market validation, user research, goal setting</li>
+                        <li>Brainstorm with mind mapping & design thinking</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Week 2 -->
+            <div class="bg-white rounded-xl shadow-md p-8 flex flex-col md:flex-row items-center gap-8 border-l-8 border-[#ff8c42]/80 hover:scale-[1.02] transition-transform">
+                <div>
+                    <h3 class="text-2xl font-bold mb-2 text-[#ff8c42]">Week 2: Team Formation</h3>
+                    <ul class="list-disc ml-6 text-lg text-gray-700">
+                        <li>Meet other participants, form teams, outline a plan</li>
+                        <li>Team-building activities and networking</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Week 3 -->
+            <div class="bg-white rounded-xl shadow-md p-8 flex flex-col md:flex-row items-center gap-8 border-l-8 border-[#FC6520]/80 hover:scale-[1.02] transition-transform">
+                <div>
+                    <h3 class="text-2xl font-bold mb-2 text-[#FC6520]">Week 3: Prototyping</h3>
+                    <ul class="list-disc ml-6 text-lg text-gray-700">
+                        <li>Start coding, prototyping, or designing your solution</li>
+                        <li>Mentor check-ins & feedback from peers</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Week 4 -->
+            <div class="bg-white rounded-xl shadow-md p-8 flex flex-col md:flex-row items-center gap-8 border-l-8 border-[#ff8c42]/80 hover:scale-[1.02] transition-transform">
+                <div>
+                    <h3 class="text-2xl font-bold mb-2 text-[#ff8c42]">Week 4: Iteration</h3>
+                    <ul class="list-disc ml-6 text-lg text-gray-700">
+                        <li>Iterative testing: gather feedback, refine features</li>
+                        <li>Midpoint workshop: product design, usability, iteration</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Week 5 -->
+            <div class="bg-white rounded-xl shadow-md p-8 flex flex-col md:flex-row items-center gap-8 border-l-8 border-[#FC6520]/80 hover:scale-[1.02] transition-transform">
+                <div>
+                    <h3 class="text-2xl font-bold mb-2 text-[#FC6520]">Week 5: Business & Pitch Prep</h3>
+                    <ul class="list-disc ml-6 text-lg text-gray-700">
+                        <li>Go-to-market plan, pricing, customer outreach</li>
+                        <li>Pitch deck crafting: story, value, slides</li>
+                        <li>Practice sessions: feedback & delivery</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Demo Day -->
+            <div class="bg-white rounded-xl shadow-md p-8 flex flex-col md:flex-row items-center gap-8 border-l-8 border-[#ff8c42]/80 hover:scale-[1.02] transition-transform">
+                <div>
+                    <h3 class="text-2xl font-bold mb-2 text-[#ff8c42]">Demo Day</h3>
+                    <ul class="list-disc ml-6 text-lg text-gray-700">
+                        <li>Pitch to investors, VCs, and community leaders</li>
+                        <li>Showcase event: celebrate, share, network</li>
+                        <li>Next steps: funding, partnerships, development</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-10 text-lg text-gray-600">
+            <span class="text-red-500 font-bold">Note:</span> Spaces fill up quickly. <a href="https://forms.gle/wj61bPZhCYQxqAR96" class="text-[#FC6520] underline hover:text-[#e24e1b]">Apply above</a>!
         </div>
     </section>
 
-    <section class="hero text-left mt-[75px] p-10 bg-[#FBF6F0]">
-        <h1 class="text-5xl font-bold text-[#000000] fade-in">
-            Timeline (4/17 - 5/29 , every thursday)
-            <br>
-        </h1>
-        <h2 class="text-3xl font-bold text-[#000000] fade-in mt-[30px]">
-            Program Highlights
-        </h2>
-        <div class="mt-8 text-3xl fade-in">
-            <hr style="border: 3px solid black;">
-            <br>
-            <p>
-                Week 1-2: Ideation & Team Formation<br>
-                Brainstorming: Learn methods like mind mapping and design thinking to shape your concept. 
-                Team Building: Meet other participants, form teams based on shared interests, and outline a plan. 
-                Kickoff Workshop: Gain insights into market validation, user research, and setting clear goals.
-            </p>
-            <br>
-            <hr style="border: 3px solid black;">
-            <br>
-            <p>
-                Week 3-5: Product Development<br>
-                Technical Focus: Start coding, prototyping, or designing your solution with weekly mentor check-ins. 
-                Iterative Testing: Gather feedback from peers and advisors to refine features as you go. Midpoint Workshop: 
-                Delve into best practices for product design, usability, and iteration.
-            </p>
-            <br>
-            <hr style="border: 3px solid black;">
-            <br>
-            <p>
-                Week 6-7: Business & Pitch Prep<br>
-                Business Model: Work through the basics of a go-to-market plan, pricing, and customer outreach. Pitch Deck 
-                Crafting: Learn how to tell your story, highlight your unique value, and structure your slides. Practice Sessions: 
-                Rehearse in front of mentors, get feedback, and fine-tune delivery.
-            </p>
-            <br>
-            <hr style="border: 3px solid black;">
-            <br>
-            <p>
-                Week 8: Demo Day<br>
-                Pitch to Investors & VCs: Present your polished product to a panel of potential funders, community leaders, and 
-                other students. Showcase Event: Celebrate your journey, share lessons learned, and expand your network. Next Steps: 
-                Get advice on securing funding, seeking partnership opportunities, or continuing development after Launchpad.
-            </p>
-            <br>
-            <p>
-                <span style="color: red">Note:</span> Spaces fill up quickly. Apply above!</p>
-            </p>
-        </div>
-    </section>
-      
     <!-- Footer -->
-    <footer class="footer text-center bg-white p-4 mt-10 shadow-md">
-        <!-- Social Media Icons -->
-       <div class="flex justify-center space-x-6 mb-2">
-           <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" class="text-gray-600 hover:text-[#FC6520] text-3xl">
-               <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-8 h-8">
-           </a>
-           <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" class="text-gray-600 hover:text-[#FC6520] text-3xl">
-               <img src="Images/instagram.svg" alt="Instagram" class="w-8 h-8">
-           </a>
-       </div>
-       <p>Designed & built @ UWB Innovators Hub | 2025</p>
+    <footer class="footer text-center bg-white/95 backdrop-blur-md p-8 mt-10 shadow-lg">
+        <div class="flex justify-center space-x-8 mb-4">
+            <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" 
+               class="text-gray-600 hover:text-[#FC6520] transform hover:scale-110 transition-all">
+                <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-8 h-8">
+            </a>
+            <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" 
+               class="text-gray-600 hover:text-[#FC6520] transform hover:scale-110 transition-all">
+                <img src="Images/instagram.svg" alt="Instagram" class="w-8 h-8">
+            </a>
+        </div>
+        <p class="text-gray-600">Designed & built @ UWB Innovators Hub | 2025</p>
     </footer>
 
     <script src="script.js"></script>

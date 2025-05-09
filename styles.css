@@ -213,12 +213,21 @@ nav a:hover {
 }
 
 .event-content {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 0 0 12px 12px;
-    padding: 1.5rem;
-    margin-top: -1rem;
-    border: 1px solid rgba(252, 101, 32, 0.2);
+    display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s, opacity 0.3s;
+    opacity: 0;
+    background: #fff;
+    color: #222;
+}
+
+.event-content.show {
+    display: block;
+    max-height: 1000px;
+    opacity: 1;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
 }
 
 /* Contact Form */
@@ -655,6 +664,92 @@ button:hover::after {
     }
     100% {
         transform: translateX(-50%);
+    }
+}
+
+/* Event Dropdown Card Style */
+.event-list {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    border: 1px solid #e5e5e5;
+    background: transparent;
+}
+.event {
+    border-bottom: 1px solid #e5e5e5;
+    background: #fff;
+}
+.event:last-child {
+    border-bottom: none;
+}
+.event-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    color: #222;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding: 1.5rem 2rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-radius: 0;
+}
+.event-button:hover {
+    background: #f7f7f7;
+}
+.date-box {
+    background: #fff;
+    color: #FC6520;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 18px;
+    letter-spacing: 1px;
+}
+.event-button span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.event-button .arrow {
+    margin-left: auto;
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+}
+.event-button[aria-expanded="true"] .arrow,
+.event-button .arrow.rotate {
+    transform: rotate(180deg);
+}
+.event-content {
+    display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s, opacity 0.3s;
+    opacity: 0;
+    background: #fff;
+    color: #222;
+    border-top: 1px solid #e5e5e5;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+.event-content.show {
+    display: block;
+    max-height: 1000px;
+    opacity: 1;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+@media (max-width: 600px) {
+    .event-button, .event-content {
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 }
 
