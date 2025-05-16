@@ -35,6 +35,20 @@
         from { opacity: 0; transform: translateY(30px); }
         to { opacity: 1; transform: none; }
       }
+      .lightbox-animate {
+        opacity: 1;
+        transform: translateY(40px);
+        transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.5s cubic-bezier(0.4,0,0.2,1);
+      }
+      #lightbox-modal .relative {
+        opacity: 0;
+        transform: translateY(-40px);
+        transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.5s cubic-bezier(0.4,0,0.2,1);
+      }
+      #lightbox-modal.open .relative {
+        opacity: 1;
+        transform: translateY(40px);
+      }
     </style>
 </head>
 <body class="bg-gradient-to-br from-[#FBF6F0] via-white to-[#fff7f0] min-h-screen">
@@ -90,15 +104,15 @@
     <section class="w-full flex flex-col items-center mb-20 px-4">
       <h2 class="text-2xl font-bold gradient-text mb-6">Gallery</h2>
       <div class="relative w-full max-w-4xl overflow-hidden rounded-2xl glass shadow-xl">
-        <div class="flex animate-scroll-x space-x-6 py-4 px-2">
-          <img src="Gallery Images/IMG_3879.jpg" class="h-40 rounded-xl shadow-md" alt="Gallery 1">
-          <img src="Gallery Images/20250211_134517.jpg" class="h-40 rounded-xl shadow-md" alt="Gallery 2">
-          <img src="Gallery Images/20250211_134530.jpg" class="h-40 rounded-xl shadow-md" alt="Gallery 3">
-          <img src="Gallery Images/20250211_134553.jpg" class="h-40 rounded-xl shadow-md" alt="Gallery 4">
-          <img src="Gallery Images/IMG_0951.jpg" class="h-40 rounded-xl shadow-md" alt="Gallery 5">
-          <img src="Gallery Images/20250307_153232.jpg" class="h-40 rounded-xl shadow-md" alt="Gallery 6">
-          <img src="Gallery Images/IMG_1056.jpg" class="h-40 rounded-xl shadow-md" alt="Gallery 7">
-          <img src="Gallery Images/IMG_1066.jpg" class="h-40 rounded-xl shadow-md" alt="Gallery 8">
+        <div class="flex animate-scroll-x space-x-6 py-4 px-2" id="gallery-carousel">
+          <img src="Gallery Images/IMG_3879.jpg" class="h-40 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 1">
+          <img src="Gallery Images/20250211_134517.jpg" class="h-40 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 2">
+          <img src="Gallery Images/20250211_134530.jpg" class="h-40 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 3">
+          <img src="Gallery Images/20250211_134553.jpg" class="h-40 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 4">
+          <img src="Gallery Images/IMG_0951.jpg" class="h-40 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 5">
+          <img src="Gallery Images/20250307_153232.jpg" class="h-40 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 6">
+          <img src="Gallery Images/IMG_1056.jpg" class="h-40 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 7">
+          <img src="Gallery Images/IMG_1066.jpg" class="h-40 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 8">
         </div>
       </div>
       <style>
@@ -111,6 +125,14 @@
         }
       </style>
     </section>
+
+    <!-- Lightbox Modal for Gallery -->
+    <div id="lightbox-modal" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 hidden">
+      <div class="relative">
+        <img id="lightbox-img" src="" alt="Enlarged Gallery" class="max-h-[80vh] max-w-[90vw] rounded-2xl shadow-2xl border-4 border-white">
+        <button id="lightbox-close" class="absolute -top-6 -right-6 bg-white text-gray-700 rounded-full w-10 h-10 flex items-center justify-center text-2xl font-bold shadow-lg hover:bg-[#FC6520] hover:text-white transition-all">&times;</button>
+      </div>
+    </div>
 
     <!-- Partners Section -->
     <section class="w-full flex flex-col items-center mb-20 px-4">
@@ -144,5 +166,45 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+    // Lightbox functionality for gallery
+    const galleryImgs = document.querySelectorAll('.gallery-img');
+    const lightboxModal = document.getElementById('lightbox-modal');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const carousel = document.getElementById('gallery-carousel');
+    const lightboxContainer = lightboxModal.querySelector('.relative');
+    let wasAnimated = false;
+
+    galleryImgs.forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxModal.classList.remove('hidden');
+        setTimeout(() => lightboxModal.classList.add('open'), 10); // trigger animation
+        // Pause carousel
+        if (carousel.classList.contains('animate-scroll-x')) {
+          carousel.classList.remove('animate-scroll-x');
+          wasAnimated = true;
+        } else {
+          wasAnimated = false;
+        }
+      });
+    });
+
+    function closeLightbox() {
+      lightboxModal.classList.remove('open');
+      setTimeout(() => {
+        lightboxModal.classList.add('hidden');
+        lightboxImg.src = '';
+      }, 400);
+      // Resume carousel
+      if (wasAnimated) carousel.classList.add('animate-scroll-x');
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxModal.addEventListener('click', (e) => {
+      if (e.target === lightboxModal) closeLightbox();
+    });
+    </script>
 </body>
 </html>
