@@ -7,175 +7,136 @@
     <link rel="icon" href="Images/logo.svg" type="image/svg+xml">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+      body { font-family: 'Inter', 'Space Grotesk', sans-serif; }
+      .glass {
+        background: rgba(255,255,255,0.7);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 2rem;
+        border: 1px solid rgba(255,255,255,0.18);
+      }
+      .glow {
+        box-shadow: 0 0 16px 2px #FC6520aa;
+      }
+      .gradient-text {
+        background: linear-gradient(90deg, #FC6520 30%, #ff8c42 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+      .fade-in {
+        animation: fadeIn 1.2s ease;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: none; }
+      }
+    </style>
 </head>
-<body class="bg-[#FBF6F0] text-gray-900">
-    <!-- Navbar -->
-    <nav class="flex justify-between items-center p-4 bg-white/95 backdrop-blur-md shadow-lg fixed w-full top-0 z-50">
-        <a href="index.html" class="flex items-center">
-            <img src="Images/logo.svg" alt="Logo" class="w-10 h-10 mr-2"> 
-            <span class="text-[#FC6520] font-bold text-xl">Innovators Hub</span>
-        </a>
-
-        <!-- Mobile Menu Toggle -->
-        <div class="lg:hidden flex items-center">
-            <button class="toggle text-2xl" style="color: #FC6520;">&#9776;</button>
-        </div>
-
-        <!-- Navbar Links -->
-        <ul class="flex space-x-6 items-center lg:flex hidden">
-            <li><a href="about.html" class="hover:text-orange-500 transition-colors">About</a></li>
-            <li><a href="events.html" class="hover:text-orange-500 transition-colors">Events</a></li>
-            <li><a href="launchpads.html" class="hover:text-orange-500 transition-colors">Launchpad</a></li>
-            <li><a href="innovators.html" class="hover:text-orange-500 transition-colors">Innovators</a></li>
-            <li><a href="contacts.html" class="hover:text-orange-500 transition-colors">Contacts</a></li>
-            <li><a href="https://forms.gle/JdZJwp7SfnRxis8B9" class="glow-effect">
-                <button class="bg-[#FC6520] text-white px-6 py-2 rounded-full hover:bg-[#e24e1b] transition-all transform hover:scale-105">
-                    Join Us
-                </button>
-            </a></li>
-        </ul>
-
-        <!-- Mobile Menu -->
-        <ul class="mobile-menu lg:hidden absolute top-16 left-0 w-full bg-white/95 backdrop-blur-md shadow-lg hidden">
-            <li><a href="about.html" class="block py-3 px-4 hover:bg-orange-50 transition-colors">About</a></li>
-            <li><a href="events.html" class="block py-3 px-4 hover:bg-orange-50 transition-colors">Events</a></li>
-            <li><a href="launchpads.html" class="block py-3 px-4 hover:bg-orange-50 transition-colors">Launchpads</a></li>
-            <li><a href="innovators.html" class="block py-3 px-4 hover:bg-orange-50 transition-colors">Innovators</a></li>
-            <li><a href="contacts.html" class="block py-3 px-4 hover:bg-orange-50 transition-colors">Contacts</a></li>
-            <li class="p-4">
-                <a href="https://forms.gle/JdZJwp7SfnRxis8B9" class="block">
-                    <button class="w-full bg-[#FC6520] text-white py-3 rounded-full hover:bg-[#e24e1b] transition-all">
-                        Join Us
-                    </button>
+<body class="bg-gradient-to-br from-[#FBF6F0] via-white to-[#fff7f0] min-h-screen">
+    <!-- Glassy Navbar -->
+    <div class="w-full flex justify-center pt-6 pb-2">
+        <nav class="glass flex items-center justify-between w-[96%] max-w-6xl px-10 py-4">
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center">
+                    <img src="Images/logo.svg" alt="Logo" class="w-12 h-12 mr-3 drop-shadow-lg">
+                    <span class="gradient-text font-extrabold text-2xl tracking-tight" style="font-family: 'Space Grotesk', Inter, sans-serif;">Innovators Hub</span>
                 </a>
-            </li>
-        </ul>
-    </nav>
+            </div>
+            <ul class="flex space-x-8 items-center text-lg font-medium">
+                <li><a href="about.html" class="hover:text-[#FC6520] transition-colors">About</a></li>
+                <li><a href="events.html" class="hover:text-[#FC6520] transition-colors">Events</a></li>
+                <li><a href="launchpads.html" class="hover:text-[#FC6520] transition-colors">Launchpads</a></li>
+                <li><a href="innovators.html" class="hover:text-[#FC6520] transition-colors">Innovators</a></li>
+                <li><a href="contacts.html" class="hover:text-[#FC6520] transition-colors">Contacts</a></li>
+                <li>
+                  <a href="https://forms.gle/JdZJwp7SfnRxis8B9" target="_blank">
+                    <button class="bg-[#FC6520] glow text-white px-7 py-2 rounded-full font-bold hover:bg-[#e24e1b] transition-all">Join Us</button>
+                  </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 
     <!-- Hero Section -->
-    <section class="hero text-center mt-[75px] p-10 bg-[#FBF6F0] relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-white/50"></div>
-        <h1 class="text-7xl font-bold text-[#FC6520] fade-in relative z-10">
-            Innovators Hub
-        </h1>
-        <p class="mt-4 text-lg fade-in font-bold relative z-10">
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#FC6520] to-[#ff8c42]">
-                We are a community of student entrepreneurs
-                who challenge the status quo, wanting to<br>
-                impact the world by innovating and resolving
-                problems. We defy the odds.
-            </span>
-        </p>
+    <section class="flex flex-col items-center justify-center text-center mt-20 mb-10 px-4">
+        <h1 class="text-6xl md:text-8xl font-extrabold gradient-text fade-in mb-6" style="font-family: 'Space Grotesk', Inter, sans-serif; letter-spacing: -2px;">Innovators Hub</h1>
+        <p class="text-2xl md:text-3xl font-semibold text-gray-700 fade-in max-w-3xl mb-4">We are a community of student entrepreneurs who challenge the status quo, wanting to impact the world by innovating and resolving problems.</p>
+        <p class="mt-2 text-xl text-gray-500 fade-in">We defy the odds.</p>
     </section>
 
-    <!-- Club Image with Quote -->
-    <section id="image-quote" class="mt-0 mb-10 bg-[#FBF6F0]">
-        <div class="flex flex-col lg:flex-row items-center gap-6 px-4 py-10 max-w-7xl mx-auto">
-            <!-- Image -->
-            <div class="w-full lg:w-1/2 transform hover:scale-105 transition-transform duration-300">
-                <img src="Images/first_meeting.jpg" alt="Image Description" class="w-full h-auto rounded-2xl shadow-xl">
-            </div>
+    <!-- Glass Cards Section -->
+    <section class="flex flex-wrap justify-center gap-10 px-4 mb-16">
+      <div class="glass w-full max-w-md p-8 flex flex-col items-center fade-in">
+        <h2 class="text-3xl font-bold gradient-text mb-2">What We Do</h2>
+        <ul class="text-lg text-gray-700 space-y-2 mt-2">
+          <li><span class="font-bold text-[#FC6520]">Events:</span> Company tours, hackathons, and networking with founders & industry leaders.</li>
+          <li><span class="font-bold text-[#FC6520]">Workshops:</span> Learn from experts in tech, business, and design.</li>
+          <li><span class="font-bold text-[#FC6520]">Launchpad:</span> 8-week accelerator to turn ideas into startups.</li>
+          <li><span class="font-bold text-[#FC6520]">Community:</span> Connect, build, and innovate with like-minded peers.</li>
+        </ul>
+      </div>
+      <div class="glass w-full max-w-md p-8 flex flex-col items-center fade-in">
+        <h2 class="text-3xl font-bold gradient-text mb-2">Our Mission</h2>
+        <p class="text-lg text-gray-700 mt-2">Fostering a culture of ambition, passion, and innovation. We empower students to bring bold ideas to life and create real-world impact.</p>
+      </div>
+    </section>
 
-            <!-- Quote -->
-            <div class="w-full lg:w-1/2 text-center lg:text-left">
-                <blockquote class="text-lg italic relative">
-                    <div class="absolute -top-4 -left-4 text-6xl text-[#FC6520]/20">"</div>
-                    Everything around you that you called life, was made up by people who were no smarter than you... you can build your own things that other people can use.
-                    <footer class="mt-4 text-black font-semibold">- Steve Jobs</footer>
-                </blockquote>
-            </div>
+    <!-- Gallery Carousel (Futuristic Style) -->
+    <section class="w-full flex flex-col items-center mb-20 px-4">
+      <h2 class="text-2xl font-bold gradient-text mb-6">Gallery</h2>
+      <div class="relative w-full max-w-4xl overflow-hidden rounded-2xl glass shadow-xl">
+        <div class="flex animate-scroll-x space-x-6 py-4 px-2">
+          <img src="Gallery Images/IMG_3879.jpg" class="h-40 rounded-xl shadow-md" alt="Gallery 1">
+          <img src="Gallery Images/20250211_134517.jpg" class="h-40 rounded-xl shadow-md" alt="Gallery 2">
+          <img src="Gallery Images/20250211_134530.jpg" class="h-40 rounded-xl shadow-md" alt="Gallery 3">
+          <img src="Gallery Images/20250211_134553.jpg" class="h-40 rounded-xl shadow-md" alt="Gallery 4">
+          <img src="Gallery Images/IMG_0951.jpg" class="h-40 rounded-xl shadow-md" alt="Gallery 5">
+          <img src="Gallery Images/20250307_153232.jpg" class="h-40 rounded-xl shadow-md" alt="Gallery 6">
+          <img src="Gallery Images/IMG_1056.jpg" class="h-40 rounded-xl shadow-md" alt="Gallery 7">
+          <img src="Gallery Images/IMG_1066.jpg" class="h-40 rounded-xl shadow-md" alt="Gallery 8">
         </div>
+      </div>
+      <style>
+        @keyframes scroll-x {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-scroll-x {
+          animation: scroll-x 30s linear infinite;
+        }
+      </style>
     </section>
 
-    <!-- Image Carousel -->
-    <section class="image-carousel py-10">
-        <div class="carousel-container">
-            <div class="carousel-track">
-                <div class="carousel-images">
-                    <!-- Original Images -->
-                    <img src="Gallery Images/IMG_3879.jpg" alt="Image 17" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/20250211_134517.jpg" alt="Image 1" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/20250211_134530.jpg" alt="Image 2" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/20250211_134553.jpg" alt="Image 3" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/IMG_0951.jpg" alt="Image 4" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/20250307_153232.jpg" alt="Image 5" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/IMG_1056.jpg" alt="Image 6" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/IMG_1066.jpg" alt="Image 7" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/IMG_3533.jpg" alt="Image 8" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/IMG_3537.jpg" alt="Image 9" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/IMG_3543.jpg" alt="Image 10" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/IMG_3544.jpg" alt="Image 11" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/DSC02306.JPG" alt="Image 12" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/IMG_1518.jpg" alt="Image 13" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/IMG_3869.jpg" alt="Image 14" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/IMG_3871.jpg" alt="Image 15" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/IMG_3877.jpg" alt="Image 16" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/IMG_3879.jpg" alt="Image 17" class="rounded-xl shadow-lg">
-                    <!-- Duplicate Images for seamless loop -->
-                    <img src="Gallery Images/IMG_3879.jpg" alt="Image 17" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/20250211_134517.jpg" alt="Image 1" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/20250211_134530.jpg" alt="Image 2" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/20250211_134553.jpg" alt="Image 3" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/IMG_0951.jpg" alt="Image 4" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/20250307_153232.jpg" alt="Image 5" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/IMG_1056.jpg" alt="Image 6" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/IMG_1066.jpg" alt="Image 7" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/IMG_3533.jpg" alt="Image 8" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/IMG_3537.jpg" alt="Image 9" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/IMG_3543.jpg" alt="Image 10" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/IMG_3544.jpg" alt="Image 11" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/DSC02306.JPG" alt="Image 12" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/IMG_1518.jpg" alt="Image 13" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/IMG_3869.jpg" alt="Image 14" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/IMG_3871.jpg" alt="Image 15" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/IMG_3877.jpg" alt="Image 16" class="rounded-xl shadow-lg">
-                    <img src="Gallery Images/IMG_3879.jpg" alt="Image 17" class="rounded-xl shadow-lg">
-                </div>
-            </div>
-        </div>
+    <!-- Partners Section -->
+    <section class="w-full flex flex-col items-center mb-20 px-4">
+      <h2 class="text-2xl font-bold gradient-text mb-6">Supporters & Partners</h2>
+      <div class="flex flex-wrap justify-center gap-10 glass p-6">
+        <img src="Images/bc_acm.svg" alt="Partner Logo" class="w-28 h-28 object-contain">
+        <img src="Images/uwb_logo.png" alt="Partner Logo" class="w-28 h-28 object-contain">
+        <img src="Images/uwb_acm.png" alt="Partner Logo" class="w-28 h-28 object-contain">
+        <img src="Images/Asset_24x.png" alt="Partner Logo" class="w-28 h-28 object-contain">
+      </div>
     </section>
 
-    <!-- Partners Carousel -->
-    <section class="partners overflow-hidden pl-0 p-6 mt-10">
-        <h2 class="text-center font-bold text-2xl mb-8">Supporters & Partners</h2>
-        <div class="carousel-container">
-            <div class="carousel">
-                <!-- First set of logos -->
-                <img src="Images/bc_acm.svg" alt="Partner Logo" class="w-32 h-32 object-contain mx-4 transform hover:scale-110 transition-transform">
-                <img src="Images/uwb_logo.png" alt="Partner Logo" class="w-32 h-32 object-contain mx-4 transform hover:scale-110 transition-transform">
-                <img src="Images/uwb_acm.png" alt="Partner Logo" class="w-32 h-32 object-contain mx-4 transform hover:scale-110 transition-transform">
-                <img src="Images/Asset_24x.png" alt="Partner Logo" class="w-32 h-32 object-contain mx-4 transform hover:scale-110 transition-transform">
-                <!-- Duplicate set for seamless loop -->
-                <img src="Images/bc_acm.svg" alt="Partner Logo" class="w-32 h-32 object-contain mx-4 transform hover:scale-110 transition-transform">
-                <img src="Images/uwb_logo.png" alt="Partner Logo" class="w-32 h-32 object-contain mx-4 transform hover:scale-110 transition-transform">
-                <img src="Images/uwb_acm.png" alt="Partner Logo" class="w-32 h-32 object-contain mx-4 transform hover:scale-110 transition-transform">
-                <img src="Images/Asset_24x.png" alt="Partner Logo" class="w-32 h-32 object-contain mx-4 transform hover:scale-110 transition-transform">
-            </div>
-        </div>
+    <!-- Call to Action -->
+    <section class="flex flex-col items-center justify-center mb-20">
+      <a href="https://forms.gle/JdZJwp7SfnRxis8B9" target="_blank">
+        <button class="bg-[#FC6520] glow text-white py-5 px-16 rounded-full text-2xl font-bold hover:bg-[#e24e1b] transition-all shadow-xl">Join Us</button>
+      </a>
     </section>
 
-    <!-- Join Us Section -->
-    <section class="relative bg-cover bg-center" style="background-image: url('Images/valve_visit.jpg'); height: 500px;">
-        <div class="absolute inset-0 bg-gradient-to-b from-white/90 to-transparent"></div>
-        <div class="absolute inset-0 flex justify-center items-center">
-            <a href="https://forms.gle/JdZJwp7SfnRxis8B9" target="_blank" class="transform hover:scale-105 transition-transform">
-                <button class="bg-[#FC6520] text-white py-4 px-10 rounded-full text-xl hover:bg-[#e24e1b] transition-all shadow-lg hover:shadow-xl glow-effect">
-                    Join Us
-                </button>
-            </a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer text-center bg-white/95 backdrop-blur-md p-8 mt-10 shadow-lg">
+    <!-- Glassy Footer -->
+    <footer class="glass text-center p-8 mt-10 shadow-lg w-[96%] mx-auto">
         <div class="flex justify-center space-x-8 mb-4">
-            <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" 
-               class="text-gray-600 hover:text-[#FC6520] transform hover:scale-110 transition-all">
+            <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" class="text-gray-600 hover:text-[#FC6520] transform hover:scale-110 transition-all">
                 <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-8 h-8">
             </a>
-            <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" 
-               class="text-gray-600 hover:text-[#FC6520] transform hover:scale-110 transition-all">
+            <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" class="text-gray-600 hover:text-[#FC6520] transform hover:scale-110 transition-all">
                 <img src="Images/instagram.svg" alt="Instagram" class="w-8 h-8">
             </a>
         </div>

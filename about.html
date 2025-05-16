@@ -7,131 +7,111 @@
     <link rel="icon" href="Images/logo.svg" type="image/svg+xml">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+      body { font-family: 'Inter', 'Space Grotesk', sans-serif; }
+      .glass {
+        background: rgba(255,255,255,0.7);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 2rem;
+        border: 1px solid rgba(255,255,255,0.18);
+      }
+      .glow {
+        box-shadow: 0 0 16px 2px #FC6520aa;
+      }
+      .gradient-text {
+        background: linear-gradient(90deg, #FC6520 30%, #ff8c42 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+      .fade-in {
+        animation: fadeIn 1.2s ease;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: none; }
+      }
+    </style>
 </head>
-<body class="bg-[#FBF6F0] text-[#222]">
-    <!-- Navbar -->
-    <nav class="flex justify-between items-center p-4 bg-white/95 backdrop-blur-md shadow-lg fixed w-full top-0 z-50">
-        <a href="index.html" class="flex items-center">
-            <img src="Images/logo.svg" alt="Logo" class="w-10 h-10 mr-2"> 
-            <span class="text-[#FC6520] font-bold text-xl">Innovators Hub</span>
-        </a>
-
-        <!-- Mobile Menu Toggle -->
-        <div class="lg:hidden flex items-center">
-            <button class="toggle text-2xl" style="color: #FC6520;">&#9776;</button> <!-- Hamburger icon -->
-        </div>
-
-        <!-- Navbar Links -->
-        <ul class="flex space-x-6 items-center lg:flex hidden">
-            <li><a href="about.html" class="hover:text-orange-500 transition-colors">About</a></li>
-            <li><a href="events.html" class="hover:text-orange-500 transition-colors">Events</a></li>
-            <li><a href="launchpads.html" class="hover:text-orange-500 transition-colors">Launchpad</a></li>
-            <li><a href="innovators.html" class="hover:text-orange-500 transition-colors">Innovators</a></li>
-            <li><a href="contacts.html" class="hover:text-orange-500 transition-colors">Contacts</a></li>
-            <li><a href="https://forms.gle/JdZJwp7SfnRxis8B9" class="glow-effect">
-                <button class="bg-[#FC6520] text-white px-6 py-2 rounded-full hover:bg-[#e24e1b] transition-all transform hover:scale-105">
-                    Join Us
-                </button>
-            </a></li>
-        </ul>
-
-        <!-- Mobile Menu (Hidden by default) -->
-        <ul class="mobile-menu lg:hidden absolute top-16 left-0 w-full bg-white/95 backdrop-blur-md shadow-lg hidden">
-            <li><a href="about.html" class="block py-3 px-4 hover:bg-orange-50 transition-colors">About</a></li>
-            <li><a href="events.html" class="block py-3 px-4 hover:bg-orange-50 transition-colors">Events</a></li>
-            <li><a href="launchpads.html" class="block py-3 px-4 hover:bg-orange-50 transition-colors">Launchpads</a></li>
-            <li><a href="innovators.html" class="block py-3 px-4 hover:bg-orange-50 transition-colors">Innovators</a></li>
-            <li><a href="contacts.html" class="block py-3 px-4 hover:bg-orange-50 transition-colors">Contacts</a></li>
-            <li class="p-4">
-                <a href="https://forms.gle/JdZJwp7SfnRxis8B9" class="block">
-                    <button class="w-full bg-[#FC6520] text-white py-3 rounded-full hover:bg-[#e24e1b] transition-all">
-                        Join Us
-                    </button>
+<body class="bg-gradient-to-br from-[#FBF6F0] via-white to-[#fff7f0] min-h-screen">
+    <!-- Glassy Navbar -->
+    <div class="w-full flex justify-center pt-6 pb-2">
+        <nav class="glass flex items-center justify-between w-[96%] max-w-6xl px-10 py-4">
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center">
+                    <img src="Images/logo.svg" alt="Logo" class="w-12 h-12 mr-3 drop-shadow-lg">
+                    <span class="gradient-text font-extrabold text-2xl tracking-tight" style="font-family: 'Space Grotesk', Inter, sans-serif;">Innovators Hub</span>
                 </a>
-            </li>
-        </ul>
-    </nav>
+            </div>
+            <ul class="flex space-x-8 items-center text-lg font-medium">
+                <li><a href="about.html" class="hover:text-[#FC6520] transition-colors">About</a></li>
+                <li><a href="events.html" class="hover:text-[#FC6520] transition-colors">Events</a></li>
+                <li><a href="launchpads.html" class="hover:text-[#FC6520] transition-colors">Launchpads</a></li>
+                <li><a href="innovators.html" class="hover:text-[#FC6520] transition-colors">Innovators</a></li>
+                <li><a href="contacts.html" class="hover:text-[#FC6520] transition-colors">Contacts</a></li>
+                <li>
+                  <a href="https://forms.gle/JdZJwp7SfnRxis8B9" target="_blank">
+                    <button class="bg-[#FC6520] glow text-white px-7 py-2 rounded-full font-bold hover:bg-[#e24e1b] transition-all">Join Us</button>
+                  </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 
     <!-- Hero Section -->
-    <section class="hero text-left mt-[75px] p-10 bg-[#FBF6F0]">
-        <h1 class="text-7xl font-bold text-[#222] fade-in">Welcome to UWB Innovators Hub!</h1>
-        <p class="mt-8 text-2xl fade-in text-[#222]">
-            <span>At Innovators Hub, we inspire our community of ambitious <span style="font-weight:bold"> entrepreneurs,
-            builders, and innovators,</span> to resolve problems in the world <br>
-            by turning their crazy ideas into reality. Together, we defy the odds.</span>
-        </p>
+    <section class="flex flex-col items-center justify-center text-center mt-20 mb-10 px-4">
+        <h1 class="text-6xl md:text-7xl font-extrabold gradient-text fade-in mb-6" style="font-family: 'Space Grotesk', Inter, sans-serif; letter-spacing: -2px;">Welcome to UWB Innovators Hub!</h1>
+        <p class="text-2xl md:text-3xl font-semibold text-gray-700 fade-in max-w-3xl mb-4">At Innovators Hub, we inspire our community of ambitious <span class="font-bold text-[#FC6520]">entrepreneurs, builders, and innovators</span> to resolve problems in the world by turning their crazy ideas into reality. Together, we defy the odds.</p>
     </section>
 
-    <!-- What we provide -->
-    <section class="hero text-left mt-[30px] p-10 bg-[#FBF6F0]">
-        <h1 class="text-6xl font-bold text-[#222] fade-in">What we provide</h1>
-        <p class="mt-8 text-xl fade-in text-[#222]">
-            <span><span style="font-weight:bold">Discussion Forum:</span> engage in lively talks during our entrepreneurial and networking events to learn and engage with startup founders, industry speakers, and student innovators.</span><br>
-            <br>
-            <span><span style="font-weight:bold">Events:</span> attend private company tours (Expedia, Amazon...etc.), local tech conferences and hackathons, and casual gym hangout, we provide exclusive experience beyond campus.</span><br>
-            <br>
-            <span><span style="font-weight:bold">Workshops:</span> enhance your skills with industry leaders in software engineering, law, design, and business, continuously acquiring knowledge across diverse industry.</span><br>
-            <br>
-            <span><span style="font-weight:bold">Launchpad:</span> Our 8-week accelerator/incubator program takes you from ideation to launch, offering mentorship and workshops until the Demo Day, where you can pitch to investors.</span><br>
-    </section>
-
-    <!-- Our Mission -->
-    <section class="hero text-left mt-[30px] p-10 bg-[#ffffff]">
-        <h1 class="text-6xl font-bold text-[#222] fade-in">Our Mission</h1>
-        <p class="mt-8 text-2xl fade-in text-[#222]">
-            <span>We want to foster a community where ambition, passion, and innovation come together. By offering resources, support, 
-            and a network of like-minded peers, we help bring bold ideas to life, resolving real-world problems while creating 
-            impactful values to the world.
-            </span>
-        </p>
+    <!-- Glass Cards Section -->
+    <section class="flex flex-wrap justify-center gap-10 px-4 mb-16">
+      <div class="glass w-full max-w-md p-8 flex flex-col items-center fade-in">
+        <h2 class="text-3xl font-bold gradient-text mb-2">What We Provide</h2>
+        <ul class="text-lg text-gray-700 space-y-2 mt-2">
+          <li><span class="font-bold text-[#FC6520]">Discussion Forum:</span> Engage in lively talks during our entrepreneurial and networking events to learn and engage with startup founders, industry speakers, and student innovators.</li>
+          <li><span class="font-bold text-[#FC6520]">Events:</span> Private company tours, local tech conferences, hackathons, and exclusive experiences beyond campus.</li>
+          <li><span class="font-bold text-[#FC6520]">Workshops:</span> Enhance your skills with industry leaders in software engineering, law, design, and business.</li>
+          <li><span class="font-bold text-[#FC6520]">Launchpad:</span> Our 8-week accelerator/incubator program takes you from ideation to launch, offering mentorship and workshops until Demo Day.</li>
+        </ul>
+      </div>
+      <div class="glass w-full max-w-md p-8 flex flex-col items-center fade-in">
+        <h2 class="text-3xl font-bold gradient-text mb-2">Our Mission</h2>
+        <p class="text-lg text-gray-700 mt-2">We foster a community where ambition, passion, and innovation come together. By offering resources, support, and a network of like-minded peers, we help bring bold ideas to life, resolving real-world problems and creating impactful value for the world.</p>
+      </div>
     </section>
 
     <!-- Meet our Team -->
-    <div class="bg-[#FBF6F0] flex flex-col items-center px-4 py-10">
-        <h1 class="text-4xl md:text-6xl font-bold text-black fade-in self-start ml-4 md:ml-10">
-            Meet our Team
-        </h1>        
-        <!-- Image Container (Fully Centered) -->
-        <div class="flex flex-wrap justify-center gap-6 mt-6">
-            <a href="https://www.linkedin.com/in/justin-liao23/" target="_blank">
-                <img src="Images/Group 106.png" alt="Image 1" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-lg">
+    <section class="w-full flex flex-col items-center mb-20 px-4">
+      <h2 class="text-4xl md:text-6xl font-bold gradient-text fade-in mb-8">Meet our Team</h2>
+      <div class="flex flex-wrap justify-center gap-8 fade-in">
+        <a href="https://www.linkedin.com/in/justin-liao23/" target="_blank"><img src="Images/Group 106.png" alt="Justin Liao" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-2xl glass shadow-lg hover:scale-105 transition-transform"></a>
+        <a href="https://www.linkedin.com/in/ethan-s-leonard/" target="_blank"><img src="Images/Group 105.png" alt="Ethan Leonard" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-2xl glass shadow-lg hover:scale-105 transition-transform"></a>
+        <a href="https://www.linkedin.com/in/tamir-michaely/" target="_blank"><img src="Images/Tamir_Card.png" alt="Tamir Michaely" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-2xl glass shadow-lg hover:scale-105 transition-transform"></a>
+        <a href="https://www.linkedin.com/in/jane026/" target="_blank"><img src="Images/Group 102.png" alt="Jane Choi" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-2xl glass shadow-lg hover:scale-105 transition-transform"></a>
+        <a href="https://www.linkedin.com/in/manishram-saravanan/" target="_blank"><img src="Images/Group 103.png" alt="Manish Ram Saravanan" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-2xl glass shadow-lg hover:scale-105 transition-transform"></a>
+        <a href="https://www.linkedin.com/in/aryankhanna9/" target="_blank"><img src="Images/Aryan_Card.png" alt="Aryan Khanna" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-2xl glass shadow-lg hover:scale-105 transition-transform"></a>
+        <a href="https://www.linkedin.com/in/rstanev/" target="_blank"><img src="Images/Roger_Card.png" alt="Roger Stanev" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-2xl glass shadow-lg hover:scale-105 transition-transform"></a>
+      </div>
+    </section>
+
+    <!-- Glassy Footer -->
+    <footer class="glass text-center p-8 mt-10 shadow-lg w-[96%] mx-auto">
+        <div class="flex justify-center space-x-8 mb-4">
+            <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" class="text-gray-600 hover:text-[#FC6520] transform hover:scale-110 transition-all">
+                <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-8 h-8">
             </a>
-            <a href="https://www.linkedin.com/in/ethan-s-leonard/" target="_blank">
-                <img src="Images/Group 105.png" alt="Image 2" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-lg">
-            </a>
-            <a href="https://www.linkedin.com/in/tamir-michaely/" target="_blank">
-                <img src="Images/Tamir_Card.png" alt="Image 3" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-lg">
-            </a>
-            <a href="https://www.linkedin.com/in/jane026/" target="_blank">
-                <img src="Images/Group 102.png" alt="Image 4" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-lg">
-            </a>
-            <a href="https://www.linkedin.com/in/manishram-saravanan/" target="_blank">
-                <img src="Images/Group 103.png" alt="Image 5" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-lg">
-            </a>
-            <a href="https://www.linkedin.com/in/aryankhanna9/" target="_blank">
-                <img src="Images/Aryan_Card.png" alt="Image 5" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-lg">
-            </a>
-            <a href="https://www.linkedin.com/in/rstanev/" target="_blank">
-                <img src="Images/Roger_Card.png" alt="Image 5" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-lg">
+            <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" class="text-gray-600 hover:text-[#FC6520] transform hover:scale-110 transition-all">
+                <img src="Images/instagram.svg" alt="Instagram" class="w-8 h-8">
             </a>
         </div>
-    </div>
+        <p class="text-gray-600">Designed & built @ UWB Innovators Hub | 2025</p>
+    </footer>
 
-    <!-- Footer -->
-    <footer class="footer text-center bg-white p-4 mt-10 shadow-md">
-        <!-- Social Media Icons -->
-       <div class="flex justify-center space-x-6 mb-2">
-           <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" class="text-gray-600 hover:text-[#FC6520] text-3xl">
-               <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-8 h-8">
-           </a>
-           <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" class="text-gray-600 hover:text-[#FC6520] text-3xl">
-               <img src="Images/instagram.svg" alt="Instagram" class="w-8 h-8">
-           </a>
-       </div>
-       <p>Designed & built @ UWB Innovators Hub | 2025</p>
-   </footer>
-
-   <script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
