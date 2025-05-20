@@ -66,6 +66,48 @@
         opacity: 1;
         transform: translateY(40px);
       }
+      .mobile-menu-btn {
+        display: none;
+      }
+      @media (max-width: 1023px) {
+        .desktop-menu {
+          display: none;
+        }
+        .mobile-menu-btn {
+          display: block;
+        }
+        .mobile-menu {
+          position: fixed;
+          top: 80px;
+          left: 0;
+          right: 0;
+          background: rgba(255,255,255,0.98);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          padding: 1rem;
+          z-index: 50;
+          border-radius: 0 0 1rem 1rem;
+          box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+          display: none;
+        }
+        .mobile-menu.show {
+          display: block;
+          animation: fadeIn 0.3s ease;
+        }
+        .mobile-menu ul {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .mobile-menu li {
+          padding: 0.75rem;
+          text-align: center;
+          border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .mobile-menu li:last-child {
+          border-bottom: none;
+        }
+      }
     </style>
 </head>
 <body class="bg-gradient-to-br from-[#FBF6F0] via-white to-[#fff7f0] min-h-screen">
@@ -80,15 +122,18 @@
       <div style="transform: translateX(-7vw);">innovate   innovators   entrepreneurs   about   builders   we defy the odds   entrepreneurs   innovators   build   innovate   about   builders   we defy the odds   entrepreneurs</div>
     </div>
     <!-- Glassy Navbar -->
-    <div class="w-full flex justify-center mt-16 pb-2">
-        <nav class="glass flex items-center justify-between w-[96%] max-w-6xl px-10 py-4">
+    <div class="w-full flex justify-center mt-8 md:mt-16 pb-2 px-4">
+        <nav class="glass flex items-center justify-between w-full max-w-6xl px-4 md:px-10 py-4">
             <div class="flex items-center">
                 <a href="index.html" class="flex items-center">
-                    <img src="Images/logo.svg" alt="Logo" class="w-12 h-12 mr-3 drop-shadow-lg">
-                    <span class="gradient-text font-extrabold text-2xl tracking-tight" style="font-family: 'Space Grotesk', Inter, sans-serif;">Innovators Hub</span>
+                    <img src="Images/logo.svg" alt="Logo" class="w-10 h-10 md:w-12 md:h-12 mr-2 md:mr-3 drop-shadow-lg">
+                    <span class="gradient-text font-extrabold text-xl md:text-2xl tracking-tight" style="font-family: 'Space Grotesk', Inter, sans-serif;">Innovators Hub</span>
                 </a>
             </div>
-            <ul class="flex space-x-8 items-center text-lg font-medium">
+            <button class="mobile-menu-btn text-3xl text-[#FC6520]" aria-label="Toggle menu">
+                ☰
+            </button>
+            <ul class="desktop-menu flex space-x-4 md:space-x-8 items-center text-base md:text-lg font-medium">
                 <li><a href="about.html" class="hover:text-[#FC6520] transition-colors">About</a></li>
                 <li><a href="events.html" class="hover:text-[#FC6520] transition-colors">Events</a></li>
                 <li><a href="launchpads.html" class="hover:text-[#FC6520] transition-colors">Launchpads</a></li>
@@ -96,64 +141,75 @@
                 <li><a href="contacts.html" class="hover:text-[#FC6520] transition-colors">Contacts</a></li>
                 <li>
                   <a href="https://forms.gle/JdZJwp7SfnRxis8B9" target="_blank">
-                    <button class="bg-[#FC6520] glow text-white px-7 py-2 rounded-full font-bold hover:bg-[#e24e1b] transition-all">Join Us</button>
+                    <button class="bg-[#FC6520] glow text-white px-4 md:px-7 py-2 rounded-full font-bold hover:bg-[#e24e1b] transition-all">Join Us</button>
                   </a>
                 </li>
             </ul>
         </nav>
+        <div class="mobile-menu">
+            <ul class="text-lg font-medium">
+                <li><a href="about.html" class="hover:text-[#FC6520] transition-colors block">About</a></li>
+                <li><a href="events.html" class="hover:text-[#FC6520] transition-colors block">Events</a></li>
+                <li><a href="launchpads.html" class="hover:text-[#FC6520] transition-colors block">Launchpads</a></li>
+                <li><a href="innovators.html" class="hover:text-[#FC6520] transition-colors block">Innovators</a></li>
+                <li><a href="contacts.html" class="hover:text-[#FC6520] transition-colors block">Contacts</a></li>
+                <li>
+                  <a href="https://forms.gle/JdZJwp7SfnRxis8B9" target="_blank" class="block">
+                    <button class="bg-[#FC6520] glow text-white px-7 py-2 rounded-full font-bold hover:bg-[#e24e1b] transition-all w-full">Join Us</button>
+                  </a>
+                </li>
+            </ul>
+        </div>
     </div>
 
     <!-- Hero Section -->
-    <section class="flex flex-col items-center justify-center text-center mt-20 mb-10 px-4 relative overflow-hidden">
+    <section class="flex flex-col items-center justify-center text-center mt-10 md:mt-20 mb-6 md:mb-10 px-4 relative overflow-hidden">
       <!-- Main hero content -->
-      <h1 class="text-9xl md:text-9xl font-extrabold gradient-text fade-in mb-6 mt-6" style="font-family: 'Space Grotesk', Inter, sans-serif; letter-spacing: -2px;">Innovators <span style="display:block;">Hub</span></h1>
-      <p class="mt-2 text-xl md:text-3xl text-gray-700 font-bold fade-in mb-2">We are a community of student <span id="cycling-word" class="text-[#FC6520] font-bold transition-colors duration-300">entrepreneurs</span></p>
-      <p class="mt-2 text-xl md:text-3xl text-gray-700 font-bold fade-in mb-8">We defy the odds.</p>
-      <div class="flex justify-center gap-6 mb-60 fade-in">
-        <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" class="flex items-center px-6 py-3 rounded-full bg-white shadow-md border border-gray-200 text-black hover:bg-[#0A66C2] hover:text-white transition-all font-semibold text-lg">
-          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-6 h-6 mr-2"> LinkedIn
+      <h1 class="text-6xl sm:text-7xl md:text-9xl font-extrabold gradient-text fade-in mb-4 md:mb-6 mt-4 md:mt-6" style="font-family: 'Space Grotesk', Inter, sans-serif; letter-spacing: -2px;">Innovators <span style="display:block;">Hub</span></h1>
+      <p class="mt-2 text-lg sm:text-xl md:text-3xl text-gray-700 font-bold fade-in mb-2">We are a community of student <span id="cycling-word" class="text-[#FC6520] font-bold transition-colors duration-300">entrepreneurs</span></p>
+      <p class="mt-2 text-lg sm:text-xl md:text-3xl text-gray-700 font-bold fade-in mb-4 md:mb-8">We defy the odds.</p>
+      <div class="flex flex-wrap justify-center gap-3 md:gap-6 mb-20 md:mb-60 fade-in">
+        <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" class="flex items-center px-4 md:px-6 py-2 md:py-3 rounded-full bg-white shadow-md border border-gray-200 text-black hover:bg-[#0A66C2] hover:text-white transition-all font-semibold text-sm md:text-lg">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-6 md:h-6 mr-2"> LinkedIn
         </a>
-        <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" class="flex items-center px-6 py-3 rounded-full bg-white shadow-md border border-gray-200 text-black hover:bg-[#E1306C] hover:text-white transition-all font-semibold text-lg">
-          <img src="Images/instagram.svg" alt="Instagram" class="w-6 h-6 mr-2"> Instagram
+        <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" class="flex items-center px-4 md:px-6 py-2 md:py-3 rounded-full bg-white shadow-md border border-gray-200 text-black hover:bg-[#E1306C] hover:text-white transition-all font-semibold text-sm md:text-lg">
+          <img src="Images/instagram.svg" alt="Instagram" class="w-5 h-5 md:w-6 md:h-6 mr-2"> Instagram
         </a>
-        <a href="mailto:innovatorshub@uw.edu" class="flex items-center px-6 py-3 rounded-full bg-white shadow-md border border-gray-200 text-black hover:bg-[#FC6520] hover:text-white transition-all font-semibold text-lg">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 mr-2"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12l-4-4-4 4m8 0v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6m16 0V6a2 2 0 00-2-2H6a2 2 0 00-2 2v6" /></svg>
+        <a href="mailto:innovatorshub@uw.edu" class="flex items-center px-4 md:px-6 py-2 md:py-3 rounded-full bg-white shadow-md border border-gray-200 text-black hover:bg-[#FC6520] hover:text-white transition-all font-semibold text-sm md:text-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 md:w-6 md:h-6 mr-2"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12l-4-4-4 4m8 0v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6m16 0V6a2 2 0 00-2-2H6a2 2 0 00-2 2v6" /></svg>
           Email Us
         </a>
-        <a href="https://gather.uwb.edu/feeds?type=club&type_id=35516&tab=about" target="_blank" class="flex items-center px-6 py-3 rounded-full bg-white shadow-md border border-gray-200 text-black hover:bg-[#4B2E83] hover:text-white transition-all font-semibold text-lg">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 mr-2"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m9-4a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+        <a href="https://gather.uwb.edu/feeds?type=club&type_id=35516&tab=about" target="_blank" class="flex items-center px-4 md:px-6 py-2 md:py-3 rounded-full bg-white shadow-md border border-gray-200 text-black hover:bg-[#4B2E83] hover:text-white transition-all font-semibold text-sm md:text-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 md:w-6 md:h-6 mr-2"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m9-4a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
           UWB Gather
         </a>
       </div>
 
       <!-- Animated Group Photo with Company Icons -->
-      <div class="relative flex flex-col items-center my-12">
+      <div class="relative flex flex-col items-center my-8 md:my-12">
         <img id="group-photo" src="Images/LaunchpadIntro.png" alt="Group Photo"
-          class="rounded-2xl shadow-lg max-w-full md:max-w-2xl transition-transform duration-700 ease-out scale-75 opacity-0" />
+          class="rounded-2xl shadow-lg w-full max-w-full md:max-w-2xl transition-transform duration-700 ease-out scale-75 opacity-0" />
       </div>
 
-      <div class="glass p-6 max-w-3xl fade-in">
-          <p class="text-xl md:text-xl text-gray-700 italic mb-2">"Everything around you that you called life, was made up by people who were no smarter than you... you can build your own things that other people can use."</p>
-          <p class="text-lg text-[#FC6520] font-semibold">— Steve Jobs</p>
+      <div class="glass p-4 md:p-6 max-w-xs sm:max-w-md md:max-w-3xl fade-in mx-4">
+          <p class="text-base md:text-xl text-gray-700 italic mb-2">"Everything around you that you called life, was made up by people who were no smarter than you... you can build your own things that other people can use."</p>
+          <p class="text-sm md:text-lg text-[#FC6520] font-semibold">— Steve Jobs</p>
       </div>
     </section>
 
-    <!-- Glass Cards Section -->
-    <!-- Removed What We Do and Our Mission boxes as requested -->
-
     <!-- Gallery Carousel (Futuristic Style) -->
-    <section class="w-full flex flex-col items-center mb-20 px-4">
-      <h2 class="text-2xl font-bold gradient-text mb-6">Gallery</h2>
+    <section class="w-full flex flex-col items-center mb-12 md:mb-20 px-4">
+      <h2 class="text-xl md:text-2xl font-bold gradient-text mb-4 md:mb-6">Gallery</h2>
       <div class="relative w-full max-w-7xl overflow-hidden rounded-2xl glass shadow-xl">
-        <div class="flex animate-scroll-x space-x-6 py-4 px-2" id="gallery-carousel">
-          <img src="Gallery Images/IMG_3879.jpg" class="h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 1">
-          <img src="Gallery Images/20250211_134517.jpg" class="h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 2">
-          <img src="Gallery Images/20250211_134530.jpg" class="h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 3">
-          <img src="Gallery Images/20250211_134553.jpg" class="h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 4">
-          <img src="Gallery Images/IMG_0951.jpg" class="h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 5">
-          <img src="Gallery Images/20250307_153232.jpg" class="h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 6">
-          <img src="Gallery Images/IMG_1056.jpg" class="h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 7">
-          <img src="Gallery Images/IMG_1066.jpg" class="h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 8">
+        <div class="flex animate-scroll-x space-x-4 md:space-x-6 py-4 px-2" id="gallery-carousel">
+          <img src="Gallery Images/IMG_3879.jpg" class="h-40 md:h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 1">
+          <img src="Gallery Images/20250211_134517.jpg" class="h-40 md:h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 2">
+          <img src="Gallery Images/20250211_134530.jpg" class="h-40 md:h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 3">
+          <img src="Gallery Images/20250211_134553.jpg" class="h-40 md:h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 4">
+          <img src="Gallery Images/IMG_0951.jpg" class="h-40 md:h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 5">
+          <img src="Gallery Images/20250307_153232.jpg" class="h-40 md:h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 6">
+          <img src="Gallery Images/IMG_1056.jpg" class="h-40 md:h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 7">
+          <img src="Gallery Images/IMG_1066.jpg" class="h-40 md:h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 8">
         </div>
       </div>
       <style>
@@ -176,31 +232,31 @@
     </div>
 
     <!-- Partners Section -->
-    <section class="w-full flex flex-col items-center mb-20 px-4">
-      <h2 class="text-2xl font-bold gradient-text mb-6">Supporters & Partners</h2>
-      <div class="flex flex-wrap justify-center gap-10 glass p-6">
-        <img src="Images/bc_acm.svg" alt="Partner Logo" class="w-28 h-28 object-contain">
-        <img src="Images/uwb_logo.png" alt="Partner Logo" class="w-28 h-28 object-contain">
-        <img src="Images/uwb_acm.png" alt="Partner Logo" class="w-28 h-28 object-contain">
-        <img src="Images/Asset_24x.png" alt="Partner Logo" class="w-28 h-28 object-contain">
+    <section class="w-full flex flex-col items-center mb-12 md:mb-20 px-4">
+      <h2 class="text-xl md:text-2xl font-bold gradient-text mb-4 md:mb-6">Supporters & Partners</h2>
+      <div class="flex flex-wrap justify-center gap-6 md:gap-10 glass p-4 md:p-6">
+        <img src="Images/bc_acm.svg" alt="Partner Logo" class="w-20 h-20 md:w-28 md:h-28 object-contain">
+        <img src="Images/uwb_logo.png" alt="Partner Logo" class="w-20 h-20 md:w-28 md:h-28 object-contain">
+        <img src="Images/uwb_acm.png" alt="Partner Logo" class="w-20 h-20 md:w-28 md:h-28 object-contain">
+        <img src="Images/Asset_24x.png" alt="Partner Logo" class="w-20 h-20 md:w-28 md:h-28 object-contain">
       </div>
     </section>
 
     <!-- Call to Action -->
-    <section class="flex flex-col items-center justify-center mb-20">
+    <section class="flex flex-col items-center justify-center mb-12 md:mb-20">
       <a href="https://forms.gle/JdZJwp7SfnRxis8B9" target="_blank">
-        <button class="bg-[#FC6520] glow text-white py-5 px-16 rounded-full text-2xl font-bold hover:bg-[#e24e1b] transition-all shadow-xl">Join Us</button>
+        <button class="bg-[#FC6520] glow text-white py-4 md:py-5 px-10 md:px-16 rounded-full text-xl md:text-2xl font-bold hover:bg-[#e24e1b] transition-all shadow-xl">Join Us</button>
       </a>
     </section>
 
     <!-- Glassy Footer -->
-    <footer class="glass text-center p-8 mt-10 shadow-lg w-[96%] mx-auto">
-        <div class="flex justify-center space-x-8 mb-4">
+    <footer class="glass text-center p-6 md:p-8 mt-6 md:mt-10 shadow-lg w-[96%] mx-auto">
+        <div class="flex justify-center space-x-6 md:space-x-8 mb-4">
             <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" class="text-gray-600 hover:text-[#FC6520] transform hover:scale-110 transition-all">
-                <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-8 h-8">
+                <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-6 h-6 md:w-8 md:h-8">
             </a>
             <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" class="text-gray-600 hover:text-[#FC6520] transform hover:scale-110 transition-all">
-                <img src="Images/instagram.svg" alt="Instagram" class="w-8 h-8">
+                <img src="Images/instagram.svg" alt="Instagram" class="w-6 h-6 md:w-8 md:h-8">
             </a>
         </div>
         <p class="text-gray-600">Designed & built @ UWB Innovators Hub | 2025</p>
@@ -208,6 +264,22 @@
 
     <script src="script.js"></script>
     <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('show');
+    });
+    
+    // Close mobile menu when clicking on a link
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('show');
+      });
+    });
+    
     // Lightbox functionality for gallery
     const galleryImgs = document.querySelectorAll('.gallery-img');
     const lightboxModal = document.getElementById('lightbox-modal');
@@ -267,10 +339,12 @@
       setTimeout(() => {
         ['icon-expedia', 'icon-steam', 'icon-tmobile', 'icon-google'].forEach((id, i) => {
           const icon = document.getElementById(id);
-          setTimeout(() => {
-            icon.classList.remove('scale-50', 'opacity-0');
-            icon.classList.add('scale-100', 'opacity-100');
-          }, i * 200);
+          if (icon) {
+            setTimeout(() => {
+              icon.classList.remove('scale-50', 'opacity-0');
+              icon.classList.add('scale-100', 'opacity-100');
+            }, i * 200);
+          }
         });
       }, 900);
     });

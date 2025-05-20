@@ -56,19 +56,64 @@
         @apply w-full px-5 py-3 rounded-xl border border-gray-200 bg-white/80 focus:outline-none focus:ring-2 focus:ring-[#FC6520] text-lg mb-4 transition;
       }
       .contact-textarea { min-height: 120px; }
+      .mobile-menu-btn {
+        display: none;
+      }
+      @media (max-width: 1023px) {
+        .desktop-menu {
+          display: none;
+        }
+        .mobile-menu-btn {
+          display: block;
+        }
+        .mobile-menu {
+          position: fixed;
+          top: 80px;
+          left: 0;
+          right: 0;
+          background: rgba(255,255,255,0.98);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          padding: 1rem;
+          z-index: 50;
+          border-radius: 0 0 1rem 1rem;
+          box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+          display: none;
+        }
+        .mobile-menu.show {
+          display: block;
+          animation: fadeIn 0.3s ease;
+        }
+        .mobile-menu ul {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .mobile-menu li {
+          padding: 0.75rem;
+          text-align: center;
+          border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .mobile-menu li:last-child {
+          border-bottom: none;
+        }
+      }
     </style>
 </head>
 <body class="bg-gradient-to-br from-[#FBF6F0] via-white to-[#fff7f0] min-h-screen flex flex-col">
     <!-- Glassy Navbar -->
-    <div class="w-full flex justify-center mt-16 pb-2">
-        <nav class="glass flex items-center justify-between w-[96%] max-w-6xl px-10 py-4">
+    <div class="w-full flex justify-center mt-8 md:mt-16 pb-2 px-4">
+        <nav class="glass flex items-center justify-between w-full max-w-6xl px-4 md:px-10 py-4">
             <div class="flex items-center">
                 <a href="index.html" class="flex items-center">
-                    <img src="Images/logo.svg" alt="Logo" class="w-12 h-12 mr-3 drop-shadow-lg">
-                    <span class="gradient-text font-extrabold text-2xl tracking-tight" style="font-family: 'Space Grotesk', Inter, sans-serif;">Innovators Hub</span>
+                    <img src="Images/logo.svg" alt="Logo" class="w-10 h-10 md:w-12 md:h-12 mr-2 md:mr-3 drop-shadow-lg">
+                    <span class="gradient-text font-extrabold text-xl md:text-2xl tracking-tight" style="font-family: 'Space Grotesk', Inter, sans-serif;">Innovators Hub</span>
                 </a>
             </div>
-            <ul class="flex space-x-8 items-center text-lg font-medium">
+            <button class="mobile-menu-btn text-3xl text-[#FC6520]" aria-label="Toggle menu">
+                ☰
+            </button>
+            <ul class="desktop-menu flex space-x-4 md:space-x-8 items-center text-base md:text-lg font-medium">
                 <li><a href="about.html" class="hover:text-[#FC6520] transition-colors">About</a></li>
                 <li><a href="events.html" class="hover:text-[#FC6520] transition-colors">Events</a></li>
                 <li><a href="launchpads.html" class="hover:text-[#FC6520] transition-colors">Launchpads</a></li>
@@ -76,23 +121,37 @@
                 <li><a href="contacts.html" class="hover:text-[#FC6520] transition-colors">Contacts</a></li>
                 <li>
                   <a href="https://forms.gle/JdZJwp7SfnRxis8B9" target="_blank">
-                    <button class="bg-[#FC6520] glow text-white px-7 py-2 rounded-full font-bold hover:bg-[#e24e1b] transition-all">Join Us</button>
+                    <button class="bg-[#FC6520] glow text-white px-4 md:px-7 py-2 rounded-full font-bold hover:bg-[#e24e1b] transition-all">Join Us</button>
                   </a>
                 </li>
             </ul>
         </nav>
+        <div class="mobile-menu">
+            <ul class="text-lg font-medium">
+                <li><a href="about.html" class="hover:text-[#FC6520] transition-colors block">About</a></li>
+                <li><a href="events.html" class="hover:text-[#FC6520] transition-colors block">Events</a></li>
+                <li><a href="launchpads.html" class="hover:text-[#FC6520] transition-colors block">Launchpads</a></li>
+                <li><a href="innovators.html" class="hover:text-[#FC6520] transition-colors block">Innovators</a></li>
+                <li><a href="contacts.html" class="hover:text-[#FC6520] transition-colors block">Contacts</a></li>
+                <li>
+                  <a href="https://forms.gle/JdZJwp7SfnRxis8B9" target="_blank" class="block">
+                    <button class="bg-[#FC6520] glow text-white px-7 py-2 rounded-full font-bold hover:bg-[#e24e1b] transition-all w-full">Join Us</button>
+                  </a>
+                </li>
+            </ul>
+        </div>
     </div>
 
     <!-- Hero Section -->
-    <section class="flex flex-col items-center justify-center text-center mt-20 mb-10 px-4">
-        <h1 class="text-6xl md:text-7xl font-extrabold gradient-text fade-in mb-6" style="font-family: 'Space Grotesk', Inter, sans-serif; letter-spacing: -2px;">Contact Us</h1>
-        <p class="text-2xl md:text-3xl font-semibold text-gray-700 fade-in max-w-3xl mb-4">Whether you have a question, an idea, or just want to say hello, we'd love to hear from you.</p>
+    <section class="flex flex-col items-center justify-center text-center mt-10 md:mt-20 mb-6 md:mb-10 px-4">
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold gradient-text fade-in mb-4 md:mb-6" style="font-family: 'Space Grotesk', Inter, sans-serif; letter-spacing: -2px;">Contact Us</h1>
+        <p class="text-lg sm:text-xl md:text-3xl font-semibold text-gray-700 fade-in max-w-3xl mb-4">Whether you have a question, an idea, or just want to say hello, we'd love to hear from you.</p>
     </section>
 
     <!-- Contact Form Section -->
-    <main class="flex-grow flex flex-col justify-center items-center mb-20 px-4">
-      <div class="glass w-full max-w-xl p-10 fade-in">
-        <h2 class="text-3xl font-bold gradient-text mb-4 text-center">Talk with us</h2>
+    <main class="flex-grow flex flex-col justify-center items-center mb-12 md:mb-20 px-4">
+      <div class="glass w-full max-w-xl p-6 md:p-10 fade-in">
+        <h2 class="text-2xl md:text-3xl font-bold gradient-text mb-4 text-center">Talk with us</h2>
         <form id="contactForm" class="flex flex-col">
           <input type="text" id="name" name="name" placeholder="Your name" required class="contact-input bg-[#f3f4f6] text-gray-900">
           <input type="email" id="email" name="email" placeholder="Your email address" required class="contact-input bg-[#f3f4f6] text-gray-900">
@@ -104,18 +163,35 @@
     </main>
 
     <!-- Glassy Footer -->
-    <footer class="glass text-center p-8 mt-10 shadow-lg w-[96%] mx-auto">
-        <div class="flex justify-center space-x-8 mb-4">
+    <footer class="glass text-center p-6 md:p-8 mt-6 md:mt-10 shadow-lg w-[96%] mx-auto">
+        <div class="flex justify-center space-x-6 md:space-x-8 mb-4">
             <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" class="text-gray-600 hover:text-[#FC6520] transform hover:scale-110 transition-all">
-                <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-8 h-8">
+                <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-6 h-6 md:w-8 md:h-8">
             </a>
             <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" class="text-gray-600 hover:text-[#FC6520] transform hover:scale-110 transition-all">
-                <img src="Images/instagram.svg" alt="Instagram" class="w-8 h-8">
+                <img src="Images/instagram.svg" alt="Instagram" class="w-6 h-6 md:w-8 md:h-8">
             </a>
         </div>
         <p class="text-gray-600">Designed & built @ UWB Innovators Hub | 2025</p>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('show');
+    });
+    
+    // Close mobile menu when clicking on a link
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('show');
+      });
+    });
+    </script>
 </body>
 </html>
