@@ -840,3 +840,61 @@ button:hover::after {
     }
 }
 
+/* Social Media Button Styles */
+.social-button {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    color: black;
+}
+
+.social-button img {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+    transition: filter 0.3s ease;
+    filter: brightness(0);
+}
+
+.social-button svg {
+    color: black;
+    transition: color 0.3s ease;
+}
+
+.social-button:hover {
+    transform: translateY(-2px);
+    color: white;
+}
+
+.social-button:hover img {
+    filter: brightness(0) invert(1);
+}
+
+.social-button:hover svg {
+    color: white;
+}
+
+/* LinkedIn specific styles */
+.social-button.linkedin:hover {
+    background-color: #0A66C2;
+}
+
+/* Instagram specific styles */
+.social-button.instagram:hover {
+    background-color: #E1306C;
+}
+
+/* Email specific styles */
+.social-button.email:hover {
+    background-color: #FC6520;
+}
+
+/* UWB Gather specific styles */
+.social-button.gather:hover {
+    background-color: #4B2E83;
+}
+
