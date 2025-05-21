@@ -130,10 +130,14 @@
                     <span class="gradient-text font-extrabold text-xl md:text-2xl tracking-tight" style="font-family: 'Space Grotesk', Inter, sans-serif;">Innovators Hub</span>
                 </a>
             </div>
-            <button class="mobile-menu-btn text-3xl text-[#FC6520]" aria-label="Toggle menu">
-                ☰
+            <button class="mobile-menu-btn p-2" aria-label="Toggle menu">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </button>
-            <ul class="desktop-menu flex space-x-4 md:space-x-8 items-center text-base md:text-lg font-medium">
+            <ul class="desktop-menu hidden md:flex space-x-4 md:space-x-8 items-center text-base md:text-lg font-medium">
                 <li><a href="about.html" class="hover:text-[#FC6520] transition-colors">About</a></li>
                 <li><a href="events.html" class="hover:text-[#FC6520] transition-colors">Events</a></li>
                 <li><a href="launchpads.html" class="hover:text-[#FC6520] transition-colors">Launchpads</a></li>
@@ -148,14 +152,14 @@
         </nav>
         <div class="mobile-menu">
             <ul class="text-lg font-medium">
-                <li><a href="about.html" class="hover:text-[#FC6520] transition-colors block">About</a></li>
-                <li><a href="events.html" class="hover:text-[#FC6520] transition-colors block">Events</a></li>
-                <li><a href="launchpads.html" class="hover:text-[#FC6520] transition-colors block">Launchpads</a></li>
-                <li><a href="innovators.html" class="hover:text-[#FC6520] transition-colors block">Innovators</a></li>
-                <li><a href="contacts.html" class="hover:text-[#FC6520] transition-colors block">Contacts</a></li>
-                <li>
+                <li><a href="about.html" class="hover:text-[#FC6520] transition-colors block py-3">About</a></li>
+                <li><a href="events.html" class="hover:text-[#FC6520] transition-colors block py-3">Events</a></li>
+                <li><a href="launchpads.html" class="hover:text-[#FC6520] transition-colors block py-3">Launchpads</a></li>
+                <li><a href="innovators.html" class="hover:text-[#FC6520] transition-colors block py-3">Innovators</a></li>
+                <li><a href="contacts.html" class="hover:text-[#FC6520] transition-colors block py-3">Contacts</a></li>
+                <li class="mt-4">
                   <a href="https://forms.gle/JdZJwp7SfnRxis8B9" target="_blank" class="block">
-                    <button class="bg-[#FC6520] glow text-white px-7 py-2 rounded-full font-bold hover:bg-[#e24e1b] transition-all w-full">Join Us</button>
+                    <button class="bg-[#FC6520] glow text-white px-7 py-3 rounded-full font-bold hover:bg-[#e24e1b] transition-all w-full">Join Us</button>
                   </a>
                 </li>
             </ul>
@@ -269,15 +273,28 @@
     const mobileMenu = document.querySelector('.mobile-menu');
     
     mobileMenuBtn.addEventListener('click', () => {
+      mobileMenuBtn.classList.toggle('active');
       mobileMenu.classList.toggle('show');
+      document.body.style.overflow = mobileMenu.classList.contains('show') ? 'hidden' : '';
     });
     
     // Close mobile menu when clicking on a link
     const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
     mobileMenuLinks.forEach(link => {
       link.addEventListener('click', () => {
+        mobileMenuBtn.classList.remove('active');
         mobileMenu.classList.remove('show');
+        document.body.style.overflow = '';
       });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target) && mobileMenu.classList.contains('show')) {
+        mobileMenuBtn.classList.remove('active');
+        mobileMenu.classList.remove('show');
+        document.body.style.overflow = '';
+      }
     });
     
     // Lightbox functionality for gallery
@@ -340,10 +357,10 @@
         ['icon-expedia', 'icon-steam', 'icon-tmobile', 'icon-google'].forEach((id, i) => {
           const icon = document.getElementById(id);
           if (icon) {
-            setTimeout(() => {
-              icon.classList.remove('scale-50', 'opacity-0');
-              icon.classList.add('scale-100', 'opacity-100');
-            }, i * 200);
+          setTimeout(() => {
+            icon.classList.remove('scale-50', 'opacity-0');
+            icon.classList.add('scale-100', 'opacity-100');
+          }, i * 200);
           }
         });
       }, 900);
