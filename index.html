@@ -2,6 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Innovators Hub">
+    <meta name="description" content="At Innovators Hub, we inspire a community of ambitious entrepreneurs, builders, and innovators to turn their ideas into reality. Join us to defy the odds!">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uwbinnovatorshub.com/">
+    <meta property="og:title" content="Innovators Hub">
+    <meta property="og:description" content="At Innovators Hub, we inspire a community of ambitious entrepreneurs, builders, and innovators to turn their ideas into reality. Join us to defy the odds!">
+    <meta property="og:image" content="https://uwbinnovatorshub.com/Images/logo.svg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://uwbinnovatorshub.com/">
+    <meta property="twitter:title" content="Innovators Hub">
+    <meta property="twitter:description" content="At Innovators Hub, we inspire a community of ambitious entrepreneurs, builders, and innovators to turn their ideas into reality. Join us to defy the odds!">
+    <meta property="twitter:image" content="https://uwbinnovatorshub.com/Images/logo.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Innovators Hub</title>
     <link rel="icon" href="Images/logo.svg" type="image/svg+xml">
@@ -49,19 +66,78 @@
         opacity: 1;
         transform: translateY(40px);
       }
+      .mobile-menu-btn {
+        display: none;
+      }
+      @media (max-width: 1023px) {
+        .desktop-menu {
+          display: none;
+        }
+        .mobile-menu-btn {
+          display: block;
+        }
+        .mobile-menu {
+          position: fixed;
+          top: 80px;
+          left: 0;
+          right: 0;
+          background: rgba(255,255,255,0.98);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          padding: 1rem;
+          z-index: 50;
+          border-radius: 0 0 1rem 1rem;
+          box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+          display: none;
+        }
+        .mobile-menu.show {
+          display: block;
+          animation: fadeIn 0.3s ease;
+        }
+        .mobile-menu ul {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .mobile-menu li {
+          padding: 0.75rem;
+          text-align: center;
+          border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .mobile-menu li:last-child {
+          border-bottom: none;
+        }
+      }
     </style>
 </head>
 <body class="bg-gradient-to-br from-[#FBF6F0] via-white to-[#fff7f0] min-h-screen">
+    <!-- Flowing Text Wallpaper Background Words -->
+    <div class="fixed inset-0 w-full h-full pointer-events-none select-none z-0 overflow-hidden" aria-hidden="true" style="font-size:3vw; color:#bbb; opacity:0.13; font-weight:700; letter-spacing:0.03em; line-height:1.2; white-space:pre; font-family: 'Space Grotesk', Inter, sans-serif;">
+      <div style="transform: translateX(0vw);">innovators   entrepreneurs   about   builders   we defy the odds   entrepreneurs   build   innovate   innovators   entrepreneurs   about   builders   we defy the odds   entrepreneurs</div>
+      <div style="transform: translateX(4vw);">entrepreneurs   about   builders   we defy the odds   entrepreneurs   build   innovate   innovators   entrepreneurs   about   builders   we defy the odds   entrepreneurs   innovators</div>
+      <div style="transform: translateX(-2vw);">about   builders   we defy the odds   entrepreneurs   build   innovate   innovators   entrepreneurs   about   builders   we defy the odds   entrepreneurs   innovators   build</div>
+      <div style="transform: translateX(6vw);">builders   we defy the odds   entrepreneurs   build   innovate   innovators   entrepreneurs   about   builders   we defy the odds   entrepreneurs   innovators   build   innovate</div>
+      <div style="transform: translateX(-5vw);">we defy the odds   entrepreneurs   build   innovate   innovators   entrepreneurs   about   builders   we defy the odds   entrepreneurs   innovators   build   innovate   about</div>
+      <div style="transform: translateX(2vw);">build   innovate   innovators   entrepreneurs   about   builders   we defy the odds   entrepreneurs   innovators   build   innovate   about   builders   we defy the odds</div>
+      <div style="transform: translateX(-7vw);">innovate   innovators   entrepreneurs   about   builders   we defy the odds   entrepreneurs   innovators   build   innovate   about   builders   we defy the odds   entrepreneurs</div>
+    </div>
     <!-- Glassy Navbar -->
-    <div class="w-full flex justify-center mt-16 pb-2">
-        <nav class="glass flex items-center justify-between w-[96%] max-w-6xl px-10 py-4">
+    <div class="w-full flex justify-center mt-8 md:mt-16 pb-2 px-4">
+        <nav class="glass flex items-center justify-between w-full max-w-6xl px-4 md:px-10 py-4">
             <div class="flex items-center">
                 <a href="index.html" class="flex items-center">
-                    <img src="Images/logo.svg" alt="Logo" class="w-12 h-12 mr-3 drop-shadow-lg">
-                    <span class="gradient-text font-extrabold text-2xl tracking-tight" style="font-family: 'Space Grotesk', Inter, sans-serif;">Innovators Hub</span>
+                    <img src="Images/logo.svg" alt="Logo" class="w-10 h-10 md:w-12 md:h-12 mr-2 md:mr-3 drop-shadow-lg">
+                    <span class="gradient-text font-extrabold text-xl md:text-2xl tracking-tight" style="font-family: 'Space Grotesk', Inter, sans-serif;">Innovators Hub</span>
                 </a>
             </div>
-            <ul class="flex space-x-8 items-center text-lg font-medium">
+            <button class="mobile-menu-btn p-2" aria-label="Toggle menu">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <ul class="desktop-menu hidden md:flex space-x-4 md:space-x-8 items-center text-base md:text-lg font-medium">
                 <li><a href="about.html" class="hover:text-[#FC6520] transition-colors">About</a></li>
                 <li><a href="events.html" class="hover:text-[#FC6520] transition-colors">Events</a></li>
                 <li><a href="launchpads.html" class="hover:text-[#FC6520] transition-colors">Launchpads</a></li>
@@ -69,54 +145,76 @@
                 <li><a href="contacts.html" class="hover:text-[#FC6520] transition-colors">Contacts</a></li>
                 <li>
                   <a href="https://forms.gle/JdZJwp7SfnRxis8B9" target="_blank">
-                    <button class="bg-[#FC6520] glow text-white px-7 py-2 rounded-full font-bold hover:bg-[#e24e1b] transition-all">Join Us</button>
+                    <button class="bg-[#FC6520] glow text-white px-4 md:px-7 py-2 rounded-full font-bold hover:bg-[#e24e1b] transition-all">Join Us</button>
                   </a>
                 </li>
             </ul>
         </nav>
+        <div class="mobile-menu">
+            <ul class="text-lg font-medium">
+                <li><a href="about.html" class="hover:text-[#FC6520] transition-colors block py-3">About</a></li>
+                <li><a href="events.html" class="hover:text-[#FC6520] transition-colors block py-3">Events</a></li>
+                <li><a href="launchpads.html" class="hover:text-[#FC6520] transition-colors block py-3">Launchpads</a></li>
+                <li><a href="innovators.html" class="hover:text-[#FC6520] transition-colors block py-3">Innovators</a></li>
+                <li><a href="contacts.html" class="hover:text-[#FC6520] transition-colors block py-3">Contacts</a></li>
+                <li class="mt-4">
+                  <a href="https://forms.gle/JdZJwp7SfnRxis8B9" target="_blank" class="block">
+                    <button class="bg-[#FC6520] glow text-white px-7 py-3 rounded-full font-bold hover:bg-[#e24e1b] transition-all w-full">Join Us</button>
+                  </a>
+                </li>
+            </ul>
+        </div>
     </div>
 
     <!-- Hero Section -->
-    <section class="flex flex-col items-center justify-center text-center mt-20 mb-10 px-4">
-        <h1 class="text-6xl md:text-8xl font-extrabold gradient-text fade-in mb-6" style="font-family: 'Space Grotesk', Inter, sans-serif; letter-spacing: -2px;">Innovators Hub</h1>
-        <p class="text-2xl md:text-3xl font-semibold text-gray-700 fade-in max-w-3xl mb-4">We are a community of student entrepreneurs who challenge the status quo, wanting to impact the world by innovating and resolving problems.</p>
-        <p class="mt-2 text-xl text-gray-500 fade-in mb-8">We defy the odds.</p>
-        <div class="glass p-6 max-w-3xl fade-in">
-            <p class="text-xl md:text-2xl text-gray-700 italic mb-2">"Everything around you that you called life, was made up by people who were no smarter than you... you can build your own things that other people can use."</p>
-            <p class="text-lg text-[#FC6520] font-semibold">— Steve Jobs</p>
-        </div>
-    </section>
-
-    <!-- Glass Cards Section -->
-    <section class="flex flex-wrap justify-center gap-10 px-4 mb-16">
-      <div class="glass w-full max-w-md p-8 flex flex-col items-center fade-in">
-        <h2 class="text-3xl font-bold gradient-text mb-2">What We Do</h2>
-        <ul class="text-lg text-gray-700 space-y-2 mt-2">
-          <li><span class="font-bold text-[#FC6520]">Events:</span> Company tours, hackathons, and networking with founders & industry leaders.</li>
-          <li><span class="font-bold text-[#FC6520]">Workshops:</span> Learn from experts in tech, business, and design.</li>
-          <li><span class="font-bold text-[#FC6520]">Launchpad:</span> 8-week accelerator to turn ideas into startups.</li>
-          <li><span class="font-bold text-[#FC6520]">Community:</span> Connect, build, and innovate with like-minded peers.</li>
-        </ul>
+    <section class="flex flex-col items-center justify-center text-center mt-10 md:mt-20 mb-6 md:mb-10 px-4 relative overflow-hidden">
+      <!-- Main hero content -->
+      <h1 class="text-6xl sm:text-7xl md:text-9xl font-extrabold gradient-text fade-in mb-4 md:mb-6 mt-4 md:mt-6" style="font-family: 'Space Grotesk', Inter, sans-serif; letter-spacing: -2px;">Innovators <span style="display:block;">Hub</span></h1>
+      <p class="mt-2 text-lg sm:text-xl md:text-3xl text-gray-700 font-bold fade-in mb-2">We are a community of student</p>
+      <p class="mt-2 text-lg sm:text-xl md:text-3xl text-gray-700 font-bold fade-in mb-2"><span id="cycling-word" class="text-[#FC6520] font-bold transition-colors duration-300 block md:inline">entrepreneurs</span></p>
+      <p class="mt-2 text-lg sm:text-xl md:text-3xl text-gray-700 font-bold fade-in mb-4 md:mb-8">We defy the odds.</p>
+      <div class="flex flex-wrap justify-center gap-3 md:gap-6 mb-20 md:mb-60 fade-in">
+        <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" class="social-button linkedin">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-6 md:h-6 mr-2"> LinkedIn
+        </a>
+        <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" class="social-button instagram">
+          <img src="Images/instagram.svg" alt="Instagram" class="w-5 h-5 md:w-6 md:h-6 mr-2"> Instagram
+        </a>
+        <a href="mailto:innovatorshub@uw.edu" class="social-button email">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 md:w-6 md:h-6 mr-2"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12l-4-4-4 4m8 0v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6m16 0V6a2 2 0 00-2-2H6a2 2 0 00-2 2v6" /></svg>
+          Email Us
+        </a>
+        <a href="https://gather.uwb.edu/feeds?type=club&type_id=35516&tab=about" target="_blank" class="social-button gather">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 md:w-6 md:h-6 mr-2"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m9-4a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+          UWB Gather
+        </a>
       </div>
-      <div class="glass w-full max-w-md p-8 flex flex-col items-center fade-in">
-        <h2 class="text-3xl font-bold gradient-text mb-2">Our Mission</h2>
-        <p class="text-lg text-gray-700 mt-2">Fostering a culture of ambition, passion, and innovation. We empower students to bring bold ideas to life and create real-world impact.</p>
+
+      <!-- Animated Group Photo with Company Icons -->
+      <div class="relative flex flex-col items-center my-8 md:my-12">
+        <img id="group-photo" src="Images/LaunchpadIntro.png" alt="Group Photo"
+          class="rounded-2xl shadow-lg w-full max-w-full md:max-w-2xl transition-transform duration-700 ease-out scale-75 opacity-0" />
+      </div>
+
+      <div class="glass p-4 md:p-6 max-w-xs sm:max-w-md md:max-w-3xl fade-in mx-4">
+          <p class="text-base md:text-xl text-gray-700 italic mb-2">"Everything around you that you called life, was made up by people who were no smarter than you... you can build your own things that other people can use."</p>
+          <p class="text-sm md:text-lg text-[#FC6520] font-semibold">— Steve Jobs</p>
       </div>
     </section>
 
     <!-- Gallery Carousel (Futuristic Style) -->
-    <section class="w-full flex flex-col items-center mb-20 px-4">
-      <h2 class="text-2xl font-bold gradient-text mb-6">Gallery</h2>
-      <div class="relative w-full max-w-4xl overflow-hidden rounded-2xl glass shadow-xl">
-        <div class="flex animate-scroll-x space-x-6 py-4 px-2" id="gallery-carousel">
-          <img src="Gallery Images/IMG_3879.jpg" class="h-40 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 1">
-          <img src="Gallery Images/20250211_134517.jpg" class="h-40 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 2">
-          <img src="Gallery Images/20250211_134530.jpg" class="h-40 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 3">
-          <img src="Gallery Images/20250211_134553.jpg" class="h-40 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 4">
-          <img src="Gallery Images/IMG_0951.jpg" class="h-40 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 5">
-          <img src="Gallery Images/20250307_153232.jpg" class="h-40 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 6">
-          <img src="Gallery Images/IMG_1056.jpg" class="h-40 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 7">
-          <img src="Gallery Images/IMG_1066.jpg" class="h-40 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 8">
+    <section class="w-full flex flex-col items-center mb-12 md:mb-20 px-4">
+      <h2 class="text-xl md:text-2xl font-bold gradient-text mb-4 md:mb-6">Gallery</h2>
+      <div class="relative w-full max-w-7xl overflow-hidden rounded-2xl glass shadow-xl">
+        <div class="flex animate-scroll-x space-x-4 md:space-x-6 py-4 px-2" id="gallery-carousel">
+          <img src="Gallery Images/IMG_3879.jpg" class="h-40 md:h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 1">
+          <img src="Gallery Images/20250211_134517.jpg" class="h-40 md:h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 2">
+          <img src="Gallery Images/20250211_134530.jpg" class="h-40 md:h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 3">
+          <img src="Gallery Images/20250211_134553.jpg" class="h-40 md:h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 4">
+          <img src="Gallery Images/IMG_0951.jpg" class="h-40 md:h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 5">
+          <img src="Gallery Images/20250307_153232.jpg" class="h-40 md:h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 6">
+          <img src="Gallery Images/IMG_1056.jpg" class="h-40 md:h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 7">
+          <img src="Gallery Images/IMG_1066.jpg" class="h-40 md:h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 8">
         </div>
       </div>
       <style>
@@ -139,31 +237,31 @@
     </div>
 
     <!-- Partners Section -->
-    <section class="w-full flex flex-col items-center mb-20 px-4">
-      <h2 class="text-2xl font-bold gradient-text mb-6">Supporters & Partners</h2>
-      <div class="flex flex-wrap justify-center gap-10 glass p-6">
-        <img src="Images/bc_acm.svg" alt="Partner Logo" class="w-28 h-28 object-contain">
-        <img src="Images/uwb_logo.png" alt="Partner Logo" class="w-28 h-28 object-contain">
-        <img src="Images/uwb_acm.png" alt="Partner Logo" class="w-28 h-28 object-contain">
-        <img src="Images/Asset_24x.png" alt="Partner Logo" class="w-28 h-28 object-contain">
+    <section class="w-full flex flex-col items-center mb-12 md:mb-20 px-4">
+      <h2 class="text-xl md:text-2xl font-bold gradient-text mb-4 md:mb-6">Supporters & Partners</h2>
+      <div class="flex flex-wrap justify-center gap-6 md:gap-10 glass p-4 md:p-6">
+        <img src="Images/bc_acm.svg" alt="Partner Logo" class="w-20 h-20 md:w-28 md:h-28 object-contain">
+        <img src="Images/uwb_logo.png" alt="Partner Logo" class="w-20 h-20 md:w-28 md:h-28 object-contain">
+        <img src="Images/uwb_acm.png" alt="Partner Logo" class="w-20 h-20 md:w-28 md:h-28 object-contain">
+        <img src="Images/Asset_24x.png" alt="Partner Logo" class="w-20 h-20 md:w-28 md:h-28 object-contain">
       </div>
     </section>
 
     <!-- Call to Action -->
-    <section class="flex flex-col items-center justify-center mb-20">
+    <section class="flex flex-col items-center justify-center mb-12 md:mb-20">
       <a href="https://forms.gle/JdZJwp7SfnRxis8B9" target="_blank">
-        <button class="bg-[#FC6520] glow text-white py-5 px-16 rounded-full text-2xl font-bold hover:bg-[#e24e1b] transition-all shadow-xl">Join Us</button>
+        <button class="bg-[#FC6520] glow text-white py-4 md:py-5 px-10 md:px-16 rounded-full text-xl md:text-2xl font-bold hover:bg-[#e24e1b] transition-all shadow-xl">Join Us</button>
       </a>
     </section>
 
     <!-- Glassy Footer -->
-    <footer class="glass text-center p-8 mt-10 shadow-lg w-[96%] mx-auto">
-        <div class="flex justify-center space-x-8 mb-4">
+    <footer class="glass text-center p-6 md:p-8 mt-6 md:mt-10 shadow-lg w-[96%] mx-auto">
+        <div class="flex justify-center space-x-6 md:space-x-8 mb-4">
             <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" class="text-gray-600 hover:text-[#FC6520] transform hover:scale-110 transition-all">
-                <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-8 h-8">
+                <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-6 h-6 md:w-8 md:h-8">
             </a>
             <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" class="text-gray-600 hover:text-[#FC6520] transform hover:scale-110 transition-all">
-                <img src="Images/instagram.svg" alt="Instagram" class="w-8 h-8">
+                <img src="Images/instagram.svg" alt="Instagram" class="w-6 h-6 md:w-8 md:h-8">
             </a>
         </div>
         <p class="text-gray-600">Designed & built @ UWB Innovators Hub | 2025</p>
@@ -171,6 +269,35 @@
 
     <script src="script.js"></script>
     <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenuBtn.classList.toggle('active');
+      mobileMenu.classList.toggle('show');
+      document.body.style.overflow = mobileMenu.classList.contains('show') ? 'hidden' : '';
+    });
+    
+    // Close mobile menu when clicking on a link
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuBtn.classList.remove('active');
+        mobileMenu.classList.remove('show');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target) && mobileMenu.classList.contains('show')) {
+        mobileMenuBtn.classList.remove('active');
+        mobileMenu.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+    });
+    
     // Lightbox functionality for gallery
     const galleryImgs = document.querySelectorAll('.gallery-img');
     const lightboxModal = document.getElementById('lightbox-modal');
@@ -208,6 +335,36 @@
     lightboxClose.addEventListener('click', closeLightbox);
     lightboxModal.addEventListener('click', (e) => {
       if (e.target === lightboxModal) closeLightbox();
+    });
+
+    // Cycling word effect in hero section
+    const words = ["builders", "entrepreneurs", "innovators"];
+    let wordIndex = 0;
+    const cyclingWord = document.getElementById("cycling-word");
+    setInterval(() => {
+      wordIndex = (wordIndex + 1) % words.length;
+      cyclingWord.textContent = words[wordIndex];
+    }, 1300);
+
+    // Animate group photo and company icons
+    window.addEventListener('DOMContentLoaded', () => {
+      const photo = document.getElementById('group-photo');
+      setTimeout(() => {
+        photo.classList.remove('scale-75', 'opacity-0');
+        photo.classList.add('scale-100', 'opacity-100');
+      }, 200);
+      // Animate icons after photo
+      setTimeout(() => {
+        ['icon-expedia', 'icon-steam', 'icon-tmobile', 'icon-google'].forEach((id, i) => {
+          const icon = document.getElementById(id);
+          if (icon) {
+          setTimeout(() => {
+            icon.classList.remove('scale-50', 'opacity-0');
+            icon.classList.add('scale-100', 'opacity-100');
+          }, i * 200);
+          }
+        });
+      }, 900);
     });
     </script>
 </body>
