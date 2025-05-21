@@ -2,244 +2,351 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Innovators Hub">
+    <meta name="description" content="At Innovators Hub, we inspire a community of ambitious entrepreneurs, builders, and innovators to turn their ideas into reality. Join us to defy the odds!">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uwbinnovatorshub.com/">
+    <meta property="og:title" content="Innovators Hub">
+    <meta property="og:description" content="At Innovators Hub, we inspire a community of ambitious entrepreneurs, builders, and innovators to turn their ideas into reality. Join us to defy the odds!">
+    <meta property="og:image" content="https://uwbinnovatorshub.com/Images/logo.svg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://uwbinnovatorshub.com/">
+    <meta property="twitter:title" content="Innovators Hub">
+    <meta property="twitter:description" content="At Innovators Hub, we inspire a community of ambitious entrepreneurs, builders, and innovators to turn their ideas into reality. Join us to defy the odds!">
+    <meta property="twitter:image" content="https://uwbinnovatorshub.com/Images/logo.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Innovators Hub</title>
     <link rel="icon" href="Images/logo.svg" type="image/svg+xml">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+      body { font-family: 'Inter', 'Space Grotesk', sans-serif; }
+      .glass {
+        background: rgba(255,255,255,0.7);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 2rem;
+        border: 1px solid rgba(255,255,255,0.18);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .glass:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.15);
+      }
+      .glow {
+        box-shadow: 0 0 16px 2px #FC6520aa;
+      }
+      .gradient-text {
+        background: linear-gradient(90deg, #FC6520 30%, #ff8c42 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+      .fade-in {
+        animation: fadeIn 1.2s ease;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: none; }
+      }
+      .mobile-menu-btn {
+        display: none;
+      }
+      @media (max-width: 1023px) {
+        .desktop-menu {
+          display: none;
+        }
+        .mobile-menu-btn {
+          display: block;
+        }
+        .mobile-menu {
+          position: fixed;
+          top: 80px;
+          left: 0;
+          right: 0;
+          background: rgba(255,255,255,0.98);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          padding: 1rem;
+          z-index: 50;
+          border-radius: 0 0 1rem 1rem;
+          box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+          display: none;
+        }
+        .mobile-menu.show {
+          display: block;
+          animation: fadeIn 0.3s ease;
+        }
+        .mobile-menu ul {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .mobile-menu li {
+          padding: 0.75rem;
+          text-align: center;
+          border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .mobile-menu li:last-child {
+          border-bottom: none;
+        }
+      }
+    </style>
 </head>
-<body class="bg-[#FBF6F0]">
-    <!-- Navbar -->
-    <nav class="flex justify-between items-center p-4 bg-white shadow-md fixed w-full top-0">
-        <a href="index.html" class="flex items-center">
-            <img src="Images/logo.svg" alt="Logo" class="w-10 h-10 mr-2"> 
-            <span class="text-[#FC6520] font-bold text-xl">Innovators Hub</span>
-        </a>
-
-        <!-- Mobile Menu Toggle -->
-        <div class="lg:hidden flex items-center">
-            <button class="toggle text-2xl" style="color: #FC6520;">&#9776;</button> <!-- Hamburger icon -->
-        </div>
-
-        <!-- Navbar Links -->
-        <ul class="flex space-x-6 items-center lg:flex hidden">
-            <li><a href="about.html" class="hover:text-orange-500">About</a></li>
-            <li><a href="events.html" class="hover:text-orange-500">Events</a></li>
-            <li><a href="launchpads.html" class="hover:text-orange-500">Launchpad</a></li>
-            <li><a href="innovators.html" class="hover:text-orange-500">Innovators</a></li>
-            <li><a href="contacts.html" class="hover:text-orange-500">Contacts</a></li>
-            <li><a href="https://forms.gle/JdZJwp7SfnRxis8B9"><button class="bg-[#FC6520] text-white px-4 py-2 rounded">Join Us</button></a></li>
-        </ul>
-
-        <!-- Mobile Menu (Hidden by default) -->
-        <ul class="mobile-menu lg:hidden absolute top-16 left-0 w-full bg-white shadow-md hidden">
-            <li><a href="about.html" class="block py-2 px-4 hover:bg-orange-100">About</a></li>
-            <li><a href="events.html" class="block py-2 px-4 hover:bg-orange-100">Events</a></li>
-            <li><a href="launchpads.html" class="block py-2 px-4 hover:bg-orange-100">Launchpads</a></li>
-            <li><a href="innovators.html" class="block py-2 px-4 hover:bg-orange-100">Innovators</a></li>
-            <li><a href="contacts.html" class="block py-2 px-4 hover:bg-orange-100">Contacts</a></li>
-            <li><a href="https://forms.gle/JdZJwp7SfnRxis8B9"><button class="bg-[#FC6520] text-white w-full py-2 rounded">Join Us</button></a></li>
-        </ul>
-    </nav>
-
-    <div class="container">
-        <h1 class="title">Events</h1>
-
-        <!-- Spring 2025 -->
-        <div class="event-section">
-            <h2 class="event-header">Spring 2025</h2>
-            <div class="event-list">
-
-                <!-- Expandable Item -->
-                <div class="event">
-                    <button class="event-button">
-                        <span><span class="date-box">APR 18</span>Company Tour: T-Mobile</span>
-                        <span class="arrow">▼</span>
-                    </button>
-                    <div class="event-content">
-                        <p>Join Innovators Hub for a visit to T-Mobile's innovation center to see how a telecommunications company is innovating for the future.</p>
-                        <p>Meet inspiring team members like Candice Boyd (Senior Manager), Nevin Remedios (Business Development) and Hanah Snow (Senior Event Manager) as they share what it's like to be part of the team at T-Mobile.</p>
-                        <p class="event-details">📍 Location: <span style="color: red">1705 136th PL NE Bellevue, WA</span> | 🕒 Time: <span style="color: red">1:30 - 2:30 PM</span></p>
-                        <p><span style="font-weight:bold">Highlights&emsp;</span>
-                            <a href="https://www.instagram.com/p/DIt5DxnzCNO/?img_index=1" style="display:inline-block;padding:4px 10px;border-radius:10px;background-color:rgba(255,255,255,0.2);color:#E1306C;text-decoration:none;border:1px solid #E1306C;font-size:14px;">Instagram Post</a>
-                            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7320136751010787328/" style="display:inline-block;padding:4px 10px;border-radius:10px;background-color:rgba(255,255,255,0.2);color:#0A66C2;text-decoration:none;border:1px solid #0A66C2;font-size:14px;">LinkedIn Post</a>
-                            <a href="https://www.techexperience.com/" style="display:inline-block;padding:4px 10px;border-radius:10px;background-color:rgba(255,255,255,0.2);color:#6c757d;text-decoration:none;border:1px solid #6c757d;font-size:14px;">T-Mobile</a>
-                        </p>
-                    </div>
-                </div>
-                <div class="event">
-                    <button class="event-button">
-                        <span><span class="date-box">APR 2</span>Company Tour: Expedia</span>
-                        <span class="arrow">▼</span>
-                    </button>
-                    <div class="event-content">
-                        <p>Join Innovators Hub for a visit to Expedia's airport-themed campus in Seattle—complete with indoor roads and travel-inspired design.</p>
-                        <p>Hear from leaders like Marcus Birney (Sr. Product Manager), Gemma Barajas (HR), and VP Emil as they share what it's like to work at Expedia.</p>
-                        <p class="event-details">📍 Location: <span style="color: red">Expedia Group, 1111 Expedia Group Wy W, Seattle, WA 98119 </span> | 🕒 Time: <span style="color: red">2 - 3 PM</span></p>
-                        <p><span style="font-weight:bold">Highlights&emsp;</span>
-                            <a href="https://www.instagram.com/p/DIM5myKhAw-/?img_index=1" style="display:inline-block;padding:4px 10px;border-radius:10px;background-color:rgba(255,255,255,0.2);color:#E1306C;text-decoration:none;border:1px solid #E1306C;font-size:14px;">Instagram Post</a>
-                            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7315433280189669376/" style="display:inline-block;padding:4px 10px;border-radius:10px;background-color:rgba(255,255,255,0.2);color:#0A66C2;text-decoration:none;border:1px solid #0A66C2;font-size:14px;">LinkedIn Post</a>
-                            <a href="https://expediagroup.com/" style="display:inline-block;padding:4px 10px;border-radius:10px;background-color:rgba(255,255,255,0.2);color:#6c757d;text-decoration:none;border:1px solid #6c757d;font-size:14px;">Expedia Group</a>
-                        </p>
-                    </div>
-                </div>
+<body class="bg-gradient-to-br from-[#FBF6F0] via-white to-[#fff7f0] min-h-screen">
+    <!-- Glassy Navbar -->
+    <div class="w-full flex justify-center mt-8 md:mt-16 pb-2 px-4">
+        <nav class="glass flex items-center justify-between w-full max-w-6xl px-4 md:px-10 py-4">
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center">
+                    <img src="Images/logo.svg" alt="Logo" class="w-10 h-10 md:w-12 md:h-12 mr-2 md:mr-3 drop-shadow-lg">
+                    <span class="gradient-text font-extrabold text-xl md:text-2xl tracking-tight" style="font-family: 'Space Grotesk', Inter, sans-serif;">Innovators Hub</span>
+                </a>
             </div>
-        </div>
-
-        <!-- Winter 2025 -->
-        <div class="event-section">
-            <h2 class="event-header">Winter 2025</h2>
-            <div class="event-list">
-
-                <!-- Expandable Item -->
-                <div class="event">
-                    <button class="event-button">
-                        <span><span class="date-box">MAR 7</span>Company Tour: Valve</span>
-                        <span class="arrow">▼</span>
-                    </button>
-                    <div class="event-content">
-                        <p>Join Innovators Hub for an exclusive tour of Valve, the parent company of Steam. </p>
-                        <p>Discover how software, hardware, and audio engineering power iconic games like Half-Life and Team Fortress 2, and learn about Valve’s workspace and innovative work culture.</p>
-                        <p class="event-details">📍 Location: <span style="color: red">Valve HQ, Bellevue, WA</span> | 🕒 Time: <span style="color: red">2 - 3 PM</span></p>
-                        <p><span style="font-weight:bold">Highlights&emsp;</span>
-                            <a href="https://www.instagram.com/p/DG_WYQWydRo/?img_index=1" style="display:inline-block;padding:4px 10px;border-radius:10px;background-color:rgba(255,255,255,0.2);color:#E1306C;text-decoration:none;border:1px solid #E1306C;font-size:14px;">Instagram Post</a>
-                            <a href="https://www.linkedin.com/posts/innovators-hub-incubator_valve-steam-innovation-activity-7304596120670715904-ZyHv/?utm_source=share&utm_medium=member_ios&rcm=ACoAAEZqj-gBKLiytH8UF5DEfADF8Pv13_WJNX8v" style="display:inline-block;padding:4px 10px;border-radius:10px;background-color:rgba(255,255,255,0.2);color:#0A66C2;text-decoration:none;border:1px solid #0A66C2;font-size:14px;">LinkedIn Post</a>
-                            <a href="https://www.valvesoftware.com/en/" style="display:inline-block;padding:4px 10px;border-radius:10px;background-color:rgba(255,255,255,0.2);color:#6c757d;text-decoration:none;border:1px solid #6c757d;font-size:14px;">Valve Corp</a>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="event">
-                    <button class="event-button">
-                        <span><span class="date-box">FEB 11</span>Kickoff Event 🚀</span>
-                        <span class="arrow">▼</span>
-                    </button>
-                    <div class="event-content">
-                        <p>Kick off the year with UWB Innovators Hub!</p>
-                        <p>Meet the team, connect with fellow builders, and discover opportunities like our Launchpad program and upcoming exclusive events.</p>
-                        <p class="event-details">📍 Location: <span style="color: red">UW1 220</span> | 🕒 Time: <span style="color: red">1:15 - 2:30 PM</span></p>
-                        <p><span style="font-weight:bold">Highlights&emsp;</span>
-                            <a href="https://www.instagram.com/uwb_innovatorshub/p/DF-r1r5JuK6/?img_index=1" style="display:inline-block;padding:4px 10px;border-radius:10px;background-color:rgba(255,255,255,0.2);color:#E1306C;text-decoration:none;border:1px solid #E1306C;font-size:14px;">Instagram Post</a>
-                            <a href="https://www.linkedin.com/posts/innovators-hub-incubator_startup-entrepreneurship-foubders-activity-7295487915273375745-lxWi/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEZqj-gBKLiytH8UF5DEfADF8Pv13_WJNX8" style="display:inline-block;padding:4px 10px;border-radius:10px;background-color:rgba(255,255,255,0.2);color:#0A66C2;text-decoration:none;border:1px solid #0A66C2;font-size:14px;">LinkedIn Post</a>
-                            <a href="https://www.uwinnovators.com/launchpads.html" style="display:inline-block;padding:4px 10px;border-radius:10px;background-color:rgba(255,255,255,0.2);color:#FC6520;text-decoration:none;border:1px solid #FC6520;font-size:14px;">Launchpad Page</a>
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- Fall 2024 -->
-        <div class="event-section">
-            <h2 class="event-header">Fall 2024</h2>
-            <div class="event-list">
-
-                <!-- Expandable Item -->
-                <div class="event">
-                    <button class="event-button">
-                        <span><span class="date-box">OCT 31</span>Costco IT Open House</span>
-                        <span class="arrow">▼</span>
-                    </button>
-                    <div class="event-content">
-                        <p>Join us with Bellevue College ACM for an exclusive visit to Costco HQ in Issaquah.</p>
-                        <p>Get to connect with their team managers and recruiter, gaining insider tips on their internship program and culture.</p>
-                        <p class="event-details">📍 Location: <span style="color: red">Issaquah, WA 98027</span> | 🕒 Time: <span style="color: red">9 AM - 12 PM</span></p>
-                        <p><span style="font-weight:bold">Highlights&emsp;</span>
-                            <a href="https://www.bellevuecollegeacm.org/events" style="display:inline-block;padding:4px 10px;border-radius:10px;background-color:rgba(255,255,255,0.2);color:#6c757d;text-decoration:none;border:1px solid #6c757d;font-size:14px;">BC ACM</a>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="event">
-                    <button class="event-button">
-                        <span><span class="date-box">OCT 20</span>UWB Branch Launch</span>
-                        <span class="arrow">▼</span>
-                    </button>
-                    <div class="event-content">
-                        <p>Official launch of the Innovators Hub branch at UW Bothell. </p>
-                        <p>We bring together aspiring founders and developers to build innovative projects that resolve real-world problems. </p>
-                        <p class="event-details">📍 Location: <span style="color: red">University of Washington Bothell</span></p>
-                        <p><span style="font-weight:bold">Highlights&emsp;</span>
-                            <a href="https://www.instagram.com/p/DFHpACIx7-L/" style="display:inline-block;padding:4px 10px;border-radius:10px;background-color:rgba(255,255,255,0.2);color:#E1306C;text-decoration:none;border:1px solid #E1306C;font-size:14px;">Instagram Post</a>
-                            <a href="https://www.innovatorshub.us/" style="display:inline-block;padding:4px 10px;border-radius:10px;background-color:rgba(255,255,255,0.2);color:#FC6520;text-decoration:none;border:1px solid #FC6520;font-size:14px;">Bellevue Branch</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Spring 2024 (Bellevue Branch) -->
-        <div class="event-section">
-            <h2 class="event-header">Spring 2024 (Bellevue Branch)</h2>
-            <div class="event-list">
-
-                <!-- Expandable Item -->
-                <div class="event">
-                    <button class="event-button">
-                        <span><span class="date-box">JUN 8-9</span>BC Hacks24</span>
-                        <span class="arrow">▼</span>
-                    </button>
-                    <div class="event-content">
-                        <p>Back in Bellevue, we teamed up with BC's tech clubs to host the first-ever BC Hacks—a beginner-friendly hackathon focused on building solutions around productivity. </p>
-                        <p>Had over 140 participants from BC, UW, and local high schools—marking a milestone in student-led hackathons at Bellevue College.</p>
-                        <p class="event-details">📍 Location: <span style="color: red">Bellevue College U301</span> | 🕒 Time: <span style="color: red">2-days</span></p>
-                        <p><span style="font-weight:bold">Highlights&emsp;</span>
-                            <a href="https://www.linkedin.com/posts/bc-tech-club_hackathon-mentorship-education-activity-7206377289763160065-fX7L/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEZqj-gBKLiytH8UF5DEfADF8Pv13_WJNX8" style="display:inline-block;padding:4px 10px;border-radius:10px;background-color:rgba(255,255,255,0.2);color:#0A66C2;text-decoration:none;border:1px solid #0A66C2;font-size:14px;">LinkedIn Post</a>
-                            <a href="https://bc-hacks-2024.devpost.com/" style="display:inline-block;padding:4px 10px;border-radius:10px;background-color:rgba(255,255,255,0.2);color:#000000;text-decoration:none;border:1px solid #000000;font-size:14px;">Devpost Page</a>
-                            <a href="https://www.bchacks.dev/" style="display:inline-block;padding:4px 10px;border-radius:10px;background-color:rgba(255,255,255,0.2);color:#FC6520;text-decoration:none;border:1px solid #FC6520;font-size:14px;">Webpage</a>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="event">
-                    <button class="event-button">
-                        <span><span class="date-box">MAY 31</span>AI Entrepreneurial & Networking Event</span>
-                        <span class="arrow">▼</span>
-                    </button>
-                    <div class="event-content">
-                        <p>We brought together 140+ students, founders, and industry pros for a night of pitches, networking, and AI innovation. </p>
-                        <p>Y Combinator-backed founders like Prem Kumar (Humanly) and Ehud Halberstam (Chordio) shared real startup insights, with judges from Microsoft offering valuable feedback. </p>
-                        <p class="event-details">📍 Location: <span style="color: red">Bellevue College</span> | 🕒 Time: <span style="color: red">1 - 3 PM</span></p>
-                        <p><span style="font-weight:bold">Highlights&emsp;</span>
-                            <a href="https://www.youtube.com/watch?v=LVSiIHz8T_s" style="display:inline-block;padding:4px 10px;border-radius:10px;background-color:rgba(255,255,255,0.2);color:#ff0000;text-decoration:none;border:1px solid #ff0000;font-size:14px;">Full Video</a>
-                            <a href="https://www.instagram.com/p/C7zgG5TyhL8/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D" style="display:inline-block;padding:4px 10px;border-radius:10px;background-color:rgba(255,255,255,0.2);color:#E1306C;text-decoration:none;border:1px solid #E1306C;font-size:14px;">Instagram Post</a>
-                            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7203806463272574976/" style="display:inline-block;padding:4px 10px;border-radius:10px;background-color:rgba(255,255,255,0.2);color:#0A66C2;text-decoration:none;border:1px solid #0A66C2;font-size:14px;">LinkedIn Post</a>
-                            <a href="https://www.youtube.com/watch?v=NbJrGhYjnOI" style="display:inline-block;padding:4px 10px;border-radius:10px;background-color:rgba(255,255,255,0.2);color:#ff0000;text-decoration:none;border:1px solid #ff0000;font-size:14px;">Clips</a>
-                            <a href="https://www.ycombinator.com/companies/location/seattle" style="display:inline-block;padding:4px 10px;border-radius:10px;background-color:rgba(255,255,255,0.2);color:#6c757d;text-decoration:none;border:1px solid #6c757d;font-size:14px;">Webpage</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
+            <button class="mobile-menu-btn text-3xl text-[#FC6520]" aria-label="Toggle menu">
+                ☰
+            </button>
+            <ul class="desktop-menu flex space-x-4 md:space-x-8 items-center text-base md:text-lg font-medium">
+                <li><a href="about.html" class="hover:text-[#FC6520] transition-colors">About</a></li>
+                <li><a href="events.html" class="hover:text-[#FC6520] transition-colors">Events</a></li>
+                <li><a href="launchpads.html" class="hover:text-[#FC6520] transition-colors">Launchpad</a></li>
+                <li><a href="innovators.html" class="hover:text-[#FC6520] transition-colors">Innovators</a></li>
+                <li><a href="contacts.html" class="hover:text-[#FC6520] transition-colors">Contacts</a></li>
+                <li>
+                  <a href="https://forms.gle/JdZJwp7SfnRxis8B9" target="_blank">
+                    <button class="bg-[#FC6520] glow text-white px-4 md:px-7 py-2 rounded-full font-bold hover:bg-[#e24e1b] transition-all">Join Us</button>
+                  </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="mobile-menu">
+            <ul class="text-lg font-medium">
+                <li><a href="about.html" class="hover:text-[#FC6520] transition-colors block">About</a></li>
+                <li><a href="events.html" class="hover:text-[#FC6520] transition-colors block">Events</a></li>
+                <li><a href="launchpads.html" class="hover:text-[#FC6520] transition-colors block">Launchpad</a></li>
+                <li><a href="innovators.html" class="hover:text-[#FC6520] transition-colors block">Innovators</a></li>
+                <li><a href="contacts.html" class="hover:text-[#FC6520] transition-colors block">Contacts</a></li>
+                <li>
+                  <a href="https://forms.gle/JdZJwp7SfnRxis8B9" target="_blank" class="block">
+                    <button class="bg-[#FC6520] glow text-white px-7 py-2 rounded-full font-bold hover:bg-[#e24e1b] transition-all w-full">Join Us</button>
+                  </a>
+                </li>
+            </ul>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="text-center bg-white p-4 mt-10 shadow-md">
-        <style>
-            footer {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                font-size: 1rem;
-                text-align: center; /* center instead of right, if you want centered content */
-                color: #555;
-                background-color: white; /* optional: ensures it looks clean on all backgrounds */
-            }
-        </style>
-        <!-- Social Media Icons -->
-       <div class="flex justify-center space-x-6 mb-2">
-           <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" class="text-gray-600 hover:text-[#FC6520] text-3xl">
-               <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-8 h-8">
-           </a>
-           <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" class="text-gray-600 hover:text-[#FC6520] text-3xl">
-               <img src="Images/instagram.svg" alt="Instagram" class="w-8 h-8">
-           </a>
-       </div>
-       <p>Designed & built @ UWB Innovators Hub | 2025</p>
+    <!-- Hero Section -->
+    <section class="flex flex-col items-center justify-center text-center mt-10 md:mt-20 mb-6 md:mb-10 px-4">
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold gradient-text fade-in mb-4 md:mb-6" style="font-family: 'Space Grotesk', Inter, sans-serif; letter-spacing: -2px;">Events</h1>
+        <p class="text-lg sm:text-xl md:text-3xl font-semibold text-gray-700 fade-in max-w-3xl mb-4">Explore our upcoming and past events—company tours, hackathons, networking, and more. Every event is designed to inspire, connect, and empower innovators like you.</p>
+    </section>
+
+    <!-- Events Timeline -->
+    <section class="flex flex-col items-center gap-8 md:gap-12 px-4 mb-12 md:mb-20">
+      <!-- Each event section is a glass card -->
+      <div class="w-full max-w-3xl">
+        <h2 class="text-2xl md:text-3xl font-bold gradient-text mb-4 md:mb-6 fade-in">Spring 2025</h2>
+        <div class="space-y-6 md:space-y-8">
+          <!-- Launchpad Event -->
+          <div class="glass p-5 md:p-8 fade-in">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+              <div class="flex flex-col md:flex-row md:items-center mb-2 md:mb-0">
+                <span class="bg-[#FC6520] text-white font-bold px-3 md:px-4 py-1 md:py-2 rounded-full mr-0 md:mr-4 text-base md:text-lg mb-2 md:mb-0 inline-block md:inline w-min">JUN 3</span>
+                <span class="font-bold text-lg md:text-xl text-gray-800">Launchpad S25 Demo Day</span>
+              </div>
+              <div class="flex flex-wrap gap-2 mt-2 md:mt-0">
+                <a href="https://lu.ma/mjtnuoun?tk=nSl33E" class="text-[#FC6520] border border-[#FC6520] px-2 md:px-3 py-1 rounded-full text-xs md:text-sm hover:bg-[#FC6520] hover:text-white transition">RSVP Now</a>
+                <a href="launchpads.html" class="text-[#6c757d] border border-[#6c757d] px-2 md:px-3 py-1 rounded-full text-xs md:text-sm hover:bg-[#6c757d] hover:text-white transition">Learn More</a>
+              </div>
+            </div>
+            <p class="text-gray-700 mt-2 text-sm md:text-base">Join us for the grand finale of Launchpad S25! Watch 20+ teams showcase their innovative projects in 2-minute pitches. After the demos, join us for a fireside chat with Ehud Halberstam, CEO of Chordio (YC S22), who's creating AI tools that accelerate UX design from idea to wireframe. We'll wrap up with networking, food, and an after-party featuring badminton, karaoke, and a night of fun! Come support the teams and see what the next generation of builders is working on.</p>
+            <p class="text-gray-500 mt-2 text-xs md:text-sm">📍 <span class="text-[#FC6520]">DISC 061</span> | 🕒 <span class="text-[#FC6520]">1:00 - 5:00 PM</span></p>
+          </div>
+          <!-- T-Mobile Event -->
+          <div class="glass p-5 md:p-8 fade-in">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+              <div class="flex flex-col md:flex-row md:items-center mb-2 md:mb-0">
+                <span class="bg-[#FC6520] text-white font-bold px-3 md:px-4 py-1 md:py-2 rounded-full mr-0 md:mr-4 text-base md:text-lg mb-2 md:mb-0 inline-block md:inline w-min">APR 18</span>
+                <span class="font-bold text-lg md:text-xl text-gray-800">Company Tour: T-Mobile</span>
+              </div>
+              <div class="flex flex-wrap gap-2 mt-2 md:mt-0">
+                <a href="https://www.instagram.com/p/DIt5DxnzCNO/?img_index=1" class="text-[#E1306C] border border-[#E1306C] px-2 md:px-3 py-1 rounded-full text-xs md:text-sm hover:bg-[#E1306C] hover:text-white transition">Instagram</a>
+                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7320136751010787328/" class="text-[#0A66C2] border border-[#0A66C2] px-2 md:px-3 py-1 rounded-full text-xs md:text-sm hover:bg-[#0A66C2] hover:text-white transition">LinkedIn</a>
+                <a href="https://www.techexperience.com/" class="text-[#6c757d] border border-[#6c757d] px-2 md:px-3 py-1 rounded-full text-xs md:text-sm hover:bg-[#6c757d] hover:text-white transition">T-Mobile</a>
+              </div>
+            </div>
+            <p class="text-gray-700 mt-2 text-sm md:text-base">Join Innovators Hub for a visit to T-Mobile's innovation center to see how a telecommunications company is innovating for the future. Meet inspiring team members like Candice Boyd, Nevin Remedios, and Hanah Snow as they share what it's like to be part of the team at T-Mobile.</p>
+            <p class="text-gray-500 mt-2 text-xs md:text-sm">📍 <span class="text-[#FC6520]">1705 136th PL NE Bellevue, WA</span> | 🕒 <span class="text-[#FC6520]">1:30 - 2:30 PM</span></p>
+          </div>
+          <!-- Expedia Event -->
+          <div class="glass p-5 md:p-8 fade-in">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+              <div class="flex flex-col md:flex-row md:items-center mb-2 md:mb-0">
+                <span class="bg-[#FC6520] text-white font-bold px-3 md:px-4 py-1 md:py-2 rounded-full mr-0 md:mr-4 text-base md:text-lg mb-2 md:mb-0 inline-block md:inline w-min">APR 2</span>
+                <span class="font-bold text-lg md:text-xl text-gray-800">Company Tour: Expedia</span>
+              </div>
+              <div class="flex flex-wrap gap-2 mt-2 md:mt-0">
+                <a href="https://www.instagram.com/p/DIM5myKhAw-/?img_index=1" class="text-[#E1306C] border border-[#E1306C] px-2 md:px-3 py-1 rounded-full text-xs md:text-sm hover:bg-[#E1306C] hover:text-white transition">Instagram</a>
+                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7315433280189669376/" class="text-[#0A66C2] border border-[#0A66C2] px-2 md:px-3 py-1 rounded-full text-xs md:text-sm hover:bg-[#0A66C2] hover:text-white transition">LinkedIn</a>
+                <a href="https://expediagroup.com/" class="text-[#6c757d] border border-[#6c757d] px-2 md:px-3 py-1 rounded-full text-xs md:text-sm hover:bg-[#6c757d] hover:text-white transition">Expedia Group</a>
+              </div>
+            </div>
+            <p class="text-gray-700 mt-2 text-sm md:text-base">Join Innovators Hub for a visit to Expedia's airport-themed campus in Seattle—complete with indoor roads and travel-inspired design. Hear from leaders like Marcus Birney, Gemma Barajas, and VP Emil as they share what it's like to work at Expedia.</p>
+            <p class="text-gray-500 mt-2 text-xs md:text-sm">📍 <span class="text-[#FC6520]">Expedia Group, 1111 Expedia Group Wy W, Seattle, WA 98119</span> | 🕒 <span class="text-[#FC6520]">2 - 3 PM</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="w-full max-w-3xl">
+        <h2 class="text-2xl md:text-3xl font-bold gradient-text mb-4 md:mb-6 fade-in">Winter 2025</h2>
+        <div class="space-y-6 md:space-y-8">
+          <!-- Valve Event -->
+          <div class="glass p-5 md:p-8 fade-in">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+              <div class="flex flex-col md:flex-row md:items-center mb-2 md:mb-0">
+                <span class="bg-[#FC6520] text-white font-bold px-3 md:px-4 py-1 md:py-2 rounded-full mr-0 md:mr-4 text-base md:text-lg mb-2 md:mb-0 inline-block md:inline w-min">MAR 7</span>
+                <span class="font-bold text-lg md:text-xl text-gray-800">Company Tour: Valve</span>
+              </div>
+              <div class="flex flex-wrap gap-2 mt-2 md:mt-0">
+                <a href="https://www.instagram.com/p/DG_WYQWydRo/?img_index=1" class="text-[#E1306C] border border-[#E1306C] px-2 md:px-3 py-1 rounded-full text-xs md:text-sm hover:bg-[#E1306C] hover:text-white transition">Instagram</a>
+                <a href="https://www.linkedin.com/posts/innovators-hub-incubator_valve-steam-innovation-activity-7304596120670715904-ZyHv/?utm_source=share&utm_medium=member_ios&rcm=ACoAAEZqj-gBKLiytH8UF5DEfADF8Pv13_WJNX8v" class="text-[#0A66C2] border border-[#0A66C2] px-2 md:px-3 py-1 rounded-full text-xs md:text-sm hover:bg-[#0A66C2] hover:text-white transition">LinkedIn</a>
+                <a href="https://www.valvesoftware.com/en/" class="text-[#6c757d] border border-[#6c757d] px-2 md:px-3 py-1 rounded-full text-xs md:text-sm hover:bg-[#6c757d] hover:text-white transition">Valve Corp</a>
+              </div>
+            </div>
+            <p class="text-gray-700 mt-2 text-sm md:text-base">Join Innovators Hub for an exclusive tour of Valve, the parent company of Steam. Discover how software, hardware, and audio engineering power iconic games like Half-Life and Team Fortress 2, and learn about Valve's workspace and innovative work culture.</p>
+            <p class="text-gray-500 mt-2 text-xs md:text-sm">📍 <span class="text-[#FC6520]">Valve HQ, Bellevue, WA</span> | 🕒 <span class="text-[#FC6520]">2 - 3 PM</span></p>
+          </div>
+          <!-- Kickoff Event -->
+          <div class="glass p-5 md:p-8 fade-in">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+              <div class="flex flex-col md:flex-row md:items-center mb-2 md:mb-0">
+                <span class="bg-[#FC6520] text-white font-bold px-3 md:px-4 py-1 md:py-2 rounded-full mr-0 md:mr-4 text-base md:text-lg mb-2 md:mb-0 inline-block md:inline w-min">FEB 11</span>
+                <span class="font-bold text-lg md:text-xl text-gray-800">Kickoff Event 🚀</span>
+              </div>
+              <div class="flex flex-wrap gap-2 mt-2 md:mt-0">
+                <a href="https://www.instagram.com/uwb_innovatorshub/p/DF-r1r5JuK6/?img_index=1" class="text-[#E1306C] border border-[#E1306C] px-2 md:px-3 py-1 rounded-full text-xs md:text-sm hover:bg-[#E1306C] hover:text-white transition">Instagram</a>
+                <a href="https://www.linkedin.com/posts/innovators-hub-incubator_startup-entrepreneurship-foubders-activity-7295487915273375745-lxWi/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEZqj-gBKLiytH8UF5DEfADF8Pv13_WJNX8" class="text-[#0A66C2] border border-[#0A66C2] px-2 md:px-3 py-1 rounded-full text-xs md:text-sm hover:bg-[#0A66C2] hover:text-white transition">LinkedIn</a>
+                <a href="https://www.uwinnovators.com/launchpads.html" class="text-[#FC6520] border border-[#FC6520] px-2 md:px-3 py-1 rounded-full text-xs md:text-sm hover:bg-[#FC6520] hover:text-white transition">Launchpad Page</a>
+              </div>
+            </div>
+            <p class="text-gray-700 mt-2 text-sm md:text-base">Kick off the year with UWB Innovators Hub! Meet the team, connect with fellow builders, and discover opportunities like our Launchpad program and upcoming exclusive events.</p>
+            <p class="text-gray-500 mt-2 text-xs md:text-sm">📍 <span class="text-[#FC6520]">UW1 220</span> | 🕒 <span class="text-[#FC6520]">1:15 - 2:30 PM</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="w-full max-w-3xl">
+        <h2 class="text-2xl md:text-3xl font-bold gradient-text mb-4 md:mb-6 fade-in">Fall 2024</h2>
+        <div class="space-y-6 md:space-y-8">
+          <!-- Costco Event -->
+          <div class="glass p-5 md:p-8 fade-in">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+              <div class="flex flex-col md:flex-row md:items-center mb-2 md:mb-0">
+                <span class="bg-[#FC6520] text-white font-bold px-3 md:px-4 py-1 md:py-2 rounded-full mr-0 md:mr-4 text-base md:text-lg mb-2 md:mb-0 inline-block md:inline w-min">OCT 31</span>
+                <span class="font-bold text-lg md:text-xl text-gray-800">Costco IT Open House</span>
+              </div>
+              <div class="flex flex-wrap gap-2 mt-2 md:mt-0">
+                <a href="https://www.bellevuecollegeacm.org/events" class="text-[#6c757d] border border-[#6c757d] px-2 md:px-3 py-1 rounded-full text-xs md:text-sm hover:bg-[#6c757d] hover:text-white transition">BC ACM</a>
+              </div>
+            </div>
+            <p class="text-gray-700 mt-2 text-sm md:text-base">Join us with Bellevue College ACM for an exclusive visit to Costco HQ in Issaquah. Get to connect with their team managers and recruiter, gaining insider tips on their internship program and culture.</p>
+            <p class="text-gray-500 mt-2 text-xs md:text-sm">📍 <span class="text-[#FC6520]">Issaquah, WA 98027</span> | 🕒 <span class="text-[#FC6520]">9 AM - 12 PM</span></p>
+          </div>
+          <!-- UWB Branch Launch -->
+          <div class="glass p-5 md:p-8 fade-in">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+              <div class="flex flex-col md:flex-row md:items-center mb-2 md:mb-0">
+                <span class="bg-[#FC6520] text-white font-bold px-3 md:px-4 py-1 md:py-2 rounded-full mr-0 md:mr-4 text-base md:text-lg mb-2 md:mb-0 inline-block md:inline w-min">OCT 20</span>
+                <span class="font-bold text-lg md:text-xl text-gray-800">UWB Branch Launch</span>
+              </div>
+              <div class="flex flex-wrap gap-2 mt-2 md:mt-0">
+                <a href="https://www.instagram.com/p/DFHpACIx7-L/" class="text-[#E1306C] border border-[#E1306C] px-2 md:px-3 py-1 rounded-full text-xs md:text-sm hover:bg-[#E1306C] hover:text-white transition">Instagram</a>
+                <a href="https://www.innovatorshub.us/" class="text-[#FC6520] border border-[#FC6520] px-2 md:px-3 py-1 rounded-full text-xs md:text-sm hover:bg-[#FC6520] hover:text-white transition">Bellevue Branch</a>
+              </div>
+            </div>
+            <p class="text-gray-700 mt-2 text-sm md:text-base">Official launch of the Innovators Hub branch at UW Bothell. We bring together aspiring founders and developers to build innovative projects that resolve real-world problems.</p>
+            <p class="text-gray-500 mt-2 text-xs md:text-sm">📍 <span class="text-[#FC6520]">University of Washington Bothell</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="w-full max-w-3xl">
+        <h2 class="text-2xl md:text-3xl font-bold gradient-text mb-4 md:mb-6 fade-in">Spring 2024 (Bellevue Branch)</h2>
+        <div class="space-y-6 md:space-y-8">
+          <!-- BC Hacks24 -->
+          <div class="glass p-5 md:p-8 fade-in">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+              <div class="flex flex-col md:flex-row md:items-center mb-2 md:mb-0">
+                <span class="bg-[#FC6520] text-white font-bold px-3 md:px-4 py-1 md:py-2 rounded-full mr-0 md:mr-4 text-base md:text-lg mb-2 md:mb-0 inline-block md:inline w-min">JUN 8-9</span>
+                <span class="font-bold text-lg md:text-xl text-gray-800">BC Hacks24</span>
+              </div>
+              <div class="flex flex-wrap gap-2 mt-2 md:mt-0">
+                <a href="https://www.linkedin.com/posts/bc-tech-club_hackathon-mentorship-education-activity-7206377289763160065-fX7L/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEZqj-gBKLiytH8UF5DEfADF8Pv13_WJNX8" class="text-[#0A66C2] border border-[#0A66C2] px-2 md:px-3 py-1 rounded-full text-xs md:text-sm hover:bg-[#0A66C2] hover:text-white transition">LinkedIn</a>
+                <a href="https://bc-hacks-2024.devpost.com/" class="text-[#000000] border border-[#000000] px-2 md:px-3 py-1 rounded-full text-xs md:text-sm hover:bg-[#000000] hover:text-white transition">Devpost</a>
+                <a href="https://www.bchacks.dev/" class="text-[#FC6520] border border-[#FC6520] px-2 md:px-3 py-1 rounded-full text-xs md:text-sm hover:bg-[#FC6520] hover:text-white transition">Webpage</a>
+              </div>
+            </div>
+            <p class="text-gray-700 mt-2 text-sm md:text-base">Back in Bellevue, we teamed up with BC's tech clubs to host the first-ever BC Hacks—a beginner-friendly hackathon focused on building solutions around productivity. Had over 140 participants from BC, UW, and local high schools—marking a milestone in student-led hackathons at Bellevue College.</p>
+            <p class="text-gray-500 mt-2 text-xs md:text-sm">📍 <span class="text-[#FC6520]">Bellevue College U301</span> | 🕒 <span class="text-[#FC6520]">2-days</span></p>
+          </div>
+          <!-- AI Entrepreneurial & Networking Event -->
+          <div class="glass p-5 md:p-8 fade-in">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+              <div class="flex flex-col md:flex-row md:items-center mb-2 md:mb-0">
+                <span class="bg-[#FC6520] text-white font-bold px-3 md:px-4 py-1 md:py-2 rounded-full mr-0 md:mr-4 text-base md:text-lg mb-2 md:mb-0 inline-block md:inline w-min">MAY 31</span>
+                <div class="flex flex-col">
+                  <span class="font-bold text-lg md:text-xl text-gray-800">AI Entrepreneurial</span>
+                  <span class="font-bold text-lg md:text-xl text-gray-800">& Networking Event</span>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-2 mt-2 md:mt-0">
+                <a href="https://www.youtube.com/watch?v=LVSiIHz8T_s" class="text-[#ff0000] border border-[#ff0000] px-2 md:px-3 py-1 rounded-full text-xs md:text-sm hover:bg-[#ff0000] hover:text-white transition">Full Video</a>
+                <a href="https://www.instagram.com/p/C7zgG5TyhL8/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D" class="text-[#E1306C] border border-[#E1306C] px-2 md:px-3 py-1 rounded-full text-xs md:text-sm hover:bg-[#E1306C] hover:text-white transition">Instagram</a>
+                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7203806463272574976/" class="text-[#0A66C2] border border-[#0A66C2] px-2 md:px-3 py-1 rounded-full text-xs md:text-sm hover:bg-[#0A66C2] hover:text-white transition">LinkedIn</a>
+              </div>
+            </div>
+            <p class="text-gray-700 mt-2 text-sm md:text-base">We brought together 140+ students, founders, and industry pros for a night of pitches, networking, and AI innovation. Y Combinator-backed founders like Prem Kumar and Ehud Halberstam shared real startup insights, with judges from Microsoft offering valuable feedback.</p>
+            <p class="text-gray-500 mt-2 text-xs md:text-sm">📍 <span class="text-[#FC6520]">Bellevue College</span> | 🕒 <span class="text-[#FC6520]">1 - 3 PM</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Glassy Footer -->
+    <footer class="glass text-center p-6 md:p-8 mt-6 md:mt-10 shadow-lg w-[96%] mx-auto">
+        <div class="flex justify-center space-x-6 md:space-x-8 mb-4">
+            <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" class="text-gray-600 hover:text-[#FC6520] transform hover:scale-110 transition-all">
+                <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-6 h-6 md:w-8 md:h-8">
+            </a>
+            <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" class="text-gray-600 hover:text-[#FC6520] transform hover:scale-110 transition-all">
+                <img src="Images/instagram.svg" alt="Instagram" class="w-6 h-6 md:w-8 md:h-8">
+            </a>
+        </div>
+        <p class="text-gray-600">Designed & built @ UWB Innovators Hub | 2025</p>
     </footer>
 
     <script src="script.js"></script>
-
+    <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('show');
+    });
+    
+    // Close mobile menu when clicking on a link
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('show');
+      });
+    });
+    </script>
 </body>
 </html>

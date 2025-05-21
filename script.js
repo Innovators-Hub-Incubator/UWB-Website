@@ -1,97 +1,185 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Fade-in Effect
+    // Initialize all components
+    initializeFadeIn();
+    initializeCarousel();
+    initializeEventList();
+    initializeMobileMenu();
+    initializeContactForm();
+});
+
+// Fade-in Effect
+function initializeFadeIn() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
     document.querySelectorAll(".fade-in").forEach(el => {
-        el.classList.add("visible");
+        observer.observe(el);
+    });
+}
+
+// Carousel Effect
+function initializeCarousel() {
+    const carousel = document.querySelector(".carousel");
+    if (!carousel) return;
+
+    const images = [...carousel.children];
+    images.forEach(image => {
+        const clone = image.cloneNode(true);
+        carousel.appendChild(clone);
     });
 
-    // Infinite Carousel Effect
-    const carousel = document.querySelector(".carousel");
-    if (carousel) {
-        const images = [...carousel.children];
+    // Add touch support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
 
-        // Clone images to make infinite scrolling effect
-        images.forEach(image => {
-            const clone = image.cloneNode(true);
-            carousel.appendChild(clone);
-        });
+    carousel.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, false);
+
+    carousel.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, false);
+
+    function handleSwipe() {
+        if (touchEndX < touchStartX) {
+            // Swipe left
+            carousel.scrollBy({ left: 200, behavior: 'smooth' });
+        }
+        if (touchEndX > touchStartX) {
+            // Swipe right
+            carousel.scrollBy({ left: -200, behavior: 'smooth' });
+        }
     }
+}
 
-    // Expandable Event List
+// Event List
+function initializeEventList() {
     document.querySelectorAll(".event-button").forEach(button => {
         button.addEventListener("click", () => {
             const content = button.nextElementSibling;
             const arrow = button.querySelector(".arrow");
 
-            if (content.classList.contains("show")) {
-                content.classList.remove("show");
-                arrow.classList.remove("rotate");
-            } else {
-                // Close other open events before opening a new one
-                document.querySelectorAll(".event-content").forEach(item => item.classList.remove("show"));
-                document.querySelectorAll(".arrow").forEach(item => item.classList.remove("rotate"));
+            // Close other open events
+            document.querySelectorAll(".event-content").forEach(item => {
+                if (item !== content) {
+                    item.classList.remove("show");
+                    item.previousElementSibling.querySelector(".arrow")?.classList.remove("rotate");
+                }
+            });
 
-                content.classList.add("show");
-                arrow.classList.add("rotate");
+            // Toggle current event
+            content.classList.toggle("show");
+            arrow?.classList.toggle("rotate");
+
+            // Smooth scroll to content if opening
+            if (content.classList.contains("show")) {
+                content.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
         });
     });
+}
 
-    // Toggle Navbar visibility for mobile
+// Mobile Menu
+function initializeMobileMenu() {
     const toggleButton = document.querySelector('.toggle');
-    const mobileMenu = document.querySelector('.mobile-menu'); // Correct class name
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const body = document.body;
 
-    if (toggleButton && mobileMenu) {
-        toggleButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('show'); // Show/hide mobile menu
-        });
-    }
-});
+    if (!toggleButton || !mobileMenu) return;
 
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("contactForm").addEventListener("submit", function (event) {
+    toggleButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('show');
+        body.style.overflow = mobileMenu.classList.contains('show') ? 'hidden' : '';
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !toggleButton.contains(e.target)) {
+            mobileMenu.classList.remove('show');
+            body.style.overflow = '';
+        }
+    });
+
+    // Close menu when window is resized to desktop size
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 1023) {
+            mobileMenu.classList.remove('show');
+            body.style.overflow = '';
+        }
+    });
+}
+
+// Contact Form
+function initializeContactForm() {
+    const form = document.getElementById("contactForm");
+    if (!form) return;
+
+    form.addEventListener("submit", async (event) => {
         event.preventDefault();
 
         const name = document.getElementById("name").value;
         const email = document.getElementById("email").value;
         const message = document.getElementById("message").value;
+        const statusMessage = document.getElementById("statusMessage");
 
         if (!name || !email || !message) {
-            document.getElementById("statusMessage").textContent = "Please fill in all fields.";
-            document.getElementById("statusMessage").style.color = "red";
+            showStatus(statusMessage, "Please fill in all fields.", "error");
             return;
         }
 
-        // Replace with your actual Formspree endpoint
-        const formspreeEndpoint = "https://formspree.io/f/YKL!pyeWzZEn3bA";
+        try {
+            const response = await fetch("https://formspree.io/f/YKL!pyeWzZEn3bA", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({ name, email, message })
+            });
 
-        fetch(formspreeEndpoint, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({
-                name: name,
-                email: email,
-                message: message
-            })
-        })
-        .then(response => {
             if (response.ok) {
-                document.getElementById("statusMessage").textContent = "Message sent successfully!";
-                document.getElementById("statusMessage").style.color = "green";
-                document.getElementById("contactForm").reset();
+                showStatus(statusMessage, "Message sent successfully!", "success");
+                form.reset();
             } else {
-                return response.json().then(data => {
-                    throw new Error(data.error || "Failed to send message.");
-                });
+                throw new Error("Failed to send message");
             }
-        })
-        .catch(error => {
+        } catch (error) {
             console.error("Error:", error);
-            document.getElementById("statusMessage").textContent = "Failed to send message.";
-            document.getElementById("statusMessage").style.color = "red";
-        });
+            showStatus(statusMessage, "Failed to send message. Please try again.", "error");
+        }
+    });
+}
+
+function showStatus(element, message, type) {
+    if (!element) return;
+    
+    element.textContent = message;
+    element.style.color = type === "success" ? "green" : "red";
+    element.style.opacity = "1";
+    
+    // Fade out after 3 seconds
+    setTimeout(() => {
+        element.style.opacity = "0";
+    }, 3000);
+}
+
+// Add smooth scrolling for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
     });
 });
 

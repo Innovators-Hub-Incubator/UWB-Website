@@ -2,449 +2,370 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Innovators Hub">
+    <meta name="description" content="At Innovators Hub, we inspire a community of ambitious entrepreneurs, builders, and innovators to turn their ideas into reality. Join us to defy the odds!">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uwbinnovatorshub.com/">
+    <meta property="og:title" content="Innovators Hub">
+    <meta property="og:description" content="At Innovators Hub, we inspire a community of ambitious entrepreneurs, builders, and innovators to turn their ideas into reality. Join us to defy the odds!">
+    <meta property="og:image" content="https://uwbinnovatorshub.com/Images/logo.svg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://uwbinnovatorshub.com/">
+    <meta property="twitter:title" content="Innovators Hub">
+    <meta property="twitter:description" content="At Innovators Hub, we inspire a community of ambitious entrepreneurs, builders, and innovators to turn their ideas into reality. Join us to defy the odds!">
+    <meta property="twitter:image" content="https://uwbinnovatorshub.com/Images/logo.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Innovators Hub</title>
     <link rel="icon" href="Images/logo.svg" type="image/svg+xml">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+      body { font-family: 'Inter', 'Space Grotesk', sans-serif; }
+      .glass {
+        background: rgba(255,255,255,0.7);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 2rem;
+        border: 1px solid rgba(255,255,255,0.18);
+      }
+      .glow {
+        box-shadow: 0 0 16px 2px #FC6520aa;
+      }
+      .gradient-text {
+        background: linear-gradient(90deg, #FC6520 30%, #ff8c42 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+      .fade-in {
+        animation: fadeIn 1.2s ease;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: none; }
+      }
+      .lightbox-animate {
+        opacity: 1;
+        transform: translateY(40px);
+        transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.5s cubic-bezier(0.4,0,0.2,1);
+      }
+      #lightbox-modal .relative {
+        opacity: 0;
+        transform: translateY(-40px);
+        transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.5s cubic-bezier(0.4,0,0.2,1);
+      }
+      #lightbox-modal.open .relative {
+        opacity: 1;
+        transform: translateY(40px);
+      }
+      .mobile-menu-btn {
+        display: none;
+      }
+      @media (max-width: 1023px) {
+        .desktop-menu {
+          display: none;
+        }
+        .mobile-menu-btn {
+          display: block;
+        }
+        .mobile-menu {
+          position: fixed;
+          top: 80px;
+          left: 0;
+          right: 0;
+          background: rgba(255,255,255,0.98);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          padding: 1rem;
+          z-index: 50;
+          border-radius: 0 0 1rem 1rem;
+          box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+          display: none;
+        }
+        .mobile-menu.show {
+          display: block;
+          animation: fadeIn 0.3s ease;
+        }
+        .mobile-menu ul {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .mobile-menu li {
+          padding: 0.75rem;
+          text-align: center;
+          border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .mobile-menu li:last-child {
+          border-bottom: none;
+        }
+      }
+    </style>
 </head>
-<body class="bg-[#BF6F0] text-gray-900">
-    <!-- Navbar -->
-    <nav class="flex justify-between items-center p-4 bg-white shadow-md fixed w-full top-0">
-        <a href="index.html" class="flex items-center">
-            <img src="Images/logo.svg" alt="Logo" class="w-10 h-10 mr-2"> 
-            <span class="text-[#FC6520] font-bold text-xl">Innovators Hub</span>
-        </a>
-
-        <!-- Mobile Menu Toggle -->
-        <div class="lg:hidden flex items-center">
-            <button class="toggle text-2xl" style="color: #FC6520;">&#9776;</button> <!-- Hamburger icon -->
+<body class="bg-gradient-to-br from-[#FBF6F0] via-white to-[#fff7f0] min-h-screen">
+    <!-- Flowing Text Wallpaper Background Words -->
+    <div class="fixed inset-0 w-full h-full pointer-events-none select-none z-0 overflow-hidden" aria-hidden="true" style="font-size:3vw; color:#bbb; opacity:0.13; font-weight:700; letter-spacing:0.03em; line-height:1.2; white-space:pre; font-family: 'Space Grotesk', Inter, sans-serif;">
+      <div style="transform: translateX(0vw);">innovators   entrepreneurs   about   builders   we defy the odds   entrepreneurs   build   innovate   innovators   entrepreneurs   about   builders   we defy the odds   entrepreneurs</div>
+      <div style="transform: translateX(4vw);">entrepreneurs   about   builders   we defy the odds   entrepreneurs   build   innovate   innovators   entrepreneurs   about   builders   we defy the odds   entrepreneurs   innovators</div>
+      <div style="transform: translateX(-2vw);">about   builders   we defy the odds   entrepreneurs   build   innovate   innovators   entrepreneurs   about   builders   we defy the odds   entrepreneurs   innovators   build</div>
+      <div style="transform: translateX(6vw);">builders   we defy the odds   entrepreneurs   build   innovate   innovators   entrepreneurs   about   builders   we defy the odds   entrepreneurs   innovators   build   innovate</div>
+      <div style="transform: translateX(-5vw);">we defy the odds   entrepreneurs   build   innovate   innovators   entrepreneurs   about   builders   we defy the odds   entrepreneurs   innovators   build   innovate   about</div>
+      <div style="transform: translateX(2vw);">build   innovate   innovators   entrepreneurs   about   builders   we defy the odds   entrepreneurs   innovators   build   innovate   about   builders   we defy the odds</div>
+      <div style="transform: translateX(-7vw);">innovate   innovators   entrepreneurs   about   builders   we defy the odds   entrepreneurs   innovators   build   innovate   about   builders   we defy the odds   entrepreneurs</div>
+    </div>
+    <!-- Glassy Navbar -->
+    <div class="w-full flex justify-center mt-8 md:mt-16 pb-2 px-4">
+        <nav class="glass flex items-center justify-between w-full max-w-6xl px-4 md:px-10 py-4">
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center">
+                    <img src="Images/logo.svg" alt="Logo" class="w-10 h-10 md:w-12 md:h-12 mr-2 md:mr-3 drop-shadow-lg">
+                    <span class="gradient-text font-extrabold text-xl md:text-2xl tracking-tight" style="font-family: 'Space Grotesk', Inter, sans-serif;">Innovators Hub</span>
+                </a>
+            </div>
+            <button class="mobile-menu-btn p-2" aria-label="Toggle menu">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <ul class="desktop-menu hidden md:flex space-x-4 md:space-x-8 items-center text-base md:text-lg font-medium">
+                <li><a href="about.html" class="hover:text-[#FC6520] transition-colors">About</a></li>
+                <li><a href="events.html" class="hover:text-[#FC6520] transition-colors">Events</a></li>
+                <li><a href="launchpads.html" class="hover:text-[#FC6520] transition-colors">Launchpad</a></li>
+                <li><a href="innovators.html" class="hover:text-[#FC6520] transition-colors">Innovators</a></li>
+                <li><a href="contacts.html" class="hover:text-[#FC6520] transition-colors">Contacts</a></li>
+                <li>
+                  <a href="https://forms.gle/JdZJwp7SfnRxis8B9" target="_blank">
+                    <button class="bg-[#FC6520] glow text-white px-4 md:px-7 py-2 rounded-full font-bold hover:bg-[#e24e1b] transition-all">Join Us</button>
+                  </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="mobile-menu">
+            <ul class="text-lg font-medium">
+                <li><a href="about.html" class="hover:text-[#FC6520] transition-colors block py-3">About</a></li>
+                <li><a href="events.html" class="hover:text-[#FC6520] transition-colors block py-3">Events</a></li>
+                <li><a href="launchpads.html" class="hover:text-[#FC6520] transition-colors block py-3">Launchpad</a></li>
+                <li><a href="innovators.html" class="hover:text-[#FC6520] transition-colors block py-3">Innovators</a></li>
+                <li><a href="contacts.html" class="hover:text-[#FC6520] transition-colors block py-3">Contacts</a></li>
+                <li class="mt-4">
+                  <a href="https://forms.gle/JdZJwp7SfnRxis8B9" target="_blank" class="block">
+                    <button class="bg-[#FC6520] glow text-white px-7 py-3 rounded-full font-bold hover:bg-[#e24e1b] transition-all w-full">Join Us</button>
+                  </a>
+                </li>
+            </ul>
         </div>
-
-        <!-- Navbar Links -->
-        <ul class="flex space-x-6 items-center lg:flex hidden">
-            <li><a href="about.html" class="hover:text-orange-500">About</a></li>
-            <li><a href="events.html" class="hover:text-orange-500">Events</a></li>
-            <li><a href="launchpads.html" class="hover:text-orange-500">Launchpad</a></li>
-            <li><a href="innovators.html" class="hover:text-orange-500">Innovators</a></li>
-            <li><a href="contacts.html" class="hover:text-orange-500">Contacts</a></li>
-            <li><a href="https://forms.gle/JdZJwp7SfnRxis8B9"><button class="bg-[#FC6520] text-white px-4 py-2 rounded">Join Us</button></a></li>
-        </ul>
-
-        <!-- Mobile Menu (Hidden by default) -->
-        <ul class="mobile-menu lg:hidden absolute top-16 left-0 w-full bg-white shadow-md hidden">
-            <li><a href="about.html" class="block py-2 px-4 hover:bg-orange-100">About</a></li>
-            <li><a href="events.html" class="block py-2 px-4 hover:bg-orange-100">Events</a></li>
-            <li><a href="launchpads.html" class="block py-2 px-4 hover:bg-orange-100">Launchpads</a></li>
-            <li><a href="innovators.html" class="block py-2 px-4 hover:bg-orange-100">Innovators</a></li>
-            <li><a href="contacts.html" class="block py-2 px-4 hover:bg-orange-100">Contacts</a></li>
-            <li><a href="https://forms.gle/JdZJwp7SfnRxis8B9"><button class="bg-[#FC6520] text-white w-full py-2 rounded">Join Us</button></a></li>
-        </ul>
-    </nav>
-
+    </div>
 
     <!-- Hero Section -->
-    <section class="hero text-center mt-[75px] p-10 bg-[#FBF6F0]">
-        <h1 class="text-7xl font-bold text-[#FC6520] fade-in">Innovators Hub</h1>
-        <p class="mt-4 text-lg fade-in font-bold">
-            <span>We are a community of student entrepreneurs
-                who challenge the status quo, wanting to<br>
-                impact the world by innovating and resolving
-                problems. We defy the odds.</span>
-        </p>
-    </section>
+    <section class="flex flex-col items-center justify-center text-center mt-10 md:mt-20 mb-6 md:mb-10 px-4 relative overflow-hidden">
+      <!-- Main hero content -->
+      <h1 class="text-6xl sm:text-7xl md:text-9xl font-extrabold gradient-text fade-in mb-4 md:mb-6 mt-4 md:mt-6" style="font-family: 'Space Grotesk', Inter, sans-serif; letter-spacing: -2px;">Innovators <span style="display:block;">Hub</span></h1>
+      <p class="mt-2 text-lg sm:text-xl md:text-3xl text-gray-700 font-bold fade-in mb-2">We are a community of student</p>
+      <p class="mt-2 text-lg sm:text-xl md:text-3xl text-gray-700 font-bold fade-in mb-2"><span id="cycling-word" class="text-[#FC6520] font-bold transition-colors duration-300 block md:inline">entrepreneurs</span></p>
+      <p class="mt-2 text-lg sm:text-xl md:text-3xl text-gray-700 font-bold fade-in mb-4 md:mb-8">We defy the odds.</p>
+      <div class="flex flex-wrap justify-center gap-3 md:gap-6 mb-20 md:mb-60 fade-in">
+        <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" class="social-button linkedin">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-6 md:h-6 mr-2"> LinkedIn
+        </a>
+        <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" class="social-button instagram">
+          <img src="Images/instagram.svg" alt="Instagram" class="w-5 h-5 md:w-6 md:h-6 mr-2"> Instagram
+        </a>
+        <a href="mailto:innovatorshub@uw.edu" class="social-button email">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 md:w-6 md:h-6 mr-2"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12l-4-4-4 4m8 0v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6m16 0V6a2 2 0 00-2-2H6a2 2 0 00-2 2v6" /></svg>
+          Email Us
+        </a>
+        <a href="https://gather.uwb.edu/feeds?type=club&type_id=35516&tab=about" target="_blank" class="social-button gather">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 md:w-6 md:h-6 mr-2"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m9-4a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+          UWB Gather
+        </a>
+      </div>
 
-    <!-- Club Image with Quote -->
-    <section id="image-quote" class="mt-0 mb-10 bg-[#FBF6F0]">
-      <div class="flex flex-col lg:flex-row items-center gap-6 px-4 py-10">
+      <!-- Animated Group Photo with Company Icons -->
+      <div class="relative flex flex-col items-center my-8 md:my-12">
+        <img id="group-photo" src="Images/LaunchpadIntro.png" alt="Group Photo"
+          class="rounded-2xl shadow-lg w-full max-w-full md:max-w-2xl transition-transform duration-700 ease-out scale-75 opacity-0" />
+      </div>
 
-        <!-- Image -->
-        <div class="w-full lg:w-1/2">
-          <img src="Images/first_meeting.jpg" alt="Image Description" class="w-full h-auto mb-4 lg:mb-0">
-        </div>
-
-        <!-- Quote -->
-        <div class="w-full lg:w-1/2 text-center lg:text-left">
-          <blockquote class="text-lg italic">
-            “Everything around you that you called life, was made up by people who were no smarter than you... you can build your own things that other people can use.”  
-            <footer class="mt-4 text-black font-semibold">- Steve Jobs</footer>
-          </blockquote>
-        </div>
-
+      <div class="glass p-4 md:p-6 max-w-xs sm:max-w-md md:max-w-3xl fade-in mx-4">
+          <p class="text-base md:text-xl text-gray-700 italic mb-2">"Everything around you that you called life, was made up by people who were no smarter than you... you can build your own things that other people can use."</p>
+          <p class="text-sm md:text-lg text-[#FC6520] font-semibold">— Steve Jobs</p>
       </div>
     </section>
 
-    
-    <section class="image-carousel">
-      <div class="carousel-container">
-        <h2 class="text-center font-bold text-xl mb-4 mt-4"><br></h2>
-        <!-- Carousel Track -->
-        <div class="carousel-track">
-          <div class="carousel-images">
-            <!-- Original Images (18 images) -->
-            <img src="Gallery Images/IMG_3879.jpg" alt="Image 17 fake">
-            <img src="Gallery Images/20250211_134517.jpg" alt="Image 1">
-            <img src="Gallery Images/20250211_134530.jpg" alt="Image 2">
-            <img src="Gallery Images/20250211_134553.jpg" alt="Image 3">
-            <img src="Gallery Images/IMG_0951.jpg" alt="Image 4">
-            <img src="Gallery Images/20250307_153232.jpg" alt="Image 5">
-            <img src="Gallery Images/IMG_1056.jpg" alt="Image 6">
-            <img src="Gallery Images/IMG_1066.jpg" alt="Image 7">
-            <img src="Gallery Images/IMG_3533.jpg" alt="Image 8">
-            <img src="Gallery Images/IMG_3537.jpg" alt="Image 9">
-            <img src="Gallery Images/IMG_3543.jpg" alt="Image 10">
-            <img src="Gallery Images/IMG_3544.jpg" alt="Image 11">
-            <img src="Gallery Images/DSC02306.JPG" alt="Image 12">
-            <img src="Gallery Images/IMG_1518.jpg" alt="Image 13">
-            <img src="Gallery Images/IMG_3869.jpg" alt="Image 14">
-            <img src="Gallery Images/IMG_3871.jpg" alt="Image 15">
-            <img src="Gallery Images/IMG_3877.jpg" alt="Image 16">
-            <img src="Gallery Images/IMG_3879.jpg" alt="Image 17">
-            <!-- Cloned Images for Seamless Loop -->
-            <img src="Gallery Images/IMG_3879.jpg" alt="Image 17 fake clone">
-            <img src="Gallery Images/20250211_134517.jpg" alt="Image 1 clone">
-            <img src="Gallery Images/20250211_134530.jpg" alt="Image 2 clone">
-            <img src="Gallery Images/20250211_134553.jpg" alt="Image 3 clone">
-            <img src="Gallery Images/IMG_0951.jpg" alt="Image 4 clone">
-            <img src="Gallery Images/20250307_153232.jpg" alt="Image 5 clone">
-            <img src="Gallery Images/IMG_1056.jpg" alt="Image 6 clone">
-            <img src="Gallery Images/IMG_1066.jpg" alt="Image 7 clone">
-            <img src="Gallery Images/IMG_3533.jpg" alt="Image 8 clone">
-            <img src="Gallery Images/IMG_3537.jpg" alt="Image 9 clone">
-            <img src="Gallery Images/IMG_3543.jpg" alt="Image 10 clone">
-            <img src="Gallery Images/IMG_3544.jpg" alt="Image 11 clone">
-            <img src="Gallery Images/DSC02306.JPG" alt="Image 12 clone">
-            <img src="Gallery Images/IMG_1518.jpg" alt="Image 13 clone">
-            <img src="Gallery Images/IMG_3869.jpg" alt="Image 14 clone">
-            <img src="Gallery Images/IMG_3871.jpg" alt="Image 15 clone">
-            <img src="Gallery Images/IMG_3877.jpg" alt="Image 16 clone">
-            <img src="Gallery Images/IMG_3879.jpg" alt="Image 17 clone">
-          </div>
-        </div>
-        
-        <!-- Dots Navigation (one dot per original image) -->
-        <div class="carousel-dots">
-          <span class="dot active" onclick="goToSlide(0)"></span>
-          <span class="dot" onclick="goToSlide(1)"></span>
-          <span class="dot" onclick="goToSlide(2)"></span>
-          <span class="dot" onclick="goToSlide(3)"></span>
-          <span class="dot" onclick="goToSlide(4)"></span>
-          <span class="dot" onclick="goToSlide(5)"></span>
-          <span class="dot" onclick="goToSlide(6)"></span>
-          <span class="dot" onclick="goToSlide(7)"></span>
-          <span class="dot" onclick="goToSlide(8)"></span>
-          <span class="dot" onclick="goToSlide(9)"></span>
-          <span class="dot" onclick="goToSlide(10)"></span>
-          <span class="dot" onclick="goToSlide(11)"></span>
-          <span class="dot" onclick="goToSlide(12)"></span>
-          <span class="dot" onclick="goToSlide(13)"></span>
-          <span class="dot" onclick="goToSlide(14)"></span>
-          <span class="dot" onclick="goToSlide(15)"></span>
-          <span class="dot" onclick="goToSlide(16)"></span>
-          <span class="dot" onclick="goToSlide(17)"></span>
+    <!-- Gallery Carousel (Futuristic Style) -->
+    <section class="w-full flex flex-col items-center mb-12 md:mb-20 px-4">
+      <h2 class="text-xl md:text-2xl font-bold gradient-text mb-4 md:mb-6">Gallery</h2>
+      <div class="relative w-full max-w-7xl overflow-hidden rounded-2xl glass shadow-xl">
+        <div class="flex animate-scroll-x space-x-4 md:space-x-6 py-4 px-2" id="gallery-carousel">
+          <img src="Gallery Images/IMG_3879.jpg" class="h-40 md:h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 1">
+          <img src="Gallery Images/20250211_134517.jpg" class="h-40 md:h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 2">
+          <img src="Gallery Images/20250211_134530.jpg" class="h-40 md:h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 3">
+          <img src="Gallery Images/20250211_134553.jpg" class="h-40 md:h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 4">
+          <img src="Gallery Images/IMG_0951.jpg" class="h-40 md:h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 5">
+          <img src="Gallery Images/20250307_153232.jpg" class="h-40 md:h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 6">
+          <img src="Gallery Images/IMG_1056.jpg" class="h-40 md:h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 7">
+          <img src="Gallery Images/IMG_1066.jpg" class="h-40 md:h-60 rounded-xl shadow-md cursor-pointer gallery-img" alt="Gallery 8">
         </div>
       </div>
-      
-      <!-- Inline CSS -->
       <style>
-
-        @media (max-width: 1023px) {
-          .carousel-track {
-            overflow-x: auto !important;
-            overflow-y: hidden !important;
-            -webkit-overflow-scrolling: touch;
-            scroll-snap-type: x mandatory;
-            padding-bottom: 8px;
-        
-            /* Remove frosted styles */
-            backdrop-filter: none !important;
-            background: none !important;
-            background-color: transparent !important;
-            box-shadow: none !important;
-          }
-        
-          .carousel-images {
-            display: flex !important;
-            flex-wrap: nowrap !important;
-            transform: none !important;
-            transition: none !important;
-        
-            /* Remove frosted styles */
-            backdrop-filter: none !important;
-            background: none !important;
-            background-color: transparent !important;
-            box-shadow: none !important;
-          }
-        
-          .carousel-images img {
-            flex: 0 0 300px !important;
-            width: 300px !important;
-            height: 210px !important;
-            scroll-snap-align: center !important;
-            margin-right: 20px !important;
-            border-radius: 20px !important;
-            object-fit: cover !important;
-            transition: opacity 0.5s ease !important;
-          }
-        
-          .carousel-dots {
-            display: none !important;
-          }
-        }                                          
-
-        /* Carousel container fills the full viewport width */
-        .image-carousel {
-          width: 100vw;
-          margin: 0 auto 80px;
-          overflow: hidden;
-          position: relative;
+        @keyframes scroll-x {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
         }
-        .carousel-container {
-          width: 100vw;
-          position: relative;
+        .animate-scroll-x {
+          animation: scroll-x 30s linear infinite;
         }
-        /* Allow adjacent images to be visible */
-        .carousel-track {
-          position: relative;
-          width: 100vw;
-          overflow: visible;
-        }
-        .carousel-images {
-          display: flex;
-          transition: transform 0.5s ease-in-out;
-        }
-        .carousel-images img {
-          flex-shrink: 0;
-          width: 980px;
-          height: 523.13px;
-          margin-right: 20px;
-          border-radius: 20px;
-          object-fit: cover;
-          opacity: 0.5;
-          transition: opacity 0.5s ease;
-        }
-        .carousel-images img.active {
-          opacity: 1;
-        }
-        /* Dots Navigation */
-        .carousel-dots {
-          text-align: center;
-          margin-top: 10px;
-        }
-        .dot {
-          height: 10px;
-          width: 10px;
-          margin: 0 5px;
-          background-color: #bbb;
-          border-radius: 50%;
-          display: inline-block;
-          cursor: pointer;
-          transition: background-color 0.3s;
-        }
-        .dot.active {
-          background-color: #717171;
-        }
-        /* Remove first dot if desired – comment this out to show all dots */
-        .carousel-dots .dot:first-child { display: none; }
       </style>
-      
-      <!-- Inline JavaScript -->
-      <script>
-
-        function startAutoScrollMobileCarousel() {
-          const track = document.querySelector('.carousel-track');
-          const slides = Array.from(document.querySelectorAll('.carousel-images img'));
-          if (!track || slides.length === 0) return;
-        
-          const style = getComputedStyle(slides[0]);
-          const slideWidth = slides[0].offsetWidth + parseFloat(style.marginRight);
-          const totalOriginal = slides.length / 2;    // original vs. clone
-          const duration = 4000;                      // your 4s interval
-        
-          // track which “original” slide is active
-          let slideIndex = 1;  // start on the 2nd slide
-        
-          function updateFade() {
-            slides.forEach((img, i) => {
-              const isActive = (i % totalOriginal) === slideIndex;
-              img.style.opacity = isActive ? '1' : '0.5';
-            });
-          }
-        
-          function scrollToIndex() {
-            const containerWidth = track.clientWidth;
-            // center the slide: offset = slideIndex*slideWidth - half the difference
-            const offset = slideIndex * slideWidth - (containerWidth - slideWidth) / 2;
-            track.scrollTo({ left: offset, behavior: 'smooth' });
-            // after the 0.5s scroll/transition, update fade
-            setTimeout(updateFade, 500);
-          }
-        
-          // initial center + fade
-          scrollToIndex();
-        
-          // auto‑advance
-          let auto = setInterval(() => {
-            slideIndex++;
-            if (slideIndex >= totalOriginal) slideIndex = 0;
-            scrollToIndex();
-          }, duration);
-        
-          // pause on hover/touch
-          track.addEventListener('mouseenter', () => clearInterval(auto));
-          track.addEventListener('mouseleave', () => {
-            auto = setInterval(() => {
-              slideIndex = (slideIndex + 1) % totalOriginal;
-              scrollToIndex();
-            }, duration);
-          });
-        }
-        
-      
-        // This is your JS version of `@media (max-width: 1023px)`
-        window.addEventListener('load', () => {
-          if (window.matchMedia('(max-width: 1023px)').matches) {
-            startAutoScrollMobileCarousel();
-          }
-        });
-
-        const totalOriginal = 18; // number of original images
-        const imageWidth = 980;     // image width in pixels
-        const gap = 20;             // gap between images
-        
-        // Set initial currentIndex to 0 (first image)
-        let currentIndex = 1;
-        const carouselImages = document.querySelector('.carousel-images');
-        const images = document.querySelectorAll('.carousel-images img');
-        const dots = document.querySelectorAll('.carousel-dots .dot');
-        
-        function updateCarousel() {
-          // Get the width of the viewport (container is 100vw)
-          const containerWidth = window.innerWidth;
-          // Calculate offset so that the active image is centered
-          // offset = half the container width minus half the image width minus index*(imageWidth+gap)
-          const offset = (containerWidth - imageWidth) / 2 - currentIndex * (imageWidth + gap);
-          carouselImages.style.transform = `translateX(${offset}px)`;
-          
-          // Update active class on images: only mark the original image
-          images.forEach((img, i) => {
-            // The original image for this position is at i % totalOriginal
-            if (i % totalOriginal === currentIndex) {
-              img.classList.add('active');
-            } else {
-              img.classList.remove('active');
-            }
-          });
-          
-          // Update dots: dots array is indexed 0 to totalOriginal-1
-          dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === currentIndex);
-          });
-        }
-        
-        function goToSlide(index) {
-          currentIndex = index;
-          carouselImages.style.transition = "transform 0.5s ease-in-out";
-          updateCarousel();
-        }
-        
-        // Auto-advance every 5 seconds
-        let autoAdvance = setInterval(() => {
-          currentIndex++;
-          carouselImages.style.transition = "transform 0.5s ease-in-out";
-          updateCarousel();
-          // If we've advanced past the original images, wait for the transition then reset to 0 without animation.
-          if (currentIndex >= totalOriginal) {
-            setTimeout(() => {
-              carouselImages.style.transition = "none";
-              currentIndex = 1;
-              updateCarousel();
-            }, 500); // matches transition duration
-          }
-        }, 5000);
-        
-        // Pause auto-advance on hover
-        document.querySelector('.carousel-track').addEventListener('mouseenter', () => {
-          clearInterval(autoAdvance);
-        });
-        document.querySelector('.carousel-track').addEventListener('mouseleave', () => {
-          autoAdvance = setInterval(() => {
-            currentIndex++;
-            carouselImages.style.transition = "transform 0.5s ease-in-out";
-            updateCarousel();
-            if (currentIndex >= totalOriginal) {
-              setTimeout(() => {
-                carouselImages.style.transition = "none";
-                currentIndex = 1;
-                updateCarousel();
-              }, 500);
-            }
-          }, 5000);
-        });
-        
-        // Initial update and adjust on window resize.
-        updateCarousel();
-        window.addEventListener('resize', updateCarousel);
-      </script>
-    </section>
-       
-    
-    <!-- Partners Carousel -->
-    <section class="partners overflow-hidden pl-0 p-6 mt-10">
-        <h2 class="text-center font-bold text-xl mb-4">Supporters & Partners</h2>
-        <div class="carousel-container">
-            <div class="carousel">
-                <img src="Images/bc_acm.svg" alt="Partner Logo" class="w-32 h-32 object-contain mx-2">
-                <img src="Images/uwb_logo.png" alt="Partner Logo" class="w-32 h-32 object-contain mx-2">
-                <img src="Images/uwb_acm.png" alt="Partner Logo" class="w-32 h-32 object-contain mx-2">
-                <img src="Images/Asset_24x.png" alt="Partner Logo" class="w-32 h-32 object-contain mx-2">
-                <img src="Images/bc_acm.svg" alt="Partner Logo" class="w-32 h-32 object-contain mx-2">
-                <img src="Images/uwb_logo.png" alt="Partner Logo" class="w-32 h-32 object-contain mx-2">
-                <img src="Images/uwb_acm.png" alt="Partner Logo" class="w-32 h-32 object-contain mx-2">
-                <img src="Images/Asset_24x.png" alt="Partner Logo" class="w-32 h-32 object-contain mx-2">
-                <img src="Images/bc_acm.svg" alt="Partner Logo" class="w-32 h-32 object-contain mx-2">
-                <img src="Images/uwb_logo.png" alt="Partner Logo" class="w-32 h-32 object-contain mx-2">
-                <img src="Images/uwb_acm.png" alt="Partner Logo" class="w-32 h-32 object-contain mx-2">
-                <img src="Images/Asset_24x.png" alt="Partner Logo" class="w-32 h-32 object-contain mx-2">
-                <img src="Images/bc_acm.svg" alt="Partner Logo" class="w-32 h-32 object-contain mx-2">
-                <img src="Images/uwb_logo.png" alt="Partner Logo" class="w-32 h-32 object-contain mx-2">
-                <img src="Images/uwb_acm.png" alt="Partner Logo" class="w-32 h-32 object-contain mx-2">
-                <img src="Images/Asset_24x.png" alt="Partner Logo" class="w-32 h-32 object-contain mx-2">
-                
-            </div>
-        </div>
     </section>
 
-    <!-- Join Us Group Image-->
+    <!-- Lightbox Modal for Gallery -->
+    <div id="lightbox-modal" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 hidden">
+      <div class="relative">
+        <img id="lightbox-img" src="" alt="Enlarged Gallery" class="max-h-[80vh] max-w-[90vw] rounded-2xl shadow-2xl border-4 border-white">
+        <button id="lightbox-close" class="absolute -top-6 -right-6 bg-white text-gray-700 rounded-full w-10 h-10 flex items-center justify-center text-2xl font-bold shadow-lg hover:bg-[#FC6520] hover:text-white transition-all">&times;</button>
+      </div>
+    </div>
 
-    <section class="relative bg-cover bg-center" style="background-image: url('Images/valve_visit.jpg'); height: 500px;">
-        <!-- Gradient overlay (white to transparent) -->
-        <div class="absolute inset-0 bg-gradient-to-b from-white to-transparent opacity-75"></div>
-    
-        <!-- Content on top of the image -->
-        <div class="absolute inset-0 flex justify-center items-center">
-            <a href="https://forms.gle/JdZJwp7SfnRxis8B9" target="_blank">
-                <button class="bg-[#FC6520] text-white py-3 px-8 rounded-full text-xl hover:bg-[#e24e1b] transition">
-                    Join Us
-                </button>
+    <!-- Partners Section -->
+    <section class="w-full flex flex-col items-center mb-12 md:mb-20 px-4">
+      <h2 class="text-xl md:text-2xl font-bold gradient-text mb-4 md:mb-6">Supporters & Partners</h2>
+      <div class="flex flex-wrap justify-center gap-6 md:gap-10 glass p-4 md:p-6">
+        <img src="Images/bc_acm.svg" alt="Partner Logo" class="w-20 h-20 md:w-28 md:h-28 object-contain">
+        <img src="Images/uwb_logo.png" alt="Partner Logo" class="w-20 h-20 md:w-28 md:h-28 object-contain">
+        <img src="Images/uwb_acm.png" alt="Partner Logo" class="w-20 h-20 md:w-28 md:h-28 object-contain">
+        <img src="Images/Asset_24x.png" alt="Partner Logo" class="w-20 h-20 md:w-28 md:h-28 object-contain">
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="flex flex-col items-center justify-center mb-12 md:mb-20">
+      <a href="https://forms.gle/JdZJwp7SfnRxis8B9" target="_blank">
+        <button class="bg-[#FC6520] glow text-white py-4 md:py-5 px-10 md:px-16 rounded-full text-xl md:text-2xl font-bold hover:bg-[#e24e1b] transition-all shadow-xl">Join Us</button>
+      </a>
+    </section>
+
+    <!-- Glassy Footer -->
+    <footer class="glass text-center p-6 md:p-8 mt-6 md:mt-10 shadow-lg w-[96%] mx-auto">
+        <div class="flex justify-center space-x-6 md:space-x-8 mb-4">
+            <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" class="text-gray-600 hover:text-[#FC6520] transform hover:scale-110 transition-all">
+                <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-6 h-6 md:w-8 md:h-8">
+            </a>
+            <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" class="text-gray-600 hover:text-[#FC6520] transform hover:scale-110 transition-all">
+                <img src="Images/instagram.svg" alt="Instagram" class="w-6 h-6 md:w-8 md:h-8">
             </a>
         </div>
-    </section>    
-
-    <!-- Footer -->
-    <footer class="footer text-center bg-white p-4 mt-10 shadow-md">
-         <!-- Social Media Icons -->
-        <div class="flex justify-center space-x-6 mb-2">
-            <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" class="text-gray-600 hover:text-[#FC6520] text-3xl">
-                <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-8 h-8">
-            </a>
-            <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" class="text-gray-600 hover:text-[#FC6520] text-3xl">
-                <img src="Images/instagram.svg" alt="Instagram" class="w-8 h-8">
-            </a>
-        </div>
-        <p>Designed & built @ UWB Innovators Hub | 2025</p>
+        <p class="text-gray-600">Designed & built @ UWB Innovators Hub | 2025</p>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenuBtn.classList.toggle('active');
+      mobileMenu.classList.toggle('show');
+      document.body.style.overflow = mobileMenu.classList.contains('show') ? 'hidden' : '';
+    });
+    
+    // Close mobile menu when clicking on a link
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuBtn.classList.remove('active');
+        mobileMenu.classList.remove('show');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target) && mobileMenu.classList.contains('show')) {
+        mobileMenuBtn.classList.remove('active');
+        mobileMenu.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+    });
+    
+    // Lightbox functionality for gallery
+    const galleryImgs = document.querySelectorAll('.gallery-img');
+    const lightboxModal = document.getElementById('lightbox-modal');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const carousel = document.getElementById('gallery-carousel');
+    const lightboxContainer = lightboxModal.querySelector('.relative');
+    let wasAnimated = false;
+
+    galleryImgs.forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxModal.classList.remove('hidden');
+        setTimeout(() => lightboxModal.classList.add('open'), 10); // trigger animation
+        // Pause carousel
+        if (carousel.classList.contains('animate-scroll-x')) {
+          carousel.classList.remove('animate-scroll-x');
+          wasAnimated = true;
+        } else {
+          wasAnimated = false;
+        }
+      });
+    });
+
+    function closeLightbox() {
+      lightboxModal.classList.remove('open');
+      setTimeout(() => {
+        lightboxModal.classList.add('hidden');
+        lightboxImg.src = '';
+      }, 400);
+      // Resume carousel
+      if (wasAnimated) carousel.classList.add('animate-scroll-x');
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxModal.addEventListener('click', (e) => {
+      if (e.target === lightboxModal) closeLightbox();
+    });
+
+    // Cycling word effect in hero section
+    const words = ["builders", "entrepreneurs", "innovators"];
+    let wordIndex = 0;
+    const cyclingWord = document.getElementById("cycling-word");
+    setInterval(() => {
+      wordIndex = (wordIndex + 1) % words.length;
+      cyclingWord.textContent = words[wordIndex];
+    }, 1300);
+
+    // Animate group photo and company icons
+    window.addEventListener('DOMContentLoaded', () => {
+      const photo = document.getElementById('group-photo');
+      setTimeout(() => {
+        photo.classList.remove('scale-75', 'opacity-0');
+        photo.classList.add('scale-100', 'opacity-100');
+      }, 200);
+      // Animate icons after photo
+      setTimeout(() => {
+        ['icon-expedia', 'icon-steam', 'icon-tmobile', 'icon-google'].forEach((id, i) => {
+          const icon = document.getElementById(id);
+          if (icon) {
+          setTimeout(() => {
+            icon.classList.remove('scale-50', 'opacity-0');
+            icon.classList.add('scale-100', 'opacity-100');
+          }, i * 200);
+          }
+        });
+      }, 900);
+    });
+    </script>
 </body>
 </html>

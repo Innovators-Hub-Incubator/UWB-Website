@@ -2,301 +2,360 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Innovators Hub">
+    <meta name="description" content="At Innovators Hub, we inspire a community of ambitious entrepreneurs, builders, and innovators to turn their ideas into reality. Join us to defy the odds!">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uwbinnovatorshub.com/">
+    <meta property="og:title" content="Innovators Hub">
+    <meta property="og:description" content="At Innovators Hub, we inspire a community of ambitious entrepreneurs, builders, and innovators to turn their ideas into reality. Join us to defy the odds!">
+    <meta property="og:image" content="https://uwbinnovatorshub.com/Images/logo.svg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://uwbinnovatorshub.com/">
+    <meta property="twitter:title" content="Innovators Hub">
+    <meta property="twitter:description" content="At Innovators Hub, we inspire a community of ambitious entrepreneurs, builders, and innovators to turn their ideas into reality. Join us to defy the odds!">
+    <meta property="twitter:image" content="https://uwbinnovatorshub.com/Images/logo.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Innovators Hub</title>
     <link rel="icon" href="Images/logo.svg" type="image/svg+xml">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+      body { font-family: 'Inter', 'Space Grotesk', sans-serif; }
+      .glass {
+        background: rgba(255,255,255,0.7);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 2rem;
+        border: 1px solid rgba(255,255,255,0.18);
+      }
+      .glow {
+        box-shadow: 0 0 16px 2px #FC6520aa;
+      }
+      .gradient-text {
+        background: linear-gradient(90deg, #FC6520 30%, #ff8c42 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+      .fade-in {
+        animation: fadeIn 1.2s ease;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: none; }
+      }
+      .mobile-menu-btn {
+        display: none;
+      }
+      @media (max-width: 1023px) {
+        .desktop-menu {
+          display: none;
+        }
+        .mobile-menu-btn {
+          display: block;
+        }
+        .mobile-menu {
+          position: fixed;
+          top: 80px;
+          left: 0;
+          right: 0;
+          background: rgba(255,255,255,0.98);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          padding: 1rem;
+          z-index: 50;
+          border-radius: 0 0 1rem 1rem;
+          box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+          display: none;
+        }
+        .mobile-menu.show {
+          display: block;
+          animation: fadeIn 0.3s ease;
+        }
+        .mobile-menu ul {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .mobile-menu li {
+          padding: 0.75rem;
+          text-align: center;
+          border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .mobile-menu li:last-child {
+          border-bottom: none;
+        }
+      }
+    </style>
 </head>
-<body class="bg-[#FBF6F0]">
-    <!-- Navbar -->
-    <!-- Navbar -->
-    <nav class="flex justify-between items-center p-4 bg-white shadow-md fixed w-full top-0">
-        <a href="index.html" class="flex items-center">
-            <img src="Images/logo.svg" alt="Logo" class="w-10 h-10 mr-2"> 
-            <span class="text-[#FC6520] font-bold text-xl">Innovators Hub</span>
-        </a>
-
-        <!-- Mobile Menu Toggle -->
-        <div class="lg:hidden flex items-center">
-            <button class="toggle text-2xl" style="color: #FC6520;">&#9776;</button> <!-- Hamburger icon -->
+<body class="bg-gradient-to-br from-[#FBF6F0] via-white to-[#fff7f0] min-h-screen">
+    <!-- Glassy Navbar -->
+    <div class="w-full flex justify-center mt-8 md:mt-16 pb-2 px-4">
+        <nav class="glass flex items-center justify-between w-full max-w-6xl px-4 md:px-10 py-4">
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center">
+                    <img src="Images/logo.svg" alt="Logo" class="w-10 h-10 md:w-12 md:h-12 mr-2 md:mr-3 drop-shadow-lg">
+                    <span class="gradient-text font-extrabold text-xl md:text-2xl tracking-tight" style="font-family: 'Space Grotesk', Inter, sans-serif;">Innovators Hub</span>
+                </a>
+            </div>
+            <button class="mobile-menu-btn text-3xl text-[#FC6520]" aria-label="Toggle menu">
+                ☰
+            </button>
+            <ul class="desktop-menu hidden md:flex space-x-4 md:space-x-8 items-center text-base md:text-lg font-medium">
+                <li><a href="about.html" class="hover:text-[#FC6520] transition-colors">About</a></li>
+                <li><a href="events.html" class="hover:text-[#FC6520] transition-colors">Events</a></li>
+                <li><a href="launchpads.html" class="hover:text-[#FC6520] transition-colors">Launchpad</a></li>
+                <li><a href="innovators.html" class="hover:text-[#FC6520] transition-colors">Innovators</a></li>
+                <li><a href="contacts.html" class="hover:text-[#FC6520] transition-colors">Contacts</a></li>
+                <li>
+                  <a href="https://forms.gle/JdZJwp7SfnRxis8B9" target="_blank">
+                    <button class="bg-[#FC6520] glow text-white px-4 md:px-7 py-2 rounded-full font-bold hover:bg-[#e24e1b] transition-all">Join Us</button>
+                  </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="mobile-menu">
+            <ul class="text-lg font-medium">
+                <li><a href="about.html" class="hover:text-[#FC6520] transition-colors block py-3">About</a></li>
+                <li><a href="events.html" class="hover:text-[#FC6520] transition-colors block py-3">Events</a></li>
+                <li><a href="launchpads.html" class="hover:text-[#FC6520] transition-colors block py-3">Launchpad</a></li>
+                <li><a href="innovators.html" class="hover:text-[#FC6520] transition-colors block py-3">Innovators</a></li>
+                <li><a href="contacts.html" class="hover:text-[#FC6520] transition-colors block py-3">Contacts</a></li>
+                <li>
+                  <a href="https://forms.gle/JdZJwp7SfnRxis8B9" target="_blank" class="block">
+                    <button class="bg-[#FC6520] glow text-white px-7 py-2 rounded-full font-bold hover:bg-[#e24e1b] transition-all w-full">Join Us</button>
+                  </a>
+                </li>
+            </ul>
         </div>
-
-        <!-- Navbar Links -->
-        <ul class="flex space-x-6 items-center lg:flex hidden">
-            <li><a href="about.html" class="hover:text-orange-500">About</a></li>
-            <li><a href="events.html" class="hover:text-orange-500">Events</a></li>
-            <li><a href="launchpads.html" class="hover:text-orange-500">Launchpad</a></li>
-            <li><a href="innovators.html" class="hover:text-orange-500">Innovators</a></li>
-            <li><a href="contacts.html" class="hover:text-orange-500">Contacts</a></li>
-            <li><a href="https://forms.gle/JdZJwp7SfnRxis8B9"><button class="bg-[#FC6520] text-white px-4 py-2 rounded">Join Us</button></a></li>
-        </ul>
-
-        <!-- Mobile Menu (Hidden by default) -->
-        <ul class="mobile-menu lg:hidden absolute top-16 left-0 w-full bg-white shadow-md hidden">
-            <li><a href="about.html" class="block py-2 px-4 hover:bg-orange-100">About</a></li>
-            <li><a href="events.html" class="block py-2 px-4 hover:bg-orange-100">Events</a></li>
-            <li><a href="launchpads.html" class="block py-2 px-4 hover:bg-orange-100">Launchpads</a></li>
-            <li><a href="innovators.html" class="block py-2 px-4 hover:bg-orange-100">Innovators</a></li>
-            <li><a href="contacts.html" class="block py-2 px-4 hover:bg-orange-100">Contacts</a></li>
-            <li><a href="https://forms.gle/JdZJwp7SfnRxis8B9"><button class="bg-[#FC6520] text-white w-full py-2 rounded">Join Us</button></a></li>
-        </ul>
-    </nav>
+    </div>
 
     <!-- Hero Section -->
-    <section class="hero text-center mt-[75px] p-10 bg-[#FBF6F0]">
-        <h1 class="text-6xl font-bold text-[#000000] fade-in">Our fellow members</h1>
-        <p class="mt-4 text-2xl fade-in">
-            <span>We're proud of the people who make this club feel like home—
-                students from different majors, each bringing their own expertise and curiosity.</span>
-        </p>
+    <section class="flex flex-col items-center justify-center text-center mt-10 md:mt-20 mb-6 md:mb-10 px-4">
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold gradient-text fade-in mb-4 md:mb-6" style="font-family: 'Space Grotesk', Inter, sans-serif; letter-spacing: -2px;">Our Innovators</h1>
+        <p class="text-lg sm:text-xl md:text-3xl font-semibold text-gray-700 fade-in max-w-3xl mb-4">We're proud of the people who make this club feel like home—students from different majors, each bringing their own expertise and curiosity.</p>
     </section>
 
-    <!-- Club Members -->
-    <div class="linkedin-grid">
+    <!-- Members Grid -->
+    <section class="w-full flex flex-col items-center mb-12 md:mb-20 px-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8 fade-in w-full max-w-6xl">
+        <!-- Each member is a glass card with LinkedIn -->
         <!-- Row 1 -->
-        <a href="https://www.linkedin.com/in/justin-liao23/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Justin Liao</span>
+        <a href="https://www.linkedin.com/in/justin-liao23/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Justin Liao</span>
         </a>
-        <a href="https://www.linkedin.com/in/ethan-s-leonard/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Ethan Leonard</span>
+        <a href="https://www.linkedin.com/in/ethan-s-leonard/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Ethan Leonard</span>
         </a>
-        <a href="https://www.linkedin.com/in/tamir-michaely/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Tamir Michaely</span>
+        <a href="https://www.linkedin.com/in/tamir-michaely/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Tamir Michaely</span>
         </a>
-        <a href="https://www.linkedin.com/in/jane026/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Jane Choi</span>
+        <a href="https://www.linkedin.com/in/jane026/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Jane Choi</span>
         </a>
-    
         <!-- Row 2 -->
-        <a href="https://www.linkedin.com/in/manishram-saravanan/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Manish Ram Saravanan</span>
+        <a href="https://www.linkedin.com/in/manishram-saravanan/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Manish R. Saravanan</span>
         </a>
-        <a href="https://www.linkedin.com/in/aryankhanna9/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Aryan Khanna</span>
+        <a href="https://www.linkedin.com/in/aryankhanna9/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Aryan Khanna</span>
         </a>
-        <a href="https://www.linkedin.com/in/rane-peterson/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Rane Peterson</span>
+        <a href="https://www.linkedin.com/in/rane-peterson/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Rane Peterson</span>
         </a>
-        <a href="https://www.linkedin.com/in/ruslan-romanenko-b89088274/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Ruslan Romanenko</span>
+        <a href="https://www.linkedin.com/in/ruslan-romanenko-b89088274/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Ruslan Romanenko</span>
         </a>
-    
         <!-- Row 3 -->
-        <a href="https://www.linkedin.com/in/danielmorozov/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Daniil Marozau</span>
+        <a href="https://www.linkedin.com/in/danielmorozov/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Daniil Marozau</span>
         </a>
-        <a href="https://www.linkedin.com/in/aleezabhatti" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Aleeza Bhatti</span>
+        <a href="https://www.linkedin.com/in/aleezabhatti" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Aleeza Bhatti</span>
         </a>
-        <a href="https://www.linkedin.com/in/dishita-soni" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Dishita Soni</span>
+        <a href="https://www.linkedin.com/in/dishita-soni" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Dishita Soni</span>
         </a>
-        <a href="https://www.linkedin.com/in/veersaini/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Veer Saini</span>
+        <a href="https://www.linkedin.com/in/veersaini/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Veer Saini</span>
         </a>
-    
         <!-- Row 4 -->
-        <a href="https://www.linkedin.com/in/loganbautista/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Logan Bautista</span>
+        <a href="https://www.linkedin.com/in/loganbautista/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Logan Bautista</span>
         </a>
-        <a href="https://www.linkedin.com/in/allison-d-49a0b6249/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Alison Doak</span>
+        <a href="https://www.linkedin.com/in/allison-d-49a0b6249/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Alison Doak</span>
         </a>
-        <a href="https://www.linkedin.com/in/diya-kamboj" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Diya Kamboj</span>
+        <a href="https://www.linkedin.com/in/diya-kamboj" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Diya Kamboj</span>
         </a>
-        <a href="http://linkedin.com/in/aleenaamankhan" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Aleena Khan</span>
+        <a href="http://linkedin.com/in/aleenaamankhan" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Aleena Khan</span>
         </a>
-    
         <!-- Row 5 -->
-        <a href="https://www.linkedin.com/in/angelino-delacruz/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Angelino dela Cruz</span>
+        <a href="https://www.linkedin.com/in/angelino-delacruz/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Angelino dela Cruz</span>
         </a>
-        <a href="http://www.linkedin.com/in/seyeon-park77" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Seyeon Park</span>
+        <a href="http://www.linkedin.com/in/seyeon-park77" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Seyeon Park</span>
         </a>
-        <a href="http://www.linkedin.com/in/areej-hassann" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Areej Hasan</span>
+        <a href="http://www.linkedin.com/in/areej-hassann" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Areej Hasan</span>
         </a>
-        <a href="http://www.linkedin.com/in/davina-loekito" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Davina Loekito</span>
+        <a href="http://www.linkedin.com/in/davina-loekito" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Davina Loekito</span>
         </a>
-
         <!-- Row 6 -->
-        <a href="https://www.linkedin.com/in/dhanshika-vijayaraj" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Dhanshika Vijayaraj</span>
+        <a href="https://www.linkedin.com/in/dhanshika-vijayaraj" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Dhanshika Vijayaraj</span>
         </a>
-        <a href="https://www.linkedin.com/in/howard-ch" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Howard Cheng</span>
+        <a href="https://www.linkedin.com/in/howard-ch" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Howard Cheng</span>
         </a>
-        <a href="https://www.linkedin.com/in/garvseth/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Garv Seth</span>
+        <a href="https://www.linkedin.com/in/garvseth/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Garv Seth</span>
         </a>
-        <a href="https://www.linkedin.com/in/brandon-lowder-aa4033243/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Brandon Lowder</span>
+        <a href="https://www.linkedin.com/in/brandon-lowder-aa4033243/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Brandon Lowder</span>
         </a>
-
         <!-- Row 7 -->
-        <a href="http://www.linkedin.com/in/karstenschmidt02" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Karsten Schmidt</span>
+        <a href="http://www.linkedin.com/in/karstenschmidt02" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Karsten Schmidt</span>
         </a>
-        <a href="https://www.linkedin.com/in/ana-rocha99/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Ana Rocha</span>
+        <a href="https://www.linkedin.com/in/ana-rocha99/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Ana Rocha</span>
         </a>
-        <a href="https://www.linkedin.com/in/ashleytsang29/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Ashley Tsang</span>
+        <a href="https://www.linkedin.com/in/ashleytsang29/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Ashley Tsang</span>
         </a>
-        <a href="https://www.linkedin.com/in/katiezhu06/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Xinyu Zhu</span>
+        <a href="https://www.linkedin.com/in/katiezhu06/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Xinyu Zhu</span>
         </a>
-
         <!-- Row 8 -->
-        <a href="http://www.linkedin.com/in/ayaan-ali30" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Ayaan Ali</span>
+        <a href="http://www.linkedin.com/in/ayaan-ali30" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Ayaan Ali</span>
         </a>
-        <a href="https://www.linkedin.com/in/kghale/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Kyle Hale</span>
+        <a href="https://www.linkedin.com/in/kghale/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Kyle Hale</span>
         </a>
-        <a href="https://www.linkedin.com/in/tomstrzyz" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Tom Strzyz</span>
+        <a href="https://www.linkedin.com/in/tomstrzyz" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Tom Strzyz</span>
         </a>
-        <a href="https://www.linkedin.com/in/lidia-workneh/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Lidia Workneh</span>
+        <a href="https://www.linkedin.com/in/lidia-workneh/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Lidia Workneh</span>
         </a>
-
         <!-- Row 9 -->
-        <a href="https://www.linkedin.com/in/maonishio/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Mao Nishi</span>
+        <a href="https://www.linkedin.com/in/maonishio/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Mao Nishi</span>
         </a>
-        <a href="https://www.linkedin.com/in/swanandwagh1208/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Swanand Wagh</span>
+        <a href="https://www.linkedin.com/in/swanandwagh1208/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Swanand Wagh</span>
         </a>
-        <a href="https://www.linkedin.com/in/swanandwagh1208/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Micheal Gumayan</span>
+        <a href="https://www.linkedin.com/in/swanandwagh1208/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Micheal Gumayan</span>
         </a>
-        <a href="https://www.linkedin.com/in/hakuho-fujiwara-920089223/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Hakuho Fujiwara</span>
+        <a href="https://www.linkedin.com/in/hakuho-fujiwara-920089223/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Hakuho Fujiwara</span>
         </a>
-
         <!-- Row 10 -->
-        <a href="http://www.linkedin.com/in/zoha-fatima-8213982b3" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Zoha Fatima</span>
+        <a href="http://www.linkedin.com/in/zoha-fatima-8213982b3" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Zoha Fatima</span>
         </a>
-        <a href="https://www.linkedin.com/in/swanandwagh1208/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Swanand Wagh</span>
+        <a href="https://www.linkedin.com/in/swanandwagh1208/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Swanand Wagh</span>
         </a>
-        <a href="http://www.linkedin.com/in/tejaswini-pasula" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Teju Pasula</span>
+        <a href="http://www.linkedin.com/in/tejaswini-pasula" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Teju Pasula</span>
         </a>
-        <a href="https://www.linkedin.com/in/prahas-pisipati/" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Prahas Pisipati</span>
+        <a href="https://www.linkedin.com/in/prahas-pisipati/" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Prahas Pisipati</span>
         </a>
-
         <!-- Row 11 -->
-        <a href="https://www.linkedin.com/in/mahmood-ayesha" target="_blank" style="text-decoration: none; display: flex; align-items: center; width: 250px;">
-            <img src="Images/linkedin-brands.svg" alt="LinkedIn" style="width: 20px; height: 20px; margin-right: 10px;">
-            <span style="font-size: 16px;">Ayesha Mahmood</span>
+        <a href="https://www.linkedin.com/in/mahmood-ayesha" target="_blank" class="glass flex items-center gap-2 md:gap-4 p-3 md:p-4 hover:scale-105 transition-transform text-sm md:text-base">
+          <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-5 h-5 md:w-7 md:h-7">
+          <span class="font-bold text-gray-800 truncate">Ayesha Mahmood</span>
         </a>
-    </div>
-    
-    <!-- Footer -->
-    <footer class="text-center bg-white p-4 mt-20 shadow-md">
-        <style>
-            footer {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                font-size: 1rem;
-                text-align: center; /* center instead of right, if you want centered content */
-                color: #555;
-                background-color: white; /* optional: ensures it looks clean on all backgrounds */
-            }
-        </style>
-        <!-- Social Media Icons -->
-       <div class="flex justify-center space-x-6 mb-2">
-           <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" class="text-gray-600 hover:text-[#FC6520] text-3xl">
-               <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-8 h-8">
-           </a>
-           <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" class="text-gray-600 hover:text-[#FC6520] text-3xl">
-               <img src="Images/instagram.svg" alt="Instagram" class="w-8 h-8">
-           </a>
-       </div>
-       <p>Designed & built @ UWB Innovators Hub | 2025</p>
-   </footer>
-   <style>
-        .linkedin-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding-top: 10px;
-            padding-bottom: 100px;
-            max-width: calc((250px * 5) + (20px * 4)); /* 5 items + 4 gaps */
-            margin: 0 auto; /* center the container */
-        }
+      </div>
+    </section>
 
-        .linkedin-grid a {
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            width: 250px;
-        }
-
-        .linkedin-grid img {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
-        }
-
-        .linkedin-grid span {
-            font-size: 16px;
-        }
-    </style>
+    <!-- Glassy Footer -->
+    <footer class="glass text-center p-6 md:p-8 mt-6 md:mt-10 shadow-lg w-[96%] mx-auto">
+        <div class="flex justify-center space-x-6 md:space-x-8 mb-4">
+            <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" class="text-gray-600 hover:text-[#FC6520] transform hover:scale-110 transition-all">
+                <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-6 h-6 md:w-8 md:h-8">
+            </a>
+            <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" class="text-gray-600 hover:text-[#FC6520] transform hover:scale-110 transition-all">
+                <img src="Images/instagram.svg" alt="Instagram" class="w-6 h-6 md:w-8 md:h-8">
+            </a>
+        </div>
+        <p class="text-gray-600">Designed & built @ UWB Innovators Hub | 2025</p>
+    </footer>
 
     <script src="script.js"></script>
-
+    <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('show');
+    });
+    
+    // Close mobile menu when clicking on a link
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('show');
+      });
+    });
+    </script>
 </body>
 </html>
