@@ -123,18 +123,32 @@ function initializeContactForm() {
     form.addEventListener("submit", async (event) => {
         event.preventDefault();
 
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const message = document.getElementById("message").value;
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
         const statusMessage = document.getElementById("statusMessage");
+        const submitButton = form.querySelector('button[type="submit"]');
 
+        // Basic validation
         if (!name || !email || !message) {
             showStatus(statusMessage, "Please fill in all fields.", "error");
             return;
         }
 
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            showStatus(statusMessage, "Please enter a valid email address.", "error");
+            return;
+        }
+
+        // Disable submit button and show loading state
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+        showStatus(statusMessage, "Sending message...", "info");
+
         try {
-            const response = await fetch("https://formspree.io/f/YKL!pyeWzZEn3bA", {
+            const response = await fetch("https://formspree.io/f/xblgzzol", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -144,14 +158,19 @@ function initializeContactForm() {
             });
 
             if (response.ok) {
-                showStatus(statusMessage, "Message sent successfully!", "success");
+                showStatus(statusMessage, "Message sent successfully! We'll get back to you soon.", "success");
                 form.reset();
             } else {
-                throw new Error("Failed to send message");
+                const errorData = await response.json();
+                throw new Error(errorData.error || "Failed to send message");
             }
         } catch (error) {
             console.error("Error:", error);
-            showStatus(statusMessage, "Failed to send message. Please try again.", "error");
+            showStatus(statusMessage, "Failed to send message. Please try again later.", "error");
+        } finally {
+            // Re-enable submit button
+            submitButton.disabled = false;
+            submitButton.textContent = "Send Message";
         }
     });
 }
@@ -160,13 +179,15 @@ function showStatus(element, message, type) {
     if (!element) return;
     
     element.textContent = message;
-    element.style.color = type === "success" ? "green" : "red";
+    element.style.color = type === "success" ? "#10B981" : type === "error" ? "#EF4444" : "#3B82F6";
     element.style.opacity = "1";
     
-    // Fade out after 3 seconds
-    setTimeout(() => {
-        element.style.opacity = "0";
-    }, 3000);
+    // Fade out after 5 seconds for success/error messages
+    if (type !== "info") {
+        setTimeout(() => {
+            element.style.opacity = "0";
+        }, 5000);
+    }
 }
 
 // Add smooth scrolling for all anchor links
