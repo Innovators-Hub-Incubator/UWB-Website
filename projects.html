@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Demo Day Projects | Innovators Hub">
+    <meta name="description" content="Discover the innovative projects showcased at our Demo Day events. See what our talented teams have built to solve real-world problems.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.uwinnovators.com/projects.html">
+    <meta property="og:title" content="Demo Day Projects | Innovators Hub">
+    <meta property="og:description" content="Discover the innovative projects showcased at our Demo Day events. See what our talented teams have built to solve real-world problems.">
+    <meta property="og:image" content="https://www.uwinnovators.com/Images/logo.svg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.uwinnovators.com/projects.html">
+    <meta property="twitter:title" content="Demo Day Projects | Innovators Hub">
+    <meta property="twitter:description" content="Discover the innovative projects showcased at our Demo Day events. See what our talented teams have built to solve real-world problems.">
+    <meta property="twitter:image" content="https://www.uwinnovators.com/Images/logo.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Day Projects | Innovators Hub</title>
+    <link rel="icon" href="Images/logo.svg" type="image/svg+xml">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+      body { font-family: 'Inter', 'Space Grotesk', sans-serif; }
+      .glass {
+        background: rgba(255,255,255,0.7);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 2rem;
+        border: 1px solid rgba(255,255,255,0.18);
+      }
+      .glow {
+        box-shadow: 0 0 16px 2px #FC6520aa;
+      }
+      .gradient-text {
+        background: linear-gradient(90deg, #FC6520 30%, #ff8c42 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+      .fade-in {
+        animation: fadeIn 1.2s ease;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: none; }
+      }
+      .project-card {
+        transition: all 0.3s ease;
+      }
+      .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 16px 48px 0 rgba(31, 38, 135, 0.15);
+      }
+      .team-avatar {
+        transition: transform 0.3s ease;
+      }
+      .team-avatar:hover {
+        transform: scale(1.1);
+      }
+      .mobile-menu-btn {
+        display: none;
+      }
+      @media (max-width: 1023px) {
+        .desktop-menu {
+          display: none;
+        }
+        .mobile-menu-btn {
+          display: block;
+        }
+        .mobile-menu {
+          position: fixed;
+          top: 80px;
+          left: 0;
+          right: 0;
+          background: rgba(255,255,255,0.98);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          padding: 1rem;
+          z-index: 50;
+          border-radius: 0 0 1rem 1rem;
+          box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+          display: none;
+        }
+        .mobile-menu.show {
+          display: block;
+          animation: fadeIn 0.3s ease;
+        }
+        .mobile-menu ul {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .mobile-menu li {
+          padding: 0.75rem;
+          text-align: center;
+          border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .mobile-menu li:last-child {
+          border-bottom: none;
+        }
+      }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-[#FBF6F0] via-white to-[#fff7f0] min-h-screen">
+    <!-- Flowing Text Wallpaper Background Words -->
+    <div class="fixed inset-0 w-full h-full pointer-events-none select-none z-0 overflow-hidden" aria-hidden="true" style="font-size:3vw; color:#bbb; opacity:0.13; font-weight:700; letter-spacing:0.03em; line-height:1.2; white-space:pre; font-family: 'Space Grotesk', Inter, sans-serif;">
+      <div style="transform: translateX(0vw);">demo day   projects   innovate   build   showcase   entrepreneurs   create   demo day   projects   innovate   build   showcase   entrepreneurs</div>
+      <div style="transform: translateX(4vw);">projects   innovate   build   showcase   entrepreneurs   create   demo day   projects   innovate   build   showcase   entrepreneurs   create</div>
+      <div style="transform: translateX(-2vw);">innovate   build   showcase   entrepreneurs   create   demo day   projects   innovate   build   showcase   entrepreneurs   create   demo day</div>
+      <div style="transform: translateX(6vw);">build   showcase   entrepreneurs   create   demo day   projects   innovate   build   showcase   entrepreneurs   create   demo day   projects</div>
+      <div style="transform: translateX(-5vw);">showcase   entrepreneurs   create   demo day   projects   innovate   build   showcase   entrepreneurs   create   demo day   projects   innovate</div>
+      <div style="transform: translateX(2vw);">entrepreneurs   create   demo day   projects   innovate   build   showcase   entrepreneurs   create   demo day   projects   innovate   build</div>
+      <div style="transform: translateX(-7vw);">create   demo day   projects   innovate   build   showcase   entrepreneurs   create   demo day   projects   innovate   build   showcase</div>
+    </div>
+
+    <!-- Glassy Navbar -->
+    <div class="w-full flex justify-center mt-8 md:mt-16 pb-2 px-4">
+        <nav class="glass flex items-center justify-between w-full max-w-6xl px-4 md:px-10 py-4">
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center">
+                    <img src="Images/logo.svg" alt="Logo" class="w-10 h-10 md:w-12 md:h-12 mr-2 md:mr-3 drop-shadow-lg">
+                    <span class="gradient-text font-extrabold text-xl md:text-2xl tracking-tight" style="font-family: 'Space Grotesk', Inter, sans-serif;">Innovators Hub</span>
+                </a>
+            </div>
+            <button class="mobile-menu-btn text-3xl text-[#FC6520]" aria-label="Toggle menu">
+                ☰
+            </button>
+            <ul class="desktop-menu hidden md:flex space-x-4 md:space-x-8 items-center text-base md:text-lg font-medium">
+                <li><a href="about.html" class="hover:text-[#FC6520] transition-colors">About</a></li>
+                <li><a href="events.html" class="hover:text-[#FC6520] transition-colors">Events</a></li>
+                <li><a href="launchpads.html" class="hover:text-[#FC6520] transition-colors">Launchpad</a></li>
+                <li><a href="innovators.html" class="hover:text-[#FC6520] transition-colors">Innovators</a></li>
+                <li><a href="projects.html" class="text-[#FC6520] font-bold transition-colors">Projects</a></li>
+                <li><a href="contacts.html" class="hover:text-[#FC6520] transition-colors">Contact Us</a></li>
+                <li>
+                  <a href="https://forms.gle/JdZJwp7SfnRxis8B9" target="_blank">
+                    <button class="bg-[#FC6520] glow text-white px-4 md:px-7 py-2 rounded-full font-bold hover:bg-[#e24e1b] transition-all">Join Us</button>
+                  </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="mobile-menu">
+            <ul class="text-lg font-medium">
+                <li><a href="about.html" class="hover:text-[#FC6520] transition-colors block py-3">About</a></li>
+                <li><a href="events.html" class="hover:text-[#FC6520] transition-colors block py-3">Events</a></li>
+                <li><a href="launchpads.html" class="hover:text-[#FC6520] transition-colors block py-3">Launchpad</a></li>
+                <li><a href="innovators.html" class="hover:text-[#FC6520] transition-colors block py-3">Innovators</a></li>
+                <li><a href="projects.html" class="text-[#FC6520] font-bold transition-colors block py-3">Projects</a></li>
+                <li><a href="contacts.html" class="hover:text-[#FC6520] transition-colors block py-3">Contact Us</a></li>
+                <li>
+                  <a href="https://forms.gle/JdZJwp7SfnRxis8B9" target="_blank" class="block">
+                    <button class="bg-[#FC6520] glow text-white px-7 py-2 rounded-full font-bold hover:bg-[#e24e1b] transition-all w-full">Join Us</button>
+                  </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="flex flex-col items-center justify-center text-center mt-10 md:mt-20 mb-6 md:mb-10 px-4">
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold gradient-text fade-in mb-4 md:mb-6" style="font-family: 'Space Grotesk', Inter, sans-serif; letter-spacing: -2px;">Demo Day Projects</h1>
+        <p class="text-lg sm:text-xl md:text-3xl font-semibold text-gray-700 fade-in max-w-4xl mb-8">Discover the innovative projects built by our <span class="font-bold text-[#FC6520]">Launchpad teams</span>. From idea to reality, these projects showcase the power of entrepreneurial thinking and technical execution.</p>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="w-full flex flex-col items-center mb-12 md:mb-20 px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 w-full max-w-7xl">
+        
+        <!-- Project 1: Smart Campus Navigation -->
+        <div class="glass project-card p-6 md:p-8 flex flex-col">
+          <div class="relative mb-6">
+            <img src="Images/LaunchpadIntro.png" alt="Smart Campus Navigation Team" class="w-full h-48 object-cover rounded-xl">
+            <div class="absolute -bottom-4 left-4 flex space-x-2">
+              <img src="Images/ehud.jpeg" alt="Team Member" class="w-12 h-12 rounded-full border-4 border-white team-avatar">
+              <img src="Images/tian.jpeg" alt="Team Member" class="w-12 h-12 rounded-full border-4 border-white team-avatar">
+              <img src="Images/alpri.jpeg" alt="Team Member" class="w-12 h-12 rounded-full border-4 border-white team-avatar">
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold gradient-text mb-3" style="font-family: 'Space Grotesk', Inter, sans-serif;">CampusNav</h3>
+          <p class="text-gray-700 mb-4 flex-grow">An AI-powered navigation app that helps students find the fastest routes around campus, locate study spaces, and discover events happening nearby.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-[#FC6520] text-white px-3 py-1 rounded-full text-sm font-medium">React Native</span>
+            <span class="bg-[#FC6520] text-white px-3 py-1 rounded-full text-sm font-medium">AI/ML</span>
+            <span class="bg-[#FC6520] text-white px-3 py-1 rounded-full text-sm font-medium">Maps API</span>
+          </div>
+          <div class="flex gap-3">
+            <a href="#" class="flex-1 bg-[#FC6520] text-white text-center py-2 px-4 rounded-lg font-semibold hover:bg-[#e24e1b] transition-colors">View Project</a>
+            <a href="#" class="glass px-4 py-2 rounded-lg text-[#FC6520] font-semibold hover:bg-white transition-colors">Demo</a>
+          </div>
+        </div>
+
+        <!-- Project 2: Sustainable Marketplace -->
+        <div class="glass project-card p-6 md:p-8 flex flex-col">
+          <div class="relative mb-6">
+            <img src="Images/first_meeting.jpg" alt="EcoMarket Team" class="w-full h-48 object-cover rounded-xl">
+            <div class="absolute -bottom-4 left-4 flex space-x-2">
+              <img src="Images/sandeep.jpeg" alt="Team Member" class="w-12 h-12 rounded-full border-4 border-white team-avatar">
+              <img src="Images/joshua.jpeg" alt="Team Member" class="w-12 h-12 rounded-full border-4 border-white team-avatar">
+              <img src="Images/ryan.jpeg" alt="Team Member" class="w-12 h-12 rounded-full border-4 border-white team-avatar">
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold gradient-text mb-3" style="font-family: 'Space Grotesk', Inter, sans-serif;">EcoMarket</h3>
+          <p class="text-gray-700 mb-4 flex-grow">A peer-to-peer marketplace for sustainable products, connecting eco-conscious consumers with local green businesses and reducing carbon footprints.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-[#FC6520] text-white px-3 py-1 rounded-full text-sm font-medium">Next.js</span>
+            <span class="bg-[#FC6520] text-white px-3 py-1 rounded-full text-sm font-medium">PostgreSQL</span>
+            <span class="bg-[#FC6520] text-white px-3 py-1 rounded-full text-sm font-medium">Stripe</span>
+          </div>
+          <div class="flex gap-3">
+            <a href="#" class="flex-1 bg-[#FC6520] text-white text-center py-2 px-4 rounded-lg font-semibold hover:bg-[#e24e1b] transition-colors">View Project</a>
+            <a href="#" class="glass px-4 py-2 rounded-lg text-[#FC6520] font-semibold hover:bg-white transition-colors">Demo</a>
+          </div>
+        </div>
+
+        <!-- Project 3: Mental Health Companion -->
+        <div class="glass project-card p-6 md:p-8 flex flex-col">
+          <div class="relative mb-6">
+            <img src="Images/valve_visit.jpg" alt="MindMate Team" class="w-full h-48 object-cover rounded-xl">
+            <div class="absolute -bottom-4 left-4 flex space-x-2">
+              <img src="Images/pranav.jpeg" alt="Team Member" class="w-12 h-12 rounded-full border-4 border-white team-avatar">
+              <img src="Images/manan.jpeg" alt="Team Member" class="w-12 h-12 rounded-full border-4 border-white team-avatar">
+              <img src="Images/neha.jpeg" alt="Team Member" class="w-12 h-12 rounded-full border-4 border-white team-avatar">
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold gradient-text mb-3" style="font-family: 'Space Grotesk', Inter, sans-serif;">MindMate</h3>
+          <p class="text-gray-700 mb-4 flex-grow">An AI-powered mental health companion that provides personalized wellness recommendations, mood tracking, and connects users with professional support.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-[#FC6520] text-white px-3 py-1 rounded-full text-sm font-medium">Python</span>
+            <span class="bg-[#FC6520] text-white px-3 py-1 rounded-full text-sm font-medium">TensorFlow</span>
+            <span class="bg-[#FC6520] text-white px-3 py-1 rounded-full text-sm font-medium">Flutter</span>
+          </div>
+          <div class="flex gap-3">
+            <a href="#" class="flex-1 bg-[#FC6520] text-white text-center py-2 px-4 rounded-lg font-semibold hover:bg-[#e24e1b] transition-colors">View Project</a>
+            <a href="#" class="glass px-4 py-2 rounded-lg text-[#FC6520] font-semibold hover:bg-white transition-colors">Demo</a>
+          </div>
+        </div>
+
+        <!-- Project 4: Study Group Finder -->
+        <div class="glass project-card p-6 md:p-8 flex flex-col">
+          <div class="relative mb-6">
+            <img src="Images/LaunchpadIntro.png" alt="StudySync Team" class="w-full h-48 object-cover rounded-xl">
+            <div class="absolute -bottom-4 left-4 flex space-x-2">
+              <img src="Images/jerry.jpeg" alt="Team Member" class="w-12 h-12 rounded-full border-4 border-white team-avatar">
+              <img src="Images/arsheya.jpeg" alt="Team Member" class="w-12 h-12 rounded-full border-4 border-white team-avatar">
+              <img src="Images/james.jpeg" alt="Team Member" class="w-12 h-12 rounded-full border-4 border-white team-avatar">
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold gradient-text mb-3" style="font-family: 'Space Grotesk', Inter, sans-serif;">StudySync</h3>
+          <p class="text-gray-700 mb-4 flex-grow">A platform that matches students with compatible study partners based on learning styles, schedules, and academic goals to enhance collaborative learning.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-[#FC6520] text-white px-3 py-1 rounded-full text-sm font-medium">Vue.js</span>
+            <span class="bg-[#FC6520] text-white px-3 py-1 rounded-full text-sm font-medium">Firebase</span>
+            <span class="bg-[#FC6520] text-white px-3 py-1 rounded-full text-sm font-medium">Machine Learning</span>
+          </div>
+          <div class="flex gap-3">
+            <a href="#" class="flex-1 bg-[#FC6520] text-white text-center py-2 px-4 rounded-lg font-semibold hover:bg-[#e24e1b] transition-colors">View Project</a>
+            <a href="#" class="glass px-4 py-2 rounded-lg text-[#FC6520] font-semibold hover:bg-white transition-colors">Demo</a>
+          </div>
+        </div>
+
+        <!-- Project 5: Local Event Discovery -->
+        <div class="glass project-card p-6 md:p-8 flex flex-col">
+          <div class="relative mb-6">
+            <img src="Images/first_meeting.jpg" alt="EventHub Team" class="w-full h-48 object-cover rounded-xl">
+            <div class="absolute -bottom-4 left-4 flex space-x-2">
+              <img src="Images/deb.jpeg" alt="Team Member" class="w-12 h-12 rounded-full border-4 border-white team-avatar">
+              <img src="Images/jian.jpeg" alt="Team Member" class="w-12 h-12 rounded-full border-4 border-white team-avatar">
+              <img src="Images/mustafa.jpeg" alt="Team Member" class="w-12 h-12 rounded-full border-4 border-white team-avatar">
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold gradient-text mb-3" style="font-family: 'Space Grotesk', Inter, sans-serif;">EventHub</h3>
+          <p class="text-gray-700 mb-4 flex-grow">Discover and create local events in your community. From workshops to social gatherings, EventHub makes it easy to connect with like-minded people.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-[#FC6520] text-white px-3 py-1 rounded-full text-sm font-medium">React</span>
+            <span class="bg-[#FC6520] text-white px-3 py-1 rounded-full text-sm font-medium">Node.js</span>
+            <span class="bg-[#FC6520] text-white px-3 py-1 rounded-full text-sm font-medium">MongoDB</span>
+          </div>
+          <div class="flex gap-3">
+            <a href="#" class="flex-1 bg-[#FC6520] text-white text-center py-2 px-4 rounded-lg font-semibold hover:bg-[#e24e1b] transition-colors">View Project</a>
+            <a href="#" class="glass px-4 py-2 rounded-lg text-[#FC6520] font-semibold hover:bg-white transition-colors">Demo</a>
+          </div>
+        </div>
+
+        <!-- Project 6: Food Waste Reducer -->
+        <div class="glass project-card p-6 md:p-8 flex flex-col">
+          <div class="relative mb-6">
+            <img src="Images/valve_visit.jpg" alt="FoodSaver Team" class="w-full h-48 object-cover rounded-xl">
+            <div class="absolute -bottom-4 left-4 flex space-x-2">
+              <img src="Images/eliel.jpeg" alt="Team Member" class="w-12 h-12 rounded-full border-4 border-white team-avatar">
+              <img src="Images/Ayushi.jpeg" alt="Team Member" class="w-12 h-12 rounded-full border-4 border-white team-avatar">
+              <img src="Images/Daniel.jpeg" alt="Team Member" class="w-12 h-12 rounded-full border-4 border-white team-avatar">
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold gradient-text mb-3" style="font-family: 'Space Grotesk', Inter, sans-serif;">FoodSaver</h3>
+          <p class="text-gray-700 mb-4 flex-grow">An app that connects restaurants and grocery stores with consumers to reduce food waste by offering discounted items nearing expiration dates.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-[#FC6520] text-white px-3 py-1 rounded-full text-sm font-medium">Swift</span>
+            <span class="bg-[#FC6520] text-white px-3 py-1 rounded-full text-sm font-medium">Django</span>
+            <span class="bg-[#FC6520] text-white px-3 py-1 rounded-full text-sm font-medium">AWS</span>
+          </div>
+          <div class="flex gap-3">
+            <a href="#" class="flex-1 bg-[#FC6520] text-white text-center py-2 px-4 rounded-lg font-semibold hover:bg-[#e24e1b] transition-colors">View Project</a>
+            <a href="#" class="glass px-4 py-2 rounded-lg text-[#FC6520] font-semibold hover:bg-white transition-colors">Demo</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="w-full flex flex-col items-center mb-16 md:mb-24 px-4">
+      <div class="glass p-8 md:p-12 max-w-4xl text-center">
+        <h2 class="text-3xl md:text-5xl font-bold gradient-text mb-6" style="font-family: 'Space Grotesk', Inter, sans-serif;">Have a Project Idea?</h2>
+        <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl mx-auto">Join our next Launchpad cohort and turn your innovative idea into reality. Get mentorship, resources, and a supportive community to build something amazing.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="launchpads.html" class="bg-[#FC6520] glow text-white px-8 py-3 rounded-full font-bold hover:bg-[#e24e1b] transition-all">Learn About Launchpad</a>
+          <a href="https://forms.gle/JdZJwp7SfnRxis8B9" target="_blank" class="glass px-8 py-3 rounded-full text-[#FC6520] font-bold hover:bg-white transition-colors">Apply Now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full bg-white border-t border-gray-200 py-8 px-4">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
+        <div class="flex items-center mb-4 md:mb-0">
+          <img src="Images/logo.svg" alt="Logo" class="w-8 h-8 mr-2">
+          <span class="gradient-text font-bold text-lg" style="font-family: 'Space Grotesk', Inter, sans-serif;">Innovators Hub</span>
+        </div>
+        <div class="flex space-x-6 text-gray-600">
+          <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" class="hover:text-[#FC6520] transition-colors">LinkedIn</a>
+          <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" class="hover:text-[#FC6520] transition-colors">Instagram</a>
+          <a href="mailto:innovatorshub@uw.edu" class="hover:text-[#FC6520] transition-colors">Email</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      // Add any project-specific JavaScript here
+      document.addEventListener('DOMContentLoaded', function() {
+        // Fade in animation for elements
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+            }
+          });
+        });
+        
+        fadeElements.forEach(el => observer.observe(el));
+      });
+    </script>
+</body>
+</html> 
