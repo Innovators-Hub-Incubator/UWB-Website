@@ -53,9 +53,26 @@
         to { opacity: 1; transform: none; }
       }
       .contact-input, .contact-textarea {
-        @apply w-full px-5 py-3 rounded-xl border border-gray-200 bg-white/80 focus:outline-none focus:ring-2 focus:ring-[#FC6520] text-lg mb-4 transition;
+        @apply w-full px-5 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#FC6520] text-lg mb-4 transition;
       }
       .contact-textarea { min-height: 120px; }
+      .bg-image-overlay {
+        background-image: url('Images/Officers26.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+      }
+      .bg-image-overlay::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(251, 246, 240, 0.85);
+        z-index: -1;
+      }
       .mobile-menu-btn {
         display: none;
       }
@@ -100,7 +117,7 @@
       }
     </style>
 </head>
-<body class="bg-gradient-to-br from-[#FBF6F0] via-white to-[#fff7f0] min-h-screen flex flex-col">
+<body class="bg-image-overlay min-h-screen flex flex-col">
     <!-- Glassy Navbar -->
     <div class="w-full flex justify-center mt-8 md:mt-16 pb-2 px-4">
         <nav class="glass flex items-center justify-between w-full max-w-6xl px-4 md:px-10 py-4">
@@ -153,9 +170,9 @@
       <div class="glass w-full max-w-xl p-6 md:p-10 fade-in">
         <h2 class="text-2xl md:text-3xl font-bold gradient-text mb-4 text-center">Talk with us</h2>
         <form id="contactForm" class="flex flex-col">
-          <input type="text" id="name" name="name" placeholder="Your name" required class="contact-input bg-[#f3f4f6] text-gray-900">
-          <input type="email" id="email" name="email" placeholder="Your email address" required class="contact-input bg-[#f3f4f6] text-gray-900">
-          <textarea id="message" name="message" placeholder="Enter a message here." required class="contact-textarea bg-[#f3f4f6] text-gray-900"></textarea>
+          <input type="text" id="name" name="name" placeholder="Your name" required class="contact-input text-gray-900">
+          <input type="email" id="email" name="email" placeholder="Your email address" required class="contact-input text-gray-900">
+          <textarea id="message" name="message" placeholder="Enter a message here." required class="contact-textarea text-gray-900"></textarea>
           <button type="submit" class="bg-[#FC6520] glow text-white py-3 px-8 rounded-full text-lg font-bold hover:bg-[#e24e1b] transition-all mt-2">Send Message</button>
         </form>
         <p id="statusMessage" class="mt-4 text-center text-[#FC6520] font-semibold"></p>
@@ -163,7 +180,7 @@
     </main>
 
     <!-- Glassy Footer -->
-    <footer class="glass text-center p-6 md:p-8 mt-6 md:mt-10 shadow-lg w-[96%] mx-auto">
+    <footer class="glass text-center p-6 md:p-8 mt-6 md:mt-10 shadow-lg w-full">
         <div class="flex justify-center space-x-6 md:space-x-8 mb-4">
             <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" class="text-gray-600 hover:text-[#FC6520] transform hover:scale-110 transition-all">
                 <img src="Images/linkedin-brands.svg" alt="LinkedIn" class="w-6 h-6 md:w-8 md:h-8">
