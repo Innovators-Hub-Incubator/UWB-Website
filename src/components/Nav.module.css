@@ -3,14 +3,16 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 9999;
   padding: 1rem 1.5rem;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   transition: background 0.4s, box-shadow 0.4s;
 }
 
 .wrap.scrolled {
-  background: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(12px);
+  background: rgba(10, 10, 10, 0.95);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
