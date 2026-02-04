@@ -15,8 +15,8 @@ const GALLERY_ITEMS = [
   { src: '/Gallery Images/IMG_3869.jpg', caption: 'Expedia Tour · 2025' },
   { src: '/Gallery Images/IMG_3877.jpg', caption: 'Expedia Tour · 2025' },
   { src: '/Gallery Images/PXL_20251010_173649770.png', caption: 'Google Tour · 2025' },
-  { src: '/Gallery Images/Screenshot 2026-02-03 at 5.25.32 PM.png', caption: 'Launchpad Demo Day · 2025' },
-  { src: '/Gallery Images/Screenshot 2026-02-03 at 5.25.41 PM.png', caption: 'Launchpad Demo Day · 2025' },
+  //{ src: '/Gallery Images/Screenshot 2026-02-03 at 5.25.32 PM.png', caption: 'Launchpad Demo Day · 2025' },
+  //{ src: '/Gallery Images/Screenshot 2026-02-03 at 5.25.41 PM.png', caption: 'Launchpad Demo Day · 2025' },
 ];
 
 function pickRandom(arr) {
