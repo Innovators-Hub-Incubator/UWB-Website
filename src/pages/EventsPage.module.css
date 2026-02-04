@@ -1,0 +1,130 @@
+/* Event card links: pill buttons with icon or text */
+.eventLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.linkPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.linkPill:hover {
+  transform: scale(1.03);
+}
+
+.linkPillIcon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1);
+}
+
+/* Instagram: pink */
+.linkPill_instagram {
+  color: #E1306C;
+  border: 1px solid #E1306C;
+}
+
+.linkPill_instagram:hover {
+  background: #E1306C;
+  color: #fff;
+}
+
+/* LinkedIn: blue */
+.linkPill_linkedin {
+  color: #0A66C2;
+  border: 1px solid #0A66C2;
+}
+
+.linkPill_linkedin:hover {
+  background: #0A66C2;
+  color: #fff;
+}
+
+/* Primary (orange) */
+.linkPill_primary {
+  color: var(--orange);
+  border: 1px solid var(--orange);
+}
+
+.linkPill_primary:hover {
+  background: var(--orange);
+  color: var(--white);
+}
+
+/* Neutral (gray) */
+.linkPill_neutral {
+  color: var(--gray-text);
+  border: 1px solid var(--gray-text);
+}
+
+.linkPill_neutral:hover {
+  background: var(--gray-text);
+  color: var(--white);
+}
+
+/* YouTube red */
+.linkPill_youtube {
+  color: #ff0000;
+  border: 1px solid #ff0000;
+}
+
+.linkPill_youtube:hover {
+  background: #ff0000;
+  color: #fff;
+}
+
+.seasonTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+  width: 100%;
+  max-width: 700px;
+}
+
+.seasonTitle span {
+  background: linear-gradient(90deg, var(--orange), var(--orange-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.eventList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 700px;
+  width: 100%;
+}
+
+.eventMeta {
+  font-size: 0.9rem;
+  color: var(--gray-text);
+  margin-top: 0.5rem;
+}
+
+.eventCardDesc {
+  color: var(--gray-text);
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.eventCardDesc a {
+  color: var(--orange);
+  font-weight: 600;
+}
+
+.eventCardDesc a:hover {
+  text-decoration: underline;
+}

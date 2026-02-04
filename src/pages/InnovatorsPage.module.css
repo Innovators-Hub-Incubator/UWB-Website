@@ -1,0 +1,63 @@
+/* Innovators grid: LinkedIn cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 0.75rem 1rem;
+  width: 100%;
+  max-width: 72rem;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem 2rem;
+  }
+}
+
+.memberCard {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: #0A0A0A;
+  border: 1px solid rgba(252, 101, 32, 0.2);
+  border-radius: 1rem;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.memberCard:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 24px rgba(252, 101, 32, 0.2);
+  border-color: rgba(252, 101, 32, 0.4);
+}
+
+.memberCardIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1);
+}
+
+.memberCard span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
