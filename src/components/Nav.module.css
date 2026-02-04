@@ -1,0 +1,149 @@
+.wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1rem 1.5rem;
+  transition: background 0.4s, box-shadow 0.4s;
+}
+
+.wrap.scrolled {
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.logo span {
+  color: var(--orange);
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.links a {
+  color: var(--gray-text);
+  font-weight: 500;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.links a:hover {
+  color: var(--orange);
+  transform: translateY(-1px);
+}
+
+.cta {
+  display: inline-block;
+  background: var(--orange);
+  color: var(--white);
+  padding: 0.6rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(252, 101, 32, 0.5);
+}
+
+.mobileBtn {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+}
+
+.mobileBtn span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--white);
+  transition: all 0.3s;
+}
+
+.mobileBtn.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.mobileBtn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobileBtn.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobileMenu {
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: var(--black);
+  border: 1px solid rgba(252, 101, 32, 0.2);
+  border-radius: 1rem;
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.mobileMenu.show {
+  display: flex;
+}
+
+.mobileMenu a {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  color: var(--white);
+}
+
+.mobileMenu a:hover {
+  background: rgba(252, 101, 32, 0.12);
+  color: var(--orange);
+}
+
+@media (max-width: 768px) {
+  .links {
+    display: none;
+  }
+
+  .mobileBtn {
+    display: flex;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobileMenu {
+    display: none !important;
+  }
+}

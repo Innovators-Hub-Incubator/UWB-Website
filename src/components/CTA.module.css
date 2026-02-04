@@ -1,0 +1,29 @@
+.section {
+  text-align: center;
+  padding: 4rem 1.5rem;
+}
+
+@media (min-width: 769px) {
+  .section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.btn {
+  display: inline-block;
+  background: var(--orange);
+  color: var(--white);
+  padding: 1.25rem 3rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 1.25rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 50px rgba(252, 101, 32, 0.5);
+}

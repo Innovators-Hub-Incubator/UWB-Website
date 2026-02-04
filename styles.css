@@ -19,8 +19,8 @@
 :root {
     --primary-color: #FC6520;
     --secondary-color: #ff8c42;
-    --background-color: #FBF6F0;
-    --text-color: #333;
+    --background-color: #000000;
+    --text-color: #ffffff;
     --transition-speed: 0.3s;
 }
 
