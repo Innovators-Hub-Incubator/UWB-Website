@@ -1,23 +1,42 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, useMemo } from 'react';
 import styles from './Gallery.module.css';
 
+const SIZES = ['sm', 'md', 'lg', 'xl'];
+const ALIGNS = ['top', 'mid', 'bottom'];
+
 const GALLERY_ITEMS = [
-  { src: '/Gallery Images/1746042265405.png', caption: 'Launchpad Week 1 · 2025', size: 'lg', align: 'bottom' },
-  { src: '/Gallery Images/1746042307507.png', caption: 'Launchpad Week 2 · 2025', size: 'sm', align: 'top' },
-  { src: '/Gallery Images/20250211_134530.jpg', caption: 'First Meeting · 2025', size: 'md', align: 'mid' },
-  { src: '/Gallery Images/20250307_153232.jpg', caption: 'Valve HQ Tour · 2025', size: 'xl', align: 'bottom' },
-  { src: '/Gallery Images/DSC04949_1.jpg', caption: 'T-Mobile Tour · 2025', size: 'md', align: 'top' },
-  { src: '/Gallery Images/DSC04995_1.jpg', caption: 'T-Mobile Tour · 2025', size: 'lg', align: 'bottom' },
-  { src: '/Gallery Images/IMG_3533.jpg', caption: 'Valve HQ Tour · 2025', size: 'sm', align: 'mid' },
-  { src: '/Gallery Images/IMG_3869.jpg', caption: 'Expedia Tour · 2025', size: 'lg', align: 'bottom' },
-  { src: '/Gallery Images/IMG_3877.jpg', caption: 'Expedia Tour · 2025', size: 'md', align: 'top' },
-  { src: '/Gallery Images/PXL_20251010_173649770.png', caption: 'Google Tour · 2025', size: 'sm', align: 'bottom' },
+  { src: '/Gallery Images/1746042265405.png', caption: 'Launchpad Week 1 · 2025' },
+  { src: '/Gallery Images/1746042307507.png', caption: 'Launchpad Week 2 · 2025' },
+  { src: '/Gallery Images/20250211_134530.jpg', caption: 'First Meeting · 2025' },
+  { src: '/Gallery Images/20250307_153232.jpg', caption: 'Valve HQ Tour · 2025' },
+  { src: '/Gallery Images/DSC04949_1.jpg', caption: 'T-Mobile Tour · 2025' },
+  { src: '/Gallery Images/DSC04995_1.jpg', caption: 'T-Mobile Tour · 2025' },
+  { src: '/Gallery Images/IMG_3533.jpg', caption: 'Valve HQ Tour · 2025' },
+  { src: '/Gallery Images/IMG_3869.jpg', caption: 'Expedia Tour · 2025' },
+  { src: '/Gallery Images/IMG_3877.jpg', caption: 'Expedia Tour · 2025' },
+  { src: '/Gallery Images/PXL_20251010_173649770.png', caption: 'Google Tour · 2025' },
+  { src: '/Gallery Images/Screenshot 2026-02-03 at 5.25.32 PM.png', caption: 'Launchpad Demo Day · 2025' },
+  { src: '/Gallery Images/Screenshot 2026-02-03 at 5.25.41 PM.png', caption: 'Launchpad Demo Day · 2025' },
 ];
+
+function pickRandom(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
 
 export default function Gallery() {
   const zoneRef = useRef(null);
   const trackRef = useRef(null);
   const [lightbox, setLightbox] = useState(null);
+
+  const itemsWithLayout = useMemo(
+    () =>
+      GALLERY_ITEMS.map((item) => ({
+        ...item,
+        size: pickRandom(SIZES),
+        align: pickRandom(ALIGNS),
+      })),
+    []
+  );
 
   useEffect(() => {
     const zone = zoneRef.current;
@@ -61,17 +80,17 @@ export default function Gallery() {
         <div className={styles.sticky}>
           <div className={styles.trackWrap}>
             <div className={styles.track} id="gallery-track" ref={trackRef}>
-              {GALLERY_ITEMS.map((item, i) => (
+              {itemsWithLayout.map((item, i) => (
                 <div
                   key={i}
                   className={`${styles.item} ${styles[item.size]} ${styles[item.align]}`}
-                  onClick={() => setLightbox(item.src)}
-                  onKeyDown={(e) => e.key === 'Enter' && setLightbox(item.src)}
+                  onClick={() => setLightbox(encodeURI(item.src))}
+                  onKeyDown={(e) => e.key === 'Enter' && setLightbox(encodeURI(item.src))}
                   role="button"
                   tabIndex={0}
                 >
                   <span className={styles.caption}>{item.caption}</span>
-                  <img src={item.src} alt="" />
+                  <img src={encodeURI(item.src)} alt="" />
                 </div>
               ))}
             </div>

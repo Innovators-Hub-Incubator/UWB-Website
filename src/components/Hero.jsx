@@ -23,13 +23,17 @@ export default function Hero({ onScrollProgress }) {
       if (onScrollProgress) onScrollProgress(y, vh);
       if (contentRef.current && y < vh) {
         const progress = Math.min(y / vh, 1);
-        const scale = 1 - progress * 0.12;
-        const opacity = 1 - progress * 0.25;
-        contentRef.current.style.transform = `scale(${scale}) translateY(${y * 0.2}px)`;
+        const easeProgress = 1 - Math.pow(1 - progress, 1.2);
+        const scale = 1 - easeProgress * 0.5;
+        const opacity = 1 - easeProgress * 0.6;
+        const translateZ = -easeProgress * 80;
+        contentRef.current.style.transform = `perspective(1200px) scale(${scale}) translateY(${y * 0.15}px) translateZ(${translateZ}px)`;
         contentRef.current.style.opacity = opacity;
       }
       if (orbRef.current && y < vh) {
-        orbRef.current.style.transform = `translate3d(0, ${y * 0.2}px, 0)`;
+        const progress = Math.min(y / vh, 1);
+        const scaleOrb = 1 - progress * 0.3;
+        orbRef.current.style.transform = `translate3d(0, ${y * 0.2}px, 0) scale(${scaleOrb})`;
       }
     };
     window.addEventListener('scroll', onScroll, { passive: true });
