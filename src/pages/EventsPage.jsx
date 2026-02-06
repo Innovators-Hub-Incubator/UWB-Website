@@ -1,5 +1,6 @@
-import { useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { Instagram, Linkedin, Youtube, ArrowLeft, ArrowUpRight, Calendar, MapPin, Clock } from 'lucide-react';
 import styles from './InnerPage.module.css';
 import eventStyles from './EventsPage.module.css';
 
@@ -167,17 +168,16 @@ function EventLinks({ links }) {
         const className = `${eventStyles.linkPill} ${eventStyles['linkPill_' + link.type]}`;
         const content = (
           <>
-            {link.type === 'instagram' && (
-              <img src="/Images/instagram.svg" alt="" className={eventStyles.linkPillIcon} aria-hidden />
-            )}
-            {link.type === 'linkedin' && (
-              <img src="/Images/linkedin-brands.svg" alt="" className={eventStyles.linkPillIcon} aria-hidden />
-            )}
+            {link.type === 'instagram' && <Instagram size={14} />}
+            {link.type === 'linkedin' && <Linkedin size={14} />}
+            {link.type === 'youtube' && <Youtube size={14} />}
             <span>
-              {link.type === 'instagram' ? 'Instagram' : link.type === 'linkedin' ? 'LinkedIn' : link.label}
+              {link.type === 'instagram' ? 'Instagram' : link.type === 'linkedin' ? 'LinkedIn' : link.type === 'youtube' ? 'YouTube' : link.label}
             </span>
+            {(!link.internal && link.type !== 'instagram' && link.type !== 'linkedin' && link.type !== 'youtube') && <ArrowUpRight size={14} />}
           </>
         );
+        
         if (link.internal) {
           return (
             <Link key={i} to={link.href} className={className}>
@@ -195,72 +195,108 @@ function EventLinks({ links }) {
   );
 }
 
+const sectionVariants = {
+  hidden: { opacity: 0 },
+  visible: { 
+    opacity: 1,
+    transition: { staggerChildren: 0.1 }
+  }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.5 }
+  }
+};
+
 export default function EventsPage() {
-  const revealRefs = useRef([]);
-
-  useEffect(() => {
-    const observers = revealRefs.current.map((el) => {
-      if (!el) return null;
-      const observer = new IntersectionObserver(
-        ([entry]) => { if (entry.isIntersecting) el.classList.add(styles.visible); },
-        { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
-      );
-      observer.observe(el);
-      return observer;
-    });
-    return () => observers.forEach((o) => o?.disconnect());
-  }, []);
-
-  let refIndex = 0;
-
   return (
     <div className={styles.page}>
-      <div className={styles.bgGrid} aria-hidden />
+      <div className={styles.bgGrid} />
+      
       <section className={styles.section}>
-        <h1 className={styles.heroTitle}><span>Events</span></h1>
-        <p className={styles.subtitle}>
-          Explore our upcoming and past events—company tours, hackathons, networking, and more. Every event is designed to inspire, connect, and empower innovators like you.
-        </p>
-        <Link to="/" className={styles.backLink}>← Back home</Link>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className={styles.heroContent}
+        >
+          <h1 className={styles.heroTitle}>Events</h1>
+          <p className={styles.subtitle}>
+            Explore our upcoming and past events—company tours, hackathons, networking, and more. Every event is designed to inspire, connect, and empower innovators like you.
+          </p>
+          <Link to="/" className={styles.backLink}>
+            <ArrowLeft size={18} /> Back home
+          </Link>
+        </motion.div>
       </section>
 
-      <section className={styles.section} style={{ justifyContent: 'flex-start', paddingTop: '4rem' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', maxWidth: '700px', width: '100%' }}>
-          {EVENT_SECTIONS.map((section) => (
-            <div key={section.season}>
-              <h2 className={`${eventStyles.seasonTitle} ${styles.sectionReveal}`} ref={(el) => (revealRefs.current[refIndex++] = el)}>
+      <section className={styles.section} style={{ alignItems: 'center' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem', maxWidth: '800px', width: '100%' }}>
+          {EVENT_SECTIONS.map((section, idx) => (
+            <motion.div 
+              key={section.season}
+              variants={sectionVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
+              <motion.h2 
+                className={eventStyles.seasonTitle}
+                variants={cardVariants}
+              >
                 <span>{section.season}</span>
-              </h2>
+              </motion.h2>
+              
               <div className={eventStyles.eventList}>
                 {section.events.map((event, i) => (
-                  <div
+                  <motion.div
                     key={`${section.season}-${i}`}
-                    className={`${styles.sectionReveal} ${styles.card}`}
-                    ref={(el) => (revealRefs.current[refIndex++] = el)}
+                    className={eventStyles.eventCard}
+                    variants={cardVariants}
                   >
-                    <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
-                      <span className={styles.btn} style={{ padding: '0.35rem 0.75rem', fontSize: '0.9rem' }}>{event.date}</span>
-                      <strong style={{ fontSize: '1.15rem' }}>{event.title}</strong>
+                    <div className={eventStyles.cardHeader}>
+                      <span className={eventStyles.dateTag}>{event.date}</span>
+                      <h3 className={eventStyles.eventTitle}>{event.title}</h3>
                     </div>
+                    
                     <p className={eventStyles.eventCardDesc}>
                       {event.desc}
                       {event.detailsHref && (
-                        <> <Link to={event.detailsHref}>View full schedule and details →</Link></>
+                        <> <Link to={event.detailsHref} className={eventStyles.inlineLink}>View full schedule and details →</Link></>
                       )}
                     </p>
-                    <p className={eventStyles.eventMeta}>
-                      📍 {event.location}
-                      {event.time && ` · 🕒 ${event.time}`}
-                      {event.extra && ` · ${event.extra}`}
-                    </p>
+                    
+                    <div className={eventStyles.metaGrid}>
+                      <div className={eventStyles.metaItem}>
+                        <MapPin size={16} /> {event.location}
+                      </div>
+                      {event.time && (
+                        <div className={eventStyles.metaItem}>
+                          <Clock size={16} /> {event.time}
+                        </div>
+                      )}
+                      {event.extra && (
+                        <div className={eventStyles.metaItem}>
+                          <span style={{ color: 'var(--orange)' }}>•</span> {event.extra}
+                        </div>
+                      )}
+                    </div>
+                    
                     <EventLinks links={event.links} />
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-        <Link to="/" className={styles.backLink} style={{ marginTop: '2rem' }}>← Back home</Link>
+        
+        <Link to="/" className={styles.bottomBackLink}>
+          <ArrowLeft size={18} /> Back home
+        </Link>
       </section>
     </div>
   );

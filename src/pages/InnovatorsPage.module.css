@@ -1,63 +1,137 @@
-/* Innovators grid: LinkedIn cards */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 0.75rem 1rem;
+.page {
+  min-height: 100vh;
+  position: relative;
+  padding-top: 8rem;
+  padding-bottom: 4rem;
+}
+
+.bgGrid {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 72rem;
+  height: 100%;
+  z-index: -1;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(circle at center, black, transparent 80%);
 }
 
-@media (min-width: 640px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem 1.5rem;
-  }
+.heroSection {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding: 0 1.5rem;
 }
 
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem 1.5rem;
-  }
+.heroTitle {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
 }
 
-@media (min-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem 2rem;
-  }
+.heroTitle span {
+  color: var(--orange);
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--gray-text);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: var(--white);
+  color: var(--black);
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.gridSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Updated to Flexbox for centering last row items */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  width: 100%;
 }
 
 .memberCard {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1rem;
-  background: #0A0A0A;
-  border: 1px solid rgba(252, 101, 32, 0.2);
-  border-radius: 1rem;
-  color: var(--white);
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
   text-decoration: none;
-  font-weight: 700;
-  font-size: 0.95rem;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.memberCard:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 24px rgba(252, 101, 32, 0.2);
-  border-color: rgba(252, 101, 32, 0.4);
-}
-
-.memberCardIcon {
-  width: 1.25rem;
-  height: 1.25rem;
+  color: var(--white);
+  transition: all 0.3s ease;
+  width: 260px; /* Fixed width for consistent alignment */
   flex-shrink: 0;
-  filter: brightness(0) invert(1);
 }
 
-.memberCard span {
+.cardIcon {
+  color: var(--gray-text);
+  transition: color 0.3s;
+  flex-shrink: 0;
+}
+
+.memberCard:hover .cardIcon {
+  color: var(--orange);
+}
+
+.cardName {
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+}
+
+.footerActions {
+  display: flex;
+  justify-content: center;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--gray-text);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+
+.backLink:hover {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.05);
 }

@@ -1,53 +1,137 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
 import styles from './Nav.module.css';
 
 const JOIN_URL = 'https://forms.gle/JdZJwp7SfnRxis8B9';
 
+const navVariants = {
+  hidden: { y: -100, opacity: 0 },
+  visible: { 
+    y: 0, 
+    opacity: 1,
+    transition: { 
+      type: "spring", 
+      stiffness: 100, 
+      damping: 20, 
+      mass: 0.5,
+      staggerChildren: 0.1 
+    } 
+  }
+};
+
+const linkVariants = {
+  hidden: { opacity: 0, y: -20 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const mobileMenuVariants = {
+  closed: { opacity: 0, scale: 0.95, y: -20, display: "none" },
+  open: { 
+    opacity: 1, 
+    scale: 1, 
+    y: 0, 
+    display: "flex",
+    transition: { type: "spring", stiffness: 200, damping: 25 }
+  }
+};
+
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const navClass = scrolled ? `${styles.wrap} ${styles.scrolled}` : styles.wrap;
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location]);
 
   return (
-    <header className={navClass}>
-      <div className={styles.inner}>
-        <Link to="/" className={styles.logo}>
-          <img src="/Images/logo.svg" alt="Innovators Hub" />
-          Innovators <span>Hub</span>
-        </Link>
-        <ul className={styles.links}>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/events">Events</Link></li>
-          <li><Link to="/launchpads">Launchpad</Link></li>
-          <li><Link to="/innovators">Innovators</Link></li>
-          <li><Link to="/contacts">Contact</Link></li>
-          <li><a href={JOIN_URL} target="_blank" rel="noopener noreferrer" className={styles.cta}>Join Us</a></li>
-        </ul>
-        <button
-          type="button"
-          className={`${styles.mobileBtn} ${mobileOpen ? styles.active : ''}`}
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Menu"
-        >
-          <span /><span /><span />
-        </button>
-      </div>
-      <nav className={`${styles.mobileMenu} ${mobileOpen ? styles.show : ''}`}>
-        <Link to="/about" onClick={() => setMobileOpen(false)}>About</Link>
-        <Link to="/events" onClick={() => setMobileOpen(false)}>Events</Link>
-        <Link to="/launchpads" onClick={() => setMobileOpen(false)}>Launchpad</Link>
-        <Link to="/innovators" onClick={() => setMobileOpen(false)}>Innovators</Link>
-        <Link to="/contacts" onClick={() => setMobileOpen(false)}>Contact</Link>
-        <a href={JOIN_URL} target="_blank" rel="noopener noreferrer" className={styles.cta} onClick={() => setMobileOpen(false)}>Join Us</a>
-      </nav>
-    </header>
+    <>
+      <motion.nav 
+        className={`${styles.navContainer} ${scrolled ? styles.scrolled : ''}`}
+        initial="hidden"
+        animate="visible"
+        variants={navVariants}
+      >
+        <div className={styles.navInner}>
+          <Link to="/" className={styles.logo}>
+            <motion.img 
+              src="/Images/logo.svg" 
+              alt="Innovators Hub" 
+              whileHover={{ rotate: 180 }}
+              transition={{ duration: 0.5 }}
+            />
+            <span className={styles.logoText}>Innovators <span className={styles.highlight}>Hub</span></span>
+          </Link>
+
+          {/* Desktop Links */}
+          <ul className={styles.desktopLinks}>
+            {['About', 'Events', 'Innovators', 'Contacts'].map((item) => (
+              <motion.li key={item} variants={linkVariants}>
+                <Link to={`/${item.toLowerCase()}`} className={styles.link}>
+                  {item}
+                  <motion.span 
+                    className={styles.underline} 
+                    initial={{ width: 0 }} 
+                    whileHover={{ width: '100%' }} 
+                  />
+                </Link>
+              </motion.li>
+            ))}
+            <motion.li variants={linkVariants}>
+              <motion.a 
+                href={JOIN_URL} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className={styles.ctaButton}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Join Us
+              </motion.a>
+            </motion.li>
+          </ul>
+
+          {/* Mobile Toggle */}
+          <motion.button 
+            className={styles.mobileToggle}
+            onClick={() => setMobileOpen(!mobileOpen)}
+            whileTap={{ scale: 0.9 }}
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </motion.button>
+        </div>
+      </motion.nav>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div 
+            className={styles.mobileMenu}
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={mobileMenuVariants}
+          >
+             {['About', 'Events', 'Innovators', 'Contacts'].map((item) => (
+              <Link key={item} to={`/${item.toLowerCase()}`} className={styles.mobileLink}>
+                {item}
+              </Link>
+            ))}
+            <a href={JOIN_URL} target="_blank" rel="noopener noreferrer" className={`${styles.mobileLink} ${styles.mobileCta}`}>
+              Join Us
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

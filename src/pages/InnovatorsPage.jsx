@@ -1,7 +1,8 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './InnerPage.module.css';
-import gridStyles from './InnovatorsPage.module.css';
+import { motion } from 'framer-motion';
+import { Linkedin, ArrowLeft } from 'lucide-react';
+import styles from './InnovatorsPage.module.css';
 
 const INNOVATORS = [
   { name: 'Justin Liao', linkedin: 'https://www.linkedin.com/in/justin-liao23/' },
@@ -58,51 +59,88 @@ const INNOVATORS = [
   { name: 'Srijjit Vijayaraj', linkedin: 'https://www.linkedin.com/in/srijjit-vijayaraj-1b9720282?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app' },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.03
+    }
+  }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: { 
+    opacity: 1, 
+    scale: 1,
+    transition: { duration: 0.4 }
+  }
+};
+
 export default function InnovatorsPage() {
-  const gridRef = useRef(null);
-
-  useEffect(() => {
-    const el = gridRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) el.classList.add(styles.visible); },
-      { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <div className={styles.page}>
-      <div className={styles.bgGrid} aria-hidden />
-      <section className={styles.section}>
-        <h1 className={styles.heroTitle}>Our <span>Innovators</span></h1>
-        <p className={styles.subtitle}>
+      <div className={styles.bgGrid} />
+      
+      <section className={styles.heroSection}>
+        <motion.h1 
+          className={styles.heroTitle}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          Our <span>Innovators</span>
+        </motion.h1>
+        <motion.p 
+          className={styles.subtitle}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
           We're proud of the people who make this club feel like home—students from different majors, each bringing their own expertise and curiosity.
-        </p>
-        <Link to="/about" className={styles.btn} style={{ marginTop: '0.5rem' }}>Meet our Team</Link>
-        <Link to="/" className={styles.backLink} style={{ marginTop: '1.5rem' }}>← Back home</Link>
+        </motion.p>
+        
+        <motion.div 
+          className={styles.actions}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+        >
+           <Link to="/about" className={styles.btn}>Meet our Team</Link>
+        </motion.div>
       </section>
 
-      <section className={styles.section} style={{ justifyContent: 'flex-start', paddingTop: '4rem' }}>
-        <div
-          className={`${styles.sectionReveal} ${gridStyles.grid}`}
-          ref={gridRef}
+      <section className={styles.gridSection}>
+        <motion.div 
+          className={styles.grid}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
         >
           {INNOVATORS.map((person, i) => (
-            <a
+            <motion.a
               key={i}
               href={person.linkedin.startsWith('http') ? person.linkedin : `https://${person.linkedin}`}
               target="_blank"
               rel="noopener noreferrer"
-              className={gridStyles.memberCard}
+              className={styles.memberCard}
+              variants={cardVariants}
+              whileHover={{ scale: 1.05, borderColor: 'rgba(252, 101, 32, 0.5)' }}
             >
-              <img src="/Images/linkedin-brands.svg" alt="" className={gridStyles.memberCardIcon} aria-hidden />
-              <span>{person.name}</span>
-            </a>
+              <Linkedin size={18} className={styles.cardIcon} />
+              <span className={styles.cardName}>{person.name}</span>
+            </motion.a>
           ))}
+        </motion.div>
+        
+        <div className={styles.footerActions}>
+          <Link to="/" className={styles.backLink}>
+            <ArrowLeft size={20} />
+            Back home
+          </Link>
         </div>
-        <Link to="/" className={styles.backLink} style={{ marginTop: '2rem' }}>← Back home</Link>
       </section>
     </div>
   );

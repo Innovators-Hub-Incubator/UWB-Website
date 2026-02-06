@@ -1,21 +1,12 @@
-import { useRef, useEffect, useState } from 'react';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { Send, ArrowLeft, Mail } from 'lucide-react';
 import styles from './InnerPage.module.css';
 
 export default function ContactPage() {
-  const formRef = useRef(null);
   const [status, setStatus] = useState({ message: '', type: '' });
-
-  useEffect(() => {
-    const el = formRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) el.classList.add(styles.visible); },
-      { threshold: 0.2, rootMargin: '0px 0px -60px 0px' }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,17 +14,22 @@ export default function ContactPage() {
     const name = form.name.value.trim();
     const email = form.email.value.trim();
     const message = form.message.value.trim();
+
     if (!name || !email || !message) {
       setStatus({ message: 'Please fill in all fields.', type: 'error' });
       return;
     }
+
+    setIsSubmitting(true);
     setStatus({ message: 'Sending...', type: 'info' });
+
     try {
       const res = await fetch('https://formspree.io/f/xblgzzol', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, message }),
       });
+      
       if (res.ok) {
         setStatus({ message: "Message sent! We'll get back to you soon.", type: 'success' });
         form.reset();
@@ -42,32 +38,115 @@ export default function ContactPage() {
       }
     } catch {
       setStatus({ message: 'Failed to send. Please try again.', type: 'error' });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
     <div className={styles.page}>
-      <div className={styles.bgGrid} aria-hidden />
+      <div className={styles.bgGrid} />
+      
       <section className={styles.section}>
-        <h1 className={styles.heroTitle}>Contact <span>Us</span></h1>
-        <p className={styles.subtitle}>Questions, ideas, or just want to say hello? We'd love to hear from you.</p>
-        <Link to="/" className={styles.backLink}>← Back home</Link>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className={styles.heroContent}
+        >
+          <h1 className={styles.heroTitle}>
+            Contact <span className={styles.highlightText}>Us</span>
+          </h1>
+          <p className={styles.subtitle}>
+            Questions, ideas, or just want to say hello? We'd love to hear from you.
+          </p>
+          <Link to="/" className={styles.backLink}>
+            <ArrowLeft size={18} /> Back home
+          </Link>
+        </motion.div>
       </section>
 
       <section className={styles.section}>
-        <div className={`${styles.sectionReveal} ${styles.card}`} ref={formRef} style={{ maxWidth: '500px' }}>
-          <h2 className={styles.cardTitle} style={{ textAlign: 'center', marginBottom: '1.5rem' }}>Talk with <span>us</span></h2>
-          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <input type="text" name="name" placeholder="Your name" required style={{ padding: '0.75rem 1rem', borderRadius: '0.75rem', border: '1px solid rgba(252,101,32,0.3)', background: '#0A0A0A', color: 'var(--white)', fontSize: '1rem' }} />
-            <input type="email" name="email" placeholder="Your email" required style={{ padding: '0.75rem 1rem', borderRadius: '0.75rem', border: '1px solid rgba(252,101,32,0.3)', background: '#0A0A0A', color: 'var(--white)', fontSize: '1rem' }} />
-            <textarea name="message" placeholder="Your message" required rows={4} style={{ padding: '0.75rem 1rem', borderRadius: '0.75rem', border: '1px solid rgba(252,101,32,0.3)', background: '#0A0A0A', color: 'var(--white)', fontSize: '1rem', resize: 'vertical' }} />
-            <button type="submit" className={styles.btn} style={{ alignSelf: 'center', padding: '0.75rem 2rem' }}>Send Message</button>
+        <motion.div 
+          className={styles.card}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          style={{ maxWidth: '600px' }}
+        >
+          <h2 className={styles.cardTitle} style={{ textAlign: 'center' }}>
+            Talk with <span className={styles.highlightText}>Us</span>
+          </h2>
+          
+          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <div className={styles.inputGroup}>
+              <input 
+                type="text" 
+                name="name" 
+                placeholder="Your name" 
+                required 
+                className={styles.input}
+              />
+            </div>
+            
+            <div className={styles.inputGroup}>
+              <input 
+                type="email" 
+                name="email" 
+                placeholder="Your email" 
+                required 
+                className={styles.input}
+              />
+            </div>
+            
+            <div className={styles.inputGroup}>
+              <textarea 
+                name="message" 
+                placeholder="Your message" 
+                required 
+                rows={5} 
+                className={styles.textarea}
+              />
+            </div>
+            
+            <motion.button 
+              type="submit" 
+              className={styles.submitBtn}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Sending...' : (
+                <>Send Message <Send size={18} /></>
+              )}
+            </motion.button>
           </form>
+
           {status.message && (
-            <p style={{ marginTop: '1rem', textAlign: 'center', color: status.type === 'success' ? 'var(--orange)' : status.type === 'error' ? '#ef4444' : 'var(--gray-text)', fontSize: '0.95rem' }}>{status.message}</p>
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className={`${styles.statusMessage} ${styles[status.type]}`}
+            >
+              {status.message}
+            </motion.div>
           )}
-        </div>
-        <p style={{ marginTop: '1.5rem', color: 'var(--gray-text)', fontSize: '0.95rem' }}>Or email us at <a href="mailto:innovatorshub@uw.edu" style={{ color: 'var(--orange)' }}>innovatorshub@uw.edu</a></p>
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          style={{ marginTop: '3rem', textAlign: 'center' }}
+        >
+          <p style={{ color: 'var(--gray-text)', display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center' }}>
+            Or email us directly at 
+            <a href="mailto:innovatorshub@uw.edu" className={styles.textLink}>
+              innovatorshub@uw.edu
+            </a>
+          </p>
+        </motion.div>
       </section>
     </div>
   );

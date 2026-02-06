@@ -1,74 +1,119 @@
-import { useState, useEffect, useRef } from 'react';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { ArrowRight, Instagram, Linkedin, Mail, Users } from 'lucide-react';
 import styles from './Hero.module.css';
 
 const JOIN_URL = 'https://forms.gle/JdZJwp7SfnRxis8B9';
-const WORDS = ['entrepreneurs', 'builders', 'innovators'];
 
-export default function Hero({ onScrollProgress }) {
-  const [wordIndex, setWordIndex] = useState(0);
-  const contentRef = useRef(null);
-  const orbRef = useRef(null);
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2
+    }
+  }
+};
 
-  useEffect(() => {
-    const id = setInterval(() => {
-      setWordIndex((i) => (i + 1) % WORDS.length);
-    }, 2000);
-    return () => clearInterval(id);
-  }, []);
+const textRevealVariants = {
+  hidden: { y: '110%' },
+  visible: { 
+    y: 0,
+    transition: { 
+      duration: 0.8, 
+      ease: [0.16, 1, 0.3, 1] 
+    } 
+  }
+};
 
-  useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY;
-      const vh = window.innerHeight;
-      if (onScrollProgress) onScrollProgress(y, vh);
-      if (contentRef.current && y < vh) {
-        const progress = Math.min(y / vh, 1);
-        const easeProgress = 1 - Math.pow(1 - progress, 1.2);
-        const scale = 1 - easeProgress * 0.5;
-        const opacity = 1 - easeProgress * 0.6;
-        const translateZ = -easeProgress * 80;
-        contentRef.current.style.transform = `perspective(1200px) scale(${scale}) translateY(${y * 0.15}px) translateZ(${translateZ}px)`;
-        contentRef.current.style.opacity = opacity;
-      }
-      if (orbRef.current && y < vh) {
-        const progress = Math.min(y / vh, 1);
-        const scaleOrb = 1 - progress * 0.3;
-        orbRef.current.style.transform = `translate3d(0, ${y * 0.2}px, 0) scale(${scaleOrb})`;
-      }
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [onScrollProgress]);
+const fadeVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+};
+
+export default function Hero() {
+  const containerRef = useRef(null);
+  const { scrollY } = useScroll();
+  const y1 = useTransform(scrollY, [0, 500], [0, 100]);
+  const y2 = useTransform(scrollY, [0, 500], [0, -50]);
+  const opacity = useTransform(scrollY, [0, 400], [1, 0]);
 
   return (
-    <section className={`${styles.hero} snap-section`} id="hero">
-      <div className={styles.bgOrb} ref={orbRef} aria-hidden />
-      <div className={styles.content} ref={contentRef}>
-        <span className={styles.badge}>UWB · Student-led</span>
-        <h1>
-          Innovators<br />
-          <span className={styles.line2}>Hub</span>
-        </h1>
-        <p className={styles.tag}>We are a community of student</p>
-        <p className={styles.word}>{WORDS[wordIndex]}</p>
-        <p className={styles.tag}>We defy the odds.</p>
-        <div className={styles.cta}>
-          <a href={JOIN_URL} target="_blank" rel="noopener noreferrer" className={styles.btnPrimary}>
-            Join the community
-          </a>
-          <div className={styles.social}>
-            <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" rel="noopener noreferrer" className={styles.socialBtn}>
-              <img src="/Images/linkedin-brands.svg" alt="" /> LinkedIn
-            </a>
-            <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" rel="noopener noreferrer" className={styles.socialBtn}>
-              <img src="/Images/instagram.svg" alt="" /> Instagram
-            </a>
-            <a href="mailto:innovatorshub@uw.edu" className={styles.socialBtn}>Email Us</a>
-            <a href="https://gather.uwb.edu/feeds?type=club&type_id=35516&tab=about" target="_blank" rel="noopener noreferrer" className={styles.socialBtn}>UWB Gather</a>
-          </div>
+    <section className={styles.heroSection} ref={containerRef}>
+      {/* Background Elements */}
+      <div className={styles.gridBackground}></div>
+      <motion.div 
+        className={styles.glowOrb}
+        style={{ y: y2, opacity }} 
+      />
+
+      <motion.div 
+        className={styles.contentWrapper}
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className={styles.badgeWrapper}>
+          <motion.div variants={fadeVariants} className={styles.badge}>
+            <span className={styles.statusDot}></span>
+            UWB Student-Led Organization
+          </motion.div>
         </div>
-      </div>
+
+        <h1 className={styles.headline}>
+          <div className={styles.mask}>
+            <motion.span variants={textRevealVariants} className={styles.block}>
+              WE BUILD
+            </motion.span>
+          </div>
+          <div className={styles.mask}>
+            <motion.span variants={textRevealVariants} className={`${styles.block} ${styles.highlight}`}>
+              THE FUTURE
+            </motion.span>
+          </div>
+        </h1>
+
+        <motion.p variants={fadeVariants} className={styles.subtext}>
+          A collective of entrepreneurs, builders, and innovators<br className={styles.break} />
+          defying the odds at the University of Washington Bothell.
+        </motion.p>
+
+        <motion.div variants={fadeVariants} className={styles.actions}>
+          <a href={JOIN_URL} target="_blank" rel="noopener noreferrer" className={styles.primaryBtn}>
+            <span>Join the Hub</span>
+            <ArrowRight size={20} />
+          </a>
+          
+          <div className={styles.socialStack}>
+            <a href="https://www.linkedin.com/company/innovators-hub-incubator/" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="LinkedIn">
+              <Linkedin size={20} />
+            </a>
+            <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="Instagram">
+              <Instagram size={20} />
+            </a>
+            <a href="mailto:innovatorshub@uw.edu" className={styles.socialLink} aria-label="Email">
+              <Mail size={20} />
+            </a>
+            <a href="https://gather.uwb.edu/feeds?type=club&type_id=35516&tab=about" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="UWB Gather">
+              <Users size={20} />
+            </a>
+          </div>
+        </motion.div>
+      </motion.div>
+
+      <motion.div 
+        className={styles.scrollIndicator}
+        style={{ opacity }}
+        animate={{ y: [0, 10, 0] }}
+        transition={{ repeat: Infinity, duration: 2 }}
+      >
+        <div className={styles.scrollLine}></div>
+      </motion.div>
     </section>
   );
 }

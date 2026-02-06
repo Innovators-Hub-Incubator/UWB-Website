@@ -1,62 +1,95 @@
 .section {
-  position: relative;
-  z-index: 1;
-  padding: 5rem 1.5rem;
-  max-width: 1200px;
+  padding: 6rem 1.5rem;
+  max-width: 1000px;
   margin: 0 auto;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (min-width: 769px) {
-  .section {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
 }
 
 .title {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
-  margin-bottom: 2rem;
   color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
 }
 
-.title span {
-  color: var(--orange);
-}
-
-.wrap {
+/* Updated to Flexbox for centering last row items */
+.bentoGrid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  gap: 2.5rem;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* Wide items will take more width in flexbox if desired, but span logic works best in grid. 
+   For flexbox, we can just let them flow naturally or force width. 
+   To keep it simple and centered, we'll treat all partners equally for now, or use flex-basis.
+*/
+
+.wide {
+  /* No specific grid column span for flexbox, but maybe slightly larger width? */
+  /* Keeping it uniform for now to ensure perfect centering */
+}
+
+@media (max-width: 600px) {
+  .wide {
+    width: 100%;
+  }
+}
+
+.bentoCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
   padding: 2rem;
-  background: #0A0A0A;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  width: 280px; /* Fixed width for consistent flex alignment */
+  flex-shrink: 0;
 }
 
-.wrap img {
-  height: 48px;
-  width: auto;
-  max-width: 120px;
+.bentoCard:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(252, 101, 32, 0.3);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.logoWrapper {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoWrapper img {
+  max-height: 100%;
+  max-width: 100%;
   object-fit: contain;
-  opacity: 0.85;
-  transition: opacity 0.2s, transform 0.2s;
+  filter: grayscale(100%) brightness(0.8);
+  transition: all 0.3s ease;
 }
 
-.wrap img:hover {
-  opacity: 1;
-  transform: scale(1.05);
+.bentoCard:hover .logoWrapper img {
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1.1);
+}
+
+.label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gray-text);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }

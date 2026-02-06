@@ -1,8 +1,7 @@
-import { useRef, useEffect, useState, useMemo } from 'react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, ZoomIn } from 'lucide-react';
 import styles from './Gallery.module.css';
-
-const SIZES = ['sm', 'md', 'lg', 'xl'];
-const ALIGNS = ['top', 'mid', 'bottom'];
 
 const GALLERY_ITEMS = [
   { src: '/Gallery Images/1746042265405.png', caption: 'Launchpad Week 1 · 2025' },
@@ -14,104 +13,98 @@ const GALLERY_ITEMS = [
   { src: '/Gallery Images/IMG_3533.jpg', caption: 'Valve HQ Tour · 2025' },
   { src: '/Gallery Images/IMG_3869.jpg', caption: 'Expedia Tour · 2025' },
   { src: '/Gallery Images/IMG_3877.jpg', caption: 'Expedia Tour · 2025' },
-  { src: '/Gallery Images/PXL_20251010_173649770.png', caption: 'Google Tour · 2025' },
-  //{ src: '/Gallery Images/Screenshot 2026-02-03 at 5.25.32 PM.png', caption: 'Launchpad Demo Day · 2025' },
-  //{ src: '/Gallery Images/Screenshot 2026-02-03 at 5.25.41 PM.png', caption: 'Launchpad Demo Day · 2025' },
+  { src: '/Gallery Images/PXL_20251010_173649770.png', caption: 'Google Tour · 2025' }
 ];
 
-function pickRandom(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
+const itemVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
+  }
+};
 
 export default function Gallery() {
-  const zoneRef = useRef(null);
-  const trackRef = useRef(null);
-  const [lightbox, setLightbox] = useState(null);
-
-  const itemsWithLayout = useMemo(
-    () =>
-      GALLERY_ITEMS.map((item) => ({
-        ...item,
-        size: pickRandom(SIZES),
-        align: pickRandom(ALIGNS),
-      })),
-    []
-  );
-
-  useEffect(() => {
-    const zone = zoneRef.current;
-    const track = trackRef.current;
-    if (!zone || !track) return;
-
-    const onScroll = () => {
-      const y = window.scrollY;
-      const vh = window.innerHeight;
-      const zoneTop = zone.offsetTop;
-      const zoneHeight = zone.offsetHeight;
-      const trackWidth = track.scrollWidth;
-      const viewportW = window.innerWidth;
-      const scrollRange = Math.max(1, zoneHeight - vh);
-      const paddingRight = 64;
-      const startTranslate = 0;
-      const endTranslate = Math.min(0, viewportW - trackWidth - paddingRight);
-      const delayFraction = 0.22;
-
-      if (y <= zoneTop) {
-        track.style.transform = `translate3d(${startTranslate}px, 0, 0)`;
-      } else if (y >= zoneTop + scrollRange) {
-        track.style.transform = `translate3d(${endTranslate}px, 0, 0)`;
-      } else {
-        const progressRaw = (y - zoneTop) / scrollRange;
-        const progress = Math.max(0, (progressRaw - delayFraction) / (1 - delayFraction));
-        const easeProgress = 1 - Math.pow(1 - progress, 1.4);
-        const tx = startTranslate + easeProgress * (endTranslate - startTranslate);
-        track.style.transform = `translate3d(${tx}px, 0, 0)`;
-      }
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   return (
-    <>
-      <section className={`${styles.zone} snap-section`} id="gallery-scroll-zone" ref={zoneRef}>
-        <div className={styles.sticky}>
-          <div className={styles.trackWrap}>
-            <div className={styles.track} id="gallery-track" ref={trackRef}>
-              {itemsWithLayout.map((item, i) => (
-                <div
-                  key={i}
-                  className={`${styles.item} ${styles[item.size]} ${styles[item.align]}`}
-                  onClick={() => setLightbox(encodeURI(item.src))}
-                  onKeyDown={(e) => e.key === 'Enter' && setLightbox(encodeURI(item.src))}
-                  role="button"
-                  tabIndex={0}
-                >
-                  <span className={styles.caption}>{item.caption}</span>
-                  <img src={encodeURI(item.src)} alt="" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {lightbox && (
-        <div
-          className={styles.lightbox}
-          onClick={() => setLightbox(null)}
-          role="dialog"
-          aria-modal="true"
-          aria-label="Image lightbox"
+    <section className={styles.gallerySection}>
+      <div className={styles.header}>
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
         >
-          <button type="button" className={styles.lightboxClose} onClick={() => setLightbox(null)} aria-label="Close">
-            &times;
-          </button>
-          <img src={lightbox} alt="Enlarged" onClick={(e) => e.stopPropagation()} />
-        </div>
-      )}
-    </>
+          Gallery
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          Capturing moments of innovation.
+        </motion.p>
+      </div>
+
+      <div className={styles.masonryGrid}>
+        {GALLERY_ITEMS.map((item, index) => (
+          <motion.div 
+            key={index}
+            className={styles.gridItem}
+            variants={itemVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            onClick={() => setSelectedImage(item)}
+            whileHover={{ y: -5 }}
+          >
+            <div className={styles.imageWrapper}>
+              <img src={item.src} alt={item.caption} loading="lazy" />
+              <div className={styles.overlay}>
+                <span className={styles.viewLabel}>VIEW</span>
+                <span className={styles.caption}>{item.caption}</span>
+              </div>
+              <div className={styles.hoverIcon}>
+                <ZoomIn size={32} />
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div 
+            className={styles.lightbox}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+          >
+            <motion.div 
+              className={styles.lightboxContent}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img src={selectedImage.src} alt={selectedImage.caption} />
+              <div className={styles.lightboxCaption}>
+                {selectedImage.caption}
+              </div>
+              <button 
+                className={styles.closeBtn}
+                onClick={() => setSelectedImage(null)}
+              >
+                <X size={24} />
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
   );
 }
