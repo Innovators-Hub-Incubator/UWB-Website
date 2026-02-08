@@ -75,15 +75,16 @@
 }
 
 .bigText {
-  font-size: 14vw;
-  line-height: 0.8;
+  font-size: clamp(3rem, 12vw, 12rem);
+  line-height: 1;
   font-weight: 900;
   text-align: center;
   margin: 0;
   letter-spacing: -0.04em;
   color: rgba(255, 255, 255, 0.05); /* Subtle watermark style */
   user-select: none;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
 .bottomBar {

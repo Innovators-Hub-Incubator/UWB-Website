@@ -234,18 +234,21 @@
   color: var(--white);
   padding: 1rem 2rem;
   border: none;
-  border-radius: 9999px;
+  border-radius: 12px;
   font-weight: 700;
   font-size: 1.1rem;
   cursor: pointer;
   align-self: center;
   width: 100%;
   max-width: 250px;
-  transition: background 0.3s;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(252, 101, 32, 0.3);
 }
 
 .submitBtn:hover {
   background: var(--orange-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(252, 101, 32, 0.5);
 }
 
 .submitBtn:disabled {

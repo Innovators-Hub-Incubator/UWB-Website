@@ -228,9 +228,6 @@ export default function EventsPage() {
           <p className={styles.subtitle}>
             Explore our upcoming and past events—company tours, hackathons, networking, and more. Every event is designed to inspire, connect, and empower innovators like you.
           </p>
-          <Link to="/" className={styles.backLink}>
-            <ArrowLeft size={18} /> Back home
-          </Link>
         </motion.div>
       </section>
 

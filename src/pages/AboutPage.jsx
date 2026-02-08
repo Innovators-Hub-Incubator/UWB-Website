@@ -50,9 +50,6 @@ export default function AboutPage() {
           <p className={styles.subtitle}>
             At Innovators Hub, we inspire our community of ambitious <strong className={styles.highlightText}>entrepreneurs, builders, and innovators</strong> to resolve problems in the world by turning their crazy ideas into reality. Together, we defy the odds.
           </p>
-          <Link to="/" className={styles.backLink}>
-            <ArrowLeft size={18} /> Back home
-          </Link>
         </motion.div>
       </section>
 

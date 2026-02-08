@@ -66,8 +66,6 @@ export default function Nav() {
             <motion.img 
               src="/Images/logo.svg" 
               alt="Innovators Hub" 
-              whileHover={{ rotate: 180 }}
-              transition={{ duration: 0.5 }}
             />
             <span className={styles.logoText}>Innovators <span className={styles.highlight}>Hub</span></span>
           </Link>

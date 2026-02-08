@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -6,10 +7,13 @@ import AboutPage from './pages/AboutPage';
 import EventsPage from './pages/EventsPage';
 import InnovatorsPage from './pages/InnovatorsPage';
 import ContactPage from './pages/ContactPage';
+import CursorSpotlight from './components/CursorSpotlight';
 
 export default function App() {
   return (
     <>
+      <ScrollToTop />
+      <CursorSpotlight />
       <Nav />
       <main>
         <Routes>

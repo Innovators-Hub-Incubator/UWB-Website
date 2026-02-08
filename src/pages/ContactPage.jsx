@@ -60,9 +60,6 @@ export default function ContactPage() {
           <p className={styles.subtitle}>
             Questions, ideas, or just want to say hello? We'd love to hear from you.
           </p>
-          <Link to="/" className={styles.backLink}>
-            <ArrowLeft size={18} /> Back home
-          </Link>
         </motion.div>
       </section>
 
@@ -141,9 +138,9 @@ export default function ContactPage() {
           style={{ marginTop: '3rem', textAlign: 'center' }}
         >
           <p style={{ color: 'var(--gray-text)', display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center' }}>
-            Or email us directly at 
-            <a href="mailto:innovatorshub@uw.edu" className={styles.textLink}>
-              innovatorshub@uw.edu
+            Or join our Discord community at 
+            <a href="https://discord.gg/jf2rnSub" className={styles.textLink} target="_blank" rel="noopener noreferrer">
+              Innovators Hub
             </a>
           </p>
         </motion.div>

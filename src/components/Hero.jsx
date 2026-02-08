@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Instagram, Linkedin, Mail, Users } from 'lucide-react';
+import { ArrowRight, Instagram, Linkedin, Users } from 'lucide-react';
 import styles from './Hero.module.css';
 
 const JOIN_URL = 'https://forms.gle/JdZJwp7SfnRxis8B9';
@@ -96,8 +96,8 @@ export default function Hero() {
             <a href="https://www.instagram.com/uwb_innovatorshub/" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="Instagram">
               <Instagram size={20} />
             </a>
-            <a href="mailto:innovatorshub@uw.edu" className={styles.socialLink} aria-label="Email">
-              <Mail size={20} />
+            <a href="https://discord.gg/jf2rnSub" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="Discord">
+              <img src="/Images/discord-mark-white.svg" alt="" style={{width: 20, height: 20}} />
             </a>
             <a href="https://gather.uwb.edu/feeds?type=club&type_id=35516&tab=about" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="UWB Gather">
               <Users size={20} />

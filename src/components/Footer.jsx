@@ -32,8 +32,8 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="mailto:innovatorshub@uw.edu">
-                Email <ArrowUpRight size={14} />
+              <a href="https://discord.gg/jf2rnSub">
+                Discord <ArrowUpRight size={14} />
               </a>
             </li>
           </ul>

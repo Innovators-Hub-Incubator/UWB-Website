@@ -30,21 +30,24 @@
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 1rem;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
   background: var(--white);
   color: var(--black);
-  padding: 1.25rem 3rem;
-  border-radius: 9999px;
+  border-radius: 12px;
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn:hover {
   background: var(--orange);
   color: var(--white);
-  box-shadow: 0 0 60px rgba(252, 101, 32, 0.5);
-  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(252, 101, 32, 0.4);
+  transform: translateY(-2px);
+  border-color: var(--orange);
 }

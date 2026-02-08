@@ -134,13 +134,6 @@ export default function InnovatorsPage() {
             </motion.a>
           ))}
         </motion.div>
-        
-        <div className={styles.footerActions}>
-          <Link to="/" className={styles.backLink}>
-            <ArrowLeft size={20} />
-            Back home
-          </Link>
-        </div>
       </section>
     </div>
   );
