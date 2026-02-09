@@ -57,6 +57,7 @@ const INNOVATORS = [
   { name: 'Brandon Kennedy', linkedin: 'https://www.linkedin.com/in/brandon-kennedy-6a6352335' },
   { name: 'Rishabh Singh', linkedin: 'https://www.linkedin.com/in/rishabh-singh-438a52222/' },
   { name: 'Srijjit Vijayaraj', linkedin: 'https://www.linkedin.com/in/srijjit-vijayaraj-1b9720282?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app' },
+  { name: 'Leo Totonchi', linkedin: 'https://www.linkedin.com/in/leo-t-666b87252/' },
 ];
 
 const containerVariants = {
