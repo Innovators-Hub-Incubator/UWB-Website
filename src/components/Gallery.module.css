@@ -1,0 +1,176 @@
+.gallerySection {
+  padding: 6rem 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 4rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 2rem;
+}
+
+.header h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.header p {
+  font-size: 1.1rem;
+  color: var(--gray-text);
+  max-width: 500px;
+  margin: 0;
+}
+
+.masonryGrid {
+  column-count: 3;
+  column-gap: 2rem;
+}
+
+.gridItem {
+  break-inside: avoid;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.imageWrapper {
+  position: relative;
+  border-radius: 4px; /* Slight radius for brutalist feel, or 0 for strict */
+  overflow: hidden;
+  background: #1a1a1a;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: grayscale(100%) contrast(1.1);
+  transition: filter 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0.8;
+}
+
+.gridItem:hover .imageWrapper img {
+  filter: grayscale(0%) contrast(1);
+  transform: scale(1.03);
+  opacity: 1;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+}
+
+.gridItem:hover .overlay {
+  opacity: 1;
+}
+
+.viewLabel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  border: 1px solid var(--white);
+  padding: 0.5rem 1.5rem;
+  border-radius: 100px;
+  backdrop-filter: blur(4px);
+}
+
+.caption {
+  font-size: 0.9rem;
+  color: var(--white);
+  font-weight: 500;
+  transform: translateY(10px);
+  transition: transform 0.3s ease;
+}
+
+.gridItem:hover .caption {
+  transform: translateY(0);
+}
+
+.hoverIcon {
+  display: none; /* Replaced by viewLabel for better brutalist look */
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.lightboxContent {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.lightboxContent img {
+  max-width: 100%;
+  max-height: 85vh;
+  display: block;
+  box-shadow: 0 0 50px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lightboxCaption {
+  margin-top: 1rem;
+  text-align: center;
+  color: var(--gray-text);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+}
+
+.closeBtn {
+  position: absolute;
+  top: -3rem;
+  right: 0;
+  background: none;
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: transform 0.2s;
+}
+
+.closeBtn:hover {
+  transform: scale(1.1) rotate(90deg);
+  color: var(--orange);
+}
+
+@media (max-width: 1024px) {
+  .masonryGrid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .masonryGrid {
+    column-count: 1;
+  }
+  
+  .header h2 {
+    font-size: 2.5rem;
+  }
+}

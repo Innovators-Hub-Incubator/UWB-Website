@@ -1,0 +1,304 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  background: var(--black);
+  color: var(--white);
+  padding-top: 6rem;
+}
+
+.bgGrid {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+}
+
+.section {
+  position: relative;
+  z-index: 1;
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.heroContent {
+  text-align: center;
+  max-width: 800px;
+}
+
+.heroTitle {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.highlight {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--orange);
+  position: relative;
+  display: inline-block;
+}
+
+.highlightText {
+  color: var(--orange);
+}
+
+.subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: var(--gray-text);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--orange);
+  font-weight: 600;
+  transition: transform 0.2s;
+  text-decoration: none;
+}
+
+.backLink:hover {
+  transform: translateX(-5px);
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 3rem;
+  width: 100%;
+  max-width: 900px;
+  backdrop-filter: blur(10px);
+}
+
+.cardTitle {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.featureList li {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--gray-text);
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--orange);
+}
+
+.missionText {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--gray-text);
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+/* Updated to Flexbox for better centering of the last row */
+.teamGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.teamCard {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: var(--white);
+  transition: all 0.3s ease;
+  position: relative;
+  width: 250px; /* Fixed width for better flex alignment */
+  flex-shrink: 0;
+}
+
+.imageWrapper {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  border: 2px solid rgba(252, 101, 32, 0.2);
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.teamCard h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+}
+
+.teamCard p {
+  color: var(--gray-text);
+  font-size: 0.9rem;
+  margin: 0 0 1rem;
+}
+
+.linkedInIcon {
+  color: var(--gray-text);
+  transition: color 0.2s;
+}
+
+.teamCard:hover .linkedInIcon {
+  color: var(--orange);
+}
+
+.bottomBackLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--gray-text);
+  margin-top: 3rem;
+  transition: color 0.2s;
+}
+
+.bottomBackLink:hover {
+  color: var(--white);
+}
+
+/* Contact Form Styles */
+.inputGroup {
+  width: 100%;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: rgba(10, 10, 10, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: var(--white);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--orange);
+  background: rgba(10, 10, 10, 0.8);
+  box-shadow: 0 0 0 4px rgba(252, 101, 32, 0.1);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: var(--orange);
+  color: var(--white);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  align-self: center;
+  width: 100%;
+  max-width: 250px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(252, 101, 32, 0.3);
+}
+
+.submitBtn:hover {
+  background: var(--orange-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(252, 101, 32, 0.5);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.statusMessage {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.statusMessage.success {
+  background: rgba(34, 197, 94, 0.1);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.statusMessage.error {
+  background: rgba(239, 68, 68, 0.1);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.statusMessage.info {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--gray-text);
+}
+
+.textLink {
+  color: var(--orange);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.textLink:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 1rem;
+  }
+  
+  .card {
+    padding: 2rem;
+  }
+}

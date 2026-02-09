@@ -1,0 +1,223 @@
+.heroSection {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 8rem 1.5rem 4rem;
+}
+
+.gridBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.glowOrb {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(252, 101, 32, 0.15) 0%, rgba(252, 101, 32, 0.05) 40%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.contentWrapper {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.badgeWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--gray-text);
+  backdrop-filter: blur(10px);
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  background: var(--orange);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--orange);
+}
+
+.headline {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  margin: 0 0 2.5rem;
+  text-transform: uppercase;
+}
+
+.mask {
+  overflow: hidden;
+  display: block;
+}
+
+.block {
+  display: block;
+  font-size: var(--font-huge); /* Uses our new fluid variable */
+  color: var(--white);
+}
+
+.highlight {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--orange); /* Outline style */
+  position: relative;
+}
+
+/* Optional: Fill highlight on hover or just keep outline for style */
+.highlight::after {
+  content: "THE FUTURE";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--orange);
+  width: 0%;
+  overflow: hidden;
+  transition: width 0.5s ease;
+  -webkit-text-stroke: 0;
+}
+
+.headline:hover .highlight::after {
+  width: 100%;
+}
+
+.subtext {
+  font-size: var(--font-lg);
+  color: var(--gray-text);
+  line-height: 1.5;
+  margin: 0 auto 3rem;
+  max-width: 600px;
+}
+
+.break {
+  display: block;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--white);
+  color: var(--black);
+  padding: 1rem 2.5rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  background: var(--orange);
+  color: var(--white);
+  box-shadow: 0 8px 30px rgba(252, 101, 32, 0.4);
+  border-color: var(--orange);
+}
+
+.socialStack {
+  display: flex;
+  gap: 1rem;
+}
+
+.socialLink {
+  color: var(--gray-text);
+  transition: all 0.2s ease;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialLink:hover {
+  color: var(--orange);
+  border-color: var(--orange);
+  transform: translateY(-3px);
+  background: rgba(252, 101, 32, 0.1);
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, var(--orange), transparent);
+}
+
+@media (max-width: 768px) {
+  .headline {
+    margin-bottom: 1.5rem;
+  }
+  
+  .block {
+    font-size: 14vw; /* Fallback for mobile if clamp needs adjustment */
+  }
+  
+  .subtext {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .break {
+    display: inline;
+  }
+}
