@@ -1,3 +1,4 @@
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import Nav from './components/Nav';
@@ -8,6 +9,7 @@ import EventsPage from './pages/EventsPage';
 import InnovatorsPage from './pages/InnovatorsPage';
 import ContactPage from './pages/ContactPage';
 import CursorSpotlight from './components/CursorSpotlight';
+import { useLocation } from 'react-router-dom';
 
 export default function App() {
   return (
