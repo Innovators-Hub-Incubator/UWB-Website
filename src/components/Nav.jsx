@@ -72,7 +72,7 @@ export default function Nav() {
 
           {/* Desktop Links */}
           <ul className={styles.desktopLinks}>
-            {['About', 'Events', 'Innovators', 'Contacts'].map((item) => (
+            {['About', 'Events', 'Innovators', 'Contact'].map((item) => (
               <motion.li key={item} variants={linkVariants}>
                 <Link to={`/${item.toLowerCase()}`} className={styles.link}>
                   {item}
@@ -119,7 +119,7 @@ export default function Nav() {
             exit="closed"
             variants={mobileMenuVariants}
           >
-             {['About', 'Events', 'Innovators', 'Contacts'].map((item) => (
+             {['About', 'Events', 'Innovators', 'Contact'].map((item) => (
               <Link key={item} to={`/${item.toLowerCase()}`} className={styles.mobileLink}>
                 {item}
               </Link>

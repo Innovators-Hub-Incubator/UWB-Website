@@ -47,29 +47,27 @@ export default function ContactPage() {
     <div className={styles.page}>
       <div className={styles.bgGrid} />
       
-      <section className={styles.section}>
+      <section className={styles.section} style={{ paddingTop: '6rem' }}>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           className={styles.heroContent}
+          style={{ marginBottom: '2rem' }}
         >
-          <h1 className={styles.heroTitle}>
+          <h1 className={styles.heroTitle} style={{ marginBottom: '1rem' }}>
             Contact <span className={styles.highlightText}>Us</span>
           </h1>
-          <p className={styles.subtitle}>
+          <p className={styles.subtitle} style={{ marginBottom: 0 }}>
             Questions, ideas, or just want to say hello? We'd love to hear from you.
           </p>
         </motion.div>
-      </section>
 
-      <section className={styles.section}>
         <motion.div 
           className={styles.card}
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           style={{ maxWidth: '600px' }}
         >
           <h2 className={styles.cardTitle} style={{ textAlign: 'center' }}>
@@ -133,8 +131,8 @@ export default function ContactPage() {
 
         <motion.div 
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
           style={{ marginTop: '3rem', textAlign: 'center' }}
         >
           <p style={{ color: 'var(--gray-text)', display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center' }}>
